@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class SpawnFloor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject floorPrefab;
+    private float timer = 0f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer >= 2f)
+        {
+            Instantiate(floorPrefab, transform.position, Quaternion.identity);
+            timer = 0f;
+        }
     }
 }
