@@ -700,7 +700,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56031e79aff4472988260437f92f64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefab: {fileID: 1996253261731514014, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
+  floorPrefabs:
+  - {fileID: 1996253261731514014, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
+  - {fileID: 5376262394379455828, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
+  numOfFloors: 2
 --- !u!1 &923396336
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f54db4a0724043d2a1f973da554f9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerObj: {fileID: 0}
+  gameManagerObj: {fileID: 2015936536}
 --- !u!61 &1258549093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1269,7 +1272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
   speed: 5
-  maxSpeed: 15
+  maxSpeed: 20
   drag: 0.95
   holdThreshold: 0.2
 --- !u!50 &1783876645

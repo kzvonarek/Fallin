@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnFloor : MonoBehaviour
 {
-    [SerializeField] GameObject floorPrefab;
+    [SerializeField] List<GameObject> floorPrefabs;
+    [SerializeField] int numOfFloors;
+    private int prefabRandNum;
     private float timer = 0f;
 
     void Update()
@@ -11,7 +15,8 @@ public class SpawnFloor : MonoBehaviour
 
         if (timer >= 2f)
         {
-            Instantiate(floorPrefab, transform.position, Quaternion.identity);
+            prefabRandNum = Random.Range(0, numOfFloors);
+            Instantiate(floorPrefabs[prefabRandNum], transform.position, Quaternion.identity);
             timer = 0f;
         }
     }
