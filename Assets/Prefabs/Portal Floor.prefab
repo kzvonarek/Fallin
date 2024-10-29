@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 0
-  playerFloatSpeed: 2
 --- !u!1 &870489129206987370
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +306,7 @@ GameObject:
   - component: {fileID: 1734050918024294869}
   - component: {fileID: 3347195734092600037}
   m_Layer: 0
-  m_Name: Portal
+  m_Name: Portal Floor
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,4 +490,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 1
-  playerFloatSpeed: 2
