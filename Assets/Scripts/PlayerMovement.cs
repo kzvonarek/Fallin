@@ -11,8 +11,22 @@ public class PlayerMovement : MonoBehaviour
     private float holdTime = 0f;
     [SerializeField] float holdThreshold;
 
+    // functionality with PortalBehavior.cs for floating upwards
+    private Rigidbody2D rb;
+    private float playerOrigYPos;
+    [SerializeField] float playerFloatSpeed;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+        // for floating behavior
+        playerOrigYPos = rb.position.y;
+    }
+
     void Update()
     {
+        // PLAYER DRAGGING (back and forth)
         isDragging = false;
         Vector2 inputPosition = Vector2.zero;
 
@@ -52,6 +66,19 @@ public class PlayerMovement : MonoBehaviour
         {
             holdTime = 0f;
             horizVelocity *= drag;
+        }
+
+        // PLAYER FLOATING
+        // apply upward movement if player is below original Y position
+        if (rb.position.y < playerOrigYPos)
+        {
+            // set a velocity to float the player upwards gradually
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeed);
+        }
+        else
+        {
+            // stop movement when player reaches original Y position
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
