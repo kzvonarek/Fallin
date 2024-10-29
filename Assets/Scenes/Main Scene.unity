@@ -1564,6 +1564,9 @@ MonoBehaviour:
   vertObjSpeed: 4
   objSpeedInc: 0.05
   maxObjSpeed: 15
+  player: {fileID: 1783876643}
+  playerRb: {fileID: 1783876645}
+  playerOrigYPos: 0
 --- !u!212 &2015936538
 SpriteRenderer:
   m_ObjectHideFlags: 0

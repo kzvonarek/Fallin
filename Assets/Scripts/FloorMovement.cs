@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class FloorMovement : MonoBehaviour
 {
+    // access to GameManager.cs
     private GameObject gameManagerObj;
     private GameManager gMscript;
+
     void Start()
     {
-        // allow for access vertObjSpeed
+        // allow for access to vertObjSpeed
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
     }

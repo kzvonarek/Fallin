@@ -7,14 +7,19 @@ public class PortalBehavior : MonoBehaviour
     private GameObject portalExit;
 
     // player floating back up
-    private GameObject player;
-    private Rigidbody2D playerRb;
     private bool inPortal = false;
-    private float origYPos;
     [SerializeField] float playerFloatSpeed = 10f;
+
+    // access to GameManager.cs
+    private GameObject gameManagerObj;
+    private GameManager gMscript;
 
     void Start()
     {
+        // allow for access to playerOrigYPos and playerRb from GameManager.cs
+        gameManagerObj = GameObject.FindWithTag("Game Manager");
+        gMscript = gameManagerObj.GetComponent<GameManager>();
+
         // Find the correct portal exit within the same parent object
         if (isEntrance)
         {
@@ -29,36 +34,34 @@ public class PortalBehavior : MonoBehaviour
                 }
             }
         }
-
-        // player
-        player = GameObject.FindWithTag("Player");
-        playerRb = player.GetComponent<Rigidbody2D>();
-        origYPos = playerRb.position.y;
     }
 
     void Update()
     {
-        if (inPortal && playerRb.position.y < origYPos)
+        // Only apply upward movement if player is below the original Y position
+        if (inPortal)
         {
-            // smoothly move player up to the original Y position
-            float newY = Mathf.MoveTowards(playerRb.position.y, origYPos, playerFloatSpeed * Time.deltaTime);
-            playerRb.position = new Vector2(playerRb.position.x, newY);
-
-            // once player has reached original position, stop moving
-            if (Mathf.Approximately(playerRb.position.y, origYPos))
+            if (gMscript.playerRb.position.y < gMscript.playerOrigYPos)
             {
-                inPortal = false;
-                playerRb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                // Set a velocity to float the player upwards gradually
+                gMscript.playerRb.linearVelocity = new Vector2(gMscript.playerRb.linearVelocity.x, playerFloatSpeed);
+            }
+            else
+            {
+                // Once the player is at or above the original position, stop the movement
+                gMscript.playerRb.linearVelocity = Vector2.zero; // Stop any additional movement
+                gMscript.playerRb.constraints = RigidbodyConstraints2D.FreezePositionY;
+                inPortal = false; // Stop further updates
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isEntrance && other.gameObject.CompareTag("Player")) // Portal Entrance
+        if (isEntrance && other.gameObject.CompareTag("Player")) // portal Entrance
         {
-            playerRb.constraints = RigidbodyConstraints2D.None;
-            playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            gMscript.playerRb.constraints = RigidbodyConstraints2D.None;
+            gMscript.playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
             other.transform.position = new Vector2(portalExit.transform.position.x, portalExit.transform.position.y);
             inPortal = true;
         }
