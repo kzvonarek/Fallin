@@ -8,10 +8,10 @@ public class PortalBehavior : MonoBehaviour
 
     void Start()
     {
-        // Find the correct portal exit within the same parent object
+        // find correct portal exit within parent object
         if (isEntrance)
         {
-            // Assume the exit is the other child under the same parent
+            // assume exit is other child under parent w/ correct tag
             Transform parentTransform = transform.parent;
             foreach (Transform child in parentTransform)
             {

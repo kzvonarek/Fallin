@@ -8,6 +8,7 @@ TagManager:
   - Game Manager
   - Portal
   - Portal Exit
+  - Locked Floor
   layers:
   - Default
   - TransparentFX
