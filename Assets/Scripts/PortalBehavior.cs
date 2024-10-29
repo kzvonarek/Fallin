@@ -2,22 +2,12 @@ using UnityEngine;
 
 public class PortalBehavior : MonoBehaviour
 {
-    [SerializeField] GameObject gameManagerObj;
-    private GameManager gMscript;
     [SerializeField] bool isEntrance;
     private GameObject portalExit;
+
     void Start()
     {
         portalExit = GameObject.FindWithTag("Portal Exit");
-
-        // allow for access vertObjSpeed
-        gameManagerObj = GameObject.FindWithTag("Game Manager");
-        gMscript = gameManagerObj.GetComponent<GameManager>();
-    }
-
-    void FixedUpdate()
-    {
-        transform.position = new Vector2(transform.position.x, transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
