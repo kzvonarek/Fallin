@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         // move player
         transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
