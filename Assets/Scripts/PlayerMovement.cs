@@ -3,13 +3,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
-    [SerializeField] float speed = 5f; // speed to follow mouse/finger
-    [SerializeField] float maxSpeed = 10f; // max speed to follow mouse/finger
-    [SerializeField] float drag = 0.95f; // friction on mouse/finger release
+    [SerializeField] float speed; // speed to follow mouse/finger
+    [SerializeField] float maxSpeed; // max speed to follow mouse/finger
+    [SerializeField] float drag; // friction on mouse/finger release
     private float horizVelocity;
     private bool isDragging;
     private float holdTime = 0f;
-    [SerializeField] float holdThreshold = 0.2f;
+    [SerializeField] float holdThreshold;
 
     void Update()
     {
