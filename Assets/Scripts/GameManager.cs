@@ -3,20 +3,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // floor speed
-    public float vertFloorSpeed;
-    [SerializeField] float floorSpeedInc;
-    [SerializeField] float maxFloorSpeed;
-    void Start()
-    {
-
-    }
+    public float vertObjSpeed;
+    [SerializeField] float objSpeedInc;
+    [SerializeField] float maxObjSpeed;
 
     void Update()
     {
         // floor speed increasing until it is greater than max floor speed
-        if (vertFloorSpeed < maxFloorSpeed)
+        if (vertObjSpeed < maxObjSpeed)
         {
-            vertFloorSpeed += floorSpeedInc * Time.deltaTime;
+            vertObjSpeed += objSpeedInc * Time.deltaTime;
         }
     }
 }

@@ -6,6 +6,7 @@ public class FloorMovement : MonoBehaviour
     private GameManager gMscript;
     void Start()
     {
+        // allow for access vertObjSpeed
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
     }
@@ -13,6 +14,6 @@ public class FloorMovement : MonoBehaviour
     void FixedUpdate()
     {
         // floor moves up at a set speed (speed increases over time)
-        transform.position = new Vector2(transform.position.x, transform.position.y + gMscript.vertFloorSpeed * Time.deltaTime);
+        transform.position = new Vector2(transform.position.x, transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
     }
 }
