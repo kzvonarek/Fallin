@@ -14,8 +14,8 @@ public class FloorCollisions : MonoBehaviour
         // destroy floor on collision with 'Destroy Zone'
         if (other.gameObject.CompareTag("Destroy Zone"))
         {
-            Destroy(gameObject);
             Destroy(transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 }
