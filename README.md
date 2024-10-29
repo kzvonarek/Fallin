@@ -1,3 +1,5 @@
-**Fallin'** by Kristijan Zvonarek
+# Fallin'
 
-Precision Falling Simulator for Mobile devices.
+Solo-project by Kristijan Zvonarek.
+
+Precision Falling Simulator for mobile devices.
