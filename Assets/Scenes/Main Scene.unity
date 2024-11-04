@@ -731,14 +731,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56031e79aff4472988260437f92f64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefabs:
-  - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
-  - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
+  floorPrefabGreen:
+  - {fileID: 9193284037823893547, guid: 6d27a5c71f2104e399285a1508cd554b, type: 3}
+  - {fileID: 5089085453740708834, guid: 451263fea6dce4d1ba86118d1ffefa3b, type: 3}
   - {fileID: 2476644722437613699, guid: c0b0a7619be1b4ab0b40f2d9f17e84e5, type: 3}
   - {fileID: 4048752634041990850, guid: 701cc111d7a0744f9893f7898817ae02, type: 3}
-  - {fileID: 7075031600736034173, guid: 46f18c8415b5d4352844717f68c320fb, type: 3}
   - {fileID: 2677272497978014045, guid: 68a8aa1ee8ef347c0ad846863bc02c26, type: 3}
-  numOfObjects: 6
+  - {fileID: 7075031600736034173, guid: 46f18c8415b5d4352844717f68c320fb, type: 3}
+  numOfFloorsGreen: 6
+  floorPrefabRed:
+  - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
+  - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
+  numOfFloorsRed: 2
+  numOfFloorSets: 2
 --- !u!1 &923396336
 GameObject:
   m_ObjectHideFlags: 0
