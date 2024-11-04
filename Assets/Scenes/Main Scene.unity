@@ -734,7 +734,11 @@ MonoBehaviour:
   floorPrefabGreen:
   - {fileID: 9193284037823893547, guid: 6d27a5c71f2104e399285a1508cd554b, type: 3}
   - {fileID: 5089085453740708834, guid: 451263fea6dce4d1ba86118d1ffefa3b, type: 3}
-  numOfFloorsGreen: 2
+  - {fileID: 220962659662926438, guid: 8d356a6a1f5ba447b85c330d79589c76, type: 3}
+  - {fileID: 1911146956707321193, guid: c8702dfd4590f4222803073a31a4ac78, type: 3}
+  - {fileID: 122940916677582888, guid: 04a443c5daf32498bbf843fb1883d17a, type: 3}
+  - {fileID: 3968169666541414045, guid: 4ec70a3d22c00477c9af04620345c6b7, type: 3}
+  numOfFloorsGreen: 6
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
@@ -743,6 +747,7 @@ MonoBehaviour:
   - {fileID: 2677272497978014045, guid: 68a8aa1ee8ef347c0ad846863bc02c26, type: 3}
   - {fileID: 7075031600736034173, guid: 46f18c8415b5d4352844717f68c320fb, type: 3}
   numOfFloorsRed: 6
+  floorTimerReset: 1.3
   numOfFloorSets: 2
 --- !u!1 &923396336
 GameObject:
@@ -1184,8 +1189,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1524,9 +1529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f1cc1f39fed42a4a5fdfd0c019d71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertObjSpeed: 4
+  vertObjSpeed: 7
   objSpeedInc: 0.05
-  maxObjSpeed: 15
+  maxObjSpeed: 20
   inGameScoreText: {fileID: 1697440747}
 --- !u!212 &2015936538
 SpriteRenderer:
@@ -1609,6 +1614,7 @@ GameObject:
   - component: {fileID: 2103723670}
   - component: {fileID: 2103723669}
   - component: {fileID: 2103723668}
+  - component: {fileID: 2103723671}
   - component: {fileID: 2103723667}
   - component: {fileID: 2103723666}
   - component: {fileID: 2103723665}
@@ -1693,7 +1699,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103723664}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1796,12 +1802,70 @@ Transform:
   m_GameObject: {fileID: 2103723664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.8, z: 0}
+  m_LocalPosition: {x: -0.01, y: 2.16, z: 0}
   m_LocalScale: {x: 3.8151877, y: 3.8151877, z: 3.8151877}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &2103723671
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103723664}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.34, y: 0.4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.15503863, y: 0.3750643}
+      - {x: -0.17, y: 0.30641782}
+      - {x: -0.09479386, y: 0.17767276}
+      - {x: -0.08007723, y: 0.10488416}
+      - {x: -0.043427713, y: 0.0049871397}
+      - {x: 0.018239513, y: 0.04047636}
+      - {x: 0.06672673, y: 0.0349099}
+      - {x: 0.11010297, y: 0.07664949}
+      - {x: 0.1031662, y: 0.15335464}
+      - {x: 0.1616881, y: 0.28646928}
+      - {x: 0.15836337, y: 0.38337624}
+  m_UseDelaunayMesh: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

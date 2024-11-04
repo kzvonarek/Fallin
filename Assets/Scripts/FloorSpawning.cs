@@ -10,6 +10,7 @@ public class FloorSpawning : MonoBehaviour
     [SerializeField] GameObject[] floorPrefabRed;
     [SerializeField] int numOfFloorsRed;
     private float floorTimer = 0f;
+    [SerializeField] float floorTimerReset = 0f;
     // ----=----
     private GameObject[][] floorPrefabSet;
     [SerializeField] int numOfFloorSets; // num of different sets of floor prefabs
@@ -40,7 +41,7 @@ public class FloorSpawning : MonoBehaviour
             setTimer = 0;
         }
 
-        if (floorTimer >= 2f)
+        if (floorTimer >= floorTimerReset)
         {
             if (prefabRandSet == 0)
             {
