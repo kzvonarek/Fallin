@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LowLevelPhysics;
 
 public class FloorSpawning : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class FloorSpawning : MonoBehaviour
     private int prefabRandSet; // used for randomizing floor prefab set chosen
     private float setTimer = 0f;
     private int previousSet; // prevent same set from being used twice in a row
+    // ----=----
+    private GameObject[] backgrounds; // list of backgrounds
+    private int numOfBG; // number of backgrounds in list
+    private GameObject skyBG; // to turn on and off depending on theme
+    private GameObject caveBG;
 
     void Start()
     {
@@ -24,6 +30,17 @@ public class FloorSpawning : MonoBehaviour
 
         prefabRandSet = 0; // always start with green set
         previousSet = 0;
+
+        skyBG = GameObject.FindGameObjectWithTag("Sky BG");
+        caveBG = GameObject.FindGameObjectWithTag("Cave BG");
+        backgrounds = new GameObject[] { skyBG, caveBG };
+        numOfBG = 2;
+
+        // deactivate any background other than initial background
+        for (int i = 1; i < numOfBG; i++)
+        {
+            backgrounds[i].SetActive(false);
+        }
     }
 
     void Update()
@@ -37,6 +54,10 @@ public class FloorSpawning : MonoBehaviour
             {
                 prefabRandSet = Random.Range(0, numOfFloorSets);
             }
+
+            backgrounds[previousSet].SetActive(false); // deactivate prev. bg
+            backgrounds[prefabRandSet].SetActive(true); // activate curr. bg
+
             previousSet = prefabRandSet;
             setTimer = 0;
         }

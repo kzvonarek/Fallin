@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     // score functionality
     [SerializeField] TextMeshProUGUI inGameScoreText;
+    [SerializeField] TextMeshProUGUI outlineScoreText;
     private int score;
     private float scoreIncTimer = 0f;
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         {
             score += 1;
             inGameScoreText.text = score.ToString(); // update UI text
+            outlineScoreText.text = score.ToString(); // update UI text
             scoreIncTimer = 0f; // reset timer
         }
 
