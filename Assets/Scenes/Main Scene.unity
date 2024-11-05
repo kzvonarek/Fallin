@@ -746,7 +746,8 @@ MonoBehaviour:
   - {fileID: 4048752634041990850, guid: 701cc111d7a0744f9893f7898817ae02, type: 3}
   - {fileID: 2677272497978014045, guid: 68a8aa1ee8ef347c0ad846863bc02c26, type: 3}
   - {fileID: 7075031600736034173, guid: 46f18c8415b5d4352844717f68c320fb, type: 3}
-  numOfFloorsRed: 6
+  - {fileID: 4081658223311842414, guid: c4bfce95a550444e5a8e7a8c5191fdb7, type: 3}
+  numOfFloorsRed: 7
   floorTimerReset: 1.3
   numOfFloorSets: 2
 --- !u!1 &923396336
@@ -1757,7 +1758,7 @@ MonoBehaviour:
   objSpeedInc: 0.05
   maxObjSpeed: 20
   inGameScoreText: {fileID: 1697440747}
-  inGameScoreTextOutline: {fileID: 925942607}
+  outlineScoreText: {fileID: 925942607}
 --- !u!212 &2015936538
 SpriteRenderer:
   m_ObjectHideFlags: 0
