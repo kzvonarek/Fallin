@@ -16,12 +16,21 @@ public class PlayerMovement : MonoBehaviour
     private float playerOrigYPos;
     [SerializeField] float playerFloatSpeed;
 
+    // functionality with GooBehavior.cs for player being stuck
+    [SerializeField] GameObject gooFloor;
+    // private GameManager gMscript;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 
         // for floating behavior
         playerOrigYPos = rb.position.y;
+
+        // for playerStuck behavior [GooBehavior.cs]
+        // gameManagerObj = GameObject.FindWithTag("Game Manager");
+        // gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
@@ -68,8 +77,8 @@ public class PlayerMovement : MonoBehaviour
             horizVelocity *= drag;
         }
 
-        // PLAYER FLOATING UP
-        // apply upward movement if player is below original Y position
+        PLAYER FLOATING UP
+        apply upward movement if player is below original Y position
         if (rb.position.y < playerOrigYPos)
         {
             // set a velocity to float the player upwards gradually
@@ -83,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
         // PLAYER FLOATING DOWN
         // apply downward movement if player is above original Y position
-        if (rb.position.y > playerOrigYPos)
+        if (rb.position.y > playerOrigYPos && !gooFloor.GetComponent<GooBehavior>().playerStuck)
         {
             // set a velocity to float the player upwards gradually
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
