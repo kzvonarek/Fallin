@@ -77,8 +77,8 @@ public class PlayerMovement : MonoBehaviour
             horizVelocity *= drag;
         }
 
-        PLAYER FLOATING UP
-        apply upward movement if player is below original Y position
+        //PLAYER FLOATING UP
+        //apply upward movement if player is below original Y position
         if (rb.position.y < playerOrigYPos)
         {
             // set a velocity to float the player upwards gradually
