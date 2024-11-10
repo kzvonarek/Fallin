@@ -6,8 +6,8 @@ using UnityEngine.LowLevelPhysics;
 public class FloorSpawning : MonoBehaviour
 {
 
-    [SerializeField] GameObject[] floorPrefabGreen;
-    [SerializeField] int numOfFloorsGreen; // num of different floors in specific prefab set
+    [SerializeField] GameObject[] floorPrefabOrange;
+    [SerializeField] int numOfFloorsOrange; // num of different floors in specific prefab set
     [SerializeField] GameObject[] floorPrefabRed;
     [SerializeField] int numOfFloorsRed;
     private float floorTimer = 0f;
@@ -26,9 +26,9 @@ public class FloorSpawning : MonoBehaviour
 
     void Start()
     {
-        floorPrefabSet = new GameObject[][] { floorPrefabGreen, floorPrefabRed };
+        floorPrefabSet = new GameObject[][] { floorPrefabOrange, floorPrefabRed };
 
-        prefabRandSet = 0; // always start with green set
+        prefabRandSet = 0; // always start with orange set
         previousSet = 0;
 
         skyBG = GameObject.FindGameObjectWithTag("Sky BG");
@@ -66,7 +66,7 @@ public class FloorSpawning : MonoBehaviour
         {
             if (prefabRandSet == 0)
             {
-                SpawnFloor(prefabRandSet, numOfFloorsGreen);
+                SpawnFloor(prefabRandSet, numOfFloorsOrange);
             }
             else if (prefabRandSet == 1)
             {

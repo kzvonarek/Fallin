@@ -731,14 +731,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56031e79aff4472988260437f92f64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefabGreen:
+  floorPrefabOrange:
   - {fileID: 9193284037823893547, guid: 6d27a5c71f2104e399285a1508cd554b, type: 3}
   - {fileID: 5089085453740708834, guid: 451263fea6dce4d1ba86118d1ffefa3b, type: 3}
   - {fileID: 220962659662926438, guid: 8d356a6a1f5ba447b85c330d79589c76, type: 3}
   - {fileID: 1911146956707321193, guid: c8702dfd4590f4222803073a31a4ac78, type: 3}
   - {fileID: 122940916677582888, guid: 04a443c5daf32498bbf843fb1883d17a, type: 3}
   - {fileID: 3968169666541414045, guid: 4ec70a3d22c00477c9af04620345c6b7, type: 3}
-  numOfFloorsGreen: 6
+  numOfFloorsOrange: 6
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}

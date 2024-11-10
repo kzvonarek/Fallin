@@ -68,12 +68,25 @@ public class PlayerMovement : MonoBehaviour
             horizVelocity *= drag;
         }
 
-        // PLAYER FLOATING
+        // PLAYER FLOATING UP
         // apply upward movement if player is below original Y position
         if (rb.position.y < playerOrigYPos)
         {
             // set a velocity to float the player upwards gradually
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeed);
+        }
+        else
+        {
+            // stop movement when player reaches original Y position
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        // PLAYER FLOATING DOWN
+        // apply downward movement if player is above original Y position
+        if (rb.position.y > playerOrigYPos)
+        {
+            // set a velocity to float the player upwards gradually
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
         }
         else
         {
