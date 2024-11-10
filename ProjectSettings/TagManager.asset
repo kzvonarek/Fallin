@@ -11,7 +11,6 @@ TagManager:
   - Locked Floor
   - Sky BG
   - Cave BG
-  - Death Zone
   layers:
   - Default
   - TransparentFX

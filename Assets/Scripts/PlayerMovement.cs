@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
@@ -101,6 +101,15 @@ public class PlayerMovement : MonoBehaviour
         {
             // stop movement when player reaches original Y position
             rb.linearVelocity = Vector2.zero;
+        }
+
+        // check if player exceeds top of screen, if true -> reset game
+        if (transform.position.y >= 14f)
+        {
+            // reset scene (temporary [look at notes])
+            SceneManager.LoadScene("Main Scene");
+            // for testing (remove later)
+            Debug.Log("Game Over");
         }
     }
 

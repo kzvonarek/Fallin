@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GooBehavior : MonoBehaviour
@@ -22,7 +23,7 @@ public class GooBehavior : MonoBehaviour
     {
         if (playerStuck)
         {
-            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y);
+            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 15);
 
             // check for mouse clicked down
             if (Input.GetMouseButtonDown(0))
@@ -40,8 +41,8 @@ public class GooBehavior : MonoBehaviour
                 Vector2 delta = currentMousePosition - lastMousePosition;
 
                 // detect direction change
-                if (delta.x > 0 && lastMousePosition.x - currentMousePosition.x > 0 ||
-                    delta.x < 0 && lastMousePosition.x - currentMousePosition.x < 0)
+                if ((delta.x > 0 && lastMousePosition.x > currentMousePosition.x) ||
+                (delta.x < 0 && lastMousePosition.x < currentMousePosition.x))
                 {
                     directionChanges++;
                 }
@@ -54,6 +55,7 @@ public class GooBehavior : MonoBehaviour
                     if (directionChanges >= 4)
                     {
                         playerStuck = false;
+                        isDragging = false;
                     }
 
                     // reset tracking
@@ -71,7 +73,7 @@ public class GooBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerStuck = true;
         }
