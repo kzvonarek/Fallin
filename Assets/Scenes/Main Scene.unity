@@ -741,7 +741,7 @@ MonoBehaviour:
   - {fileID: 871971867287006127, guid: 85802a27968ed40b99ab6497c35f9aae, type: 3}
   - {fileID: 3968169666541414045, guid: b7e219fdeaf4d45e0b51218df4ecedea, type: 3}
   - {fileID: 8003660432600181791, guid: fd89dce2f24034eba92deb2446071af4, type: 3}
-  - {fileID: 130224526336244108, guid: 794de5956ff3f42309cf645bc3628b9f, type: 3}
+  - {fileID: 8206853456477676443, guid: 794de5956ff3f42309cf645bc3628b9f, type: 3}
   numOfFloorsOrange: 10
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
@@ -1976,8 +1976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
-  speed: 5
-  maxSpeed: 15
+  speed: 7
+  maxSpeed: 19
   drag: 0.97
   holdThreshold: 0.2
   playerFloatSpeed: 2
