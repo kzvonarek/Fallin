@@ -740,10 +740,9 @@ MonoBehaviour:
   - {fileID: 5675969302862766518, guid: 4de9cb8566ce34c59a6f8d07f6863328, type: 3}
   - {fileID: 871971867287006127, guid: 85802a27968ed40b99ab6497c35f9aae, type: 3}
   - {fileID: 3968169666541414045, guid: b7e219fdeaf4d45e0b51218df4ecedea, type: 3}
-  - {fileID: 1085239561731496358, guid: 5a3fa6aeb7eea4c6eb1e89f8b92731c8, type: 3}
   - {fileID: 8003660432600181791, guid: fd89dce2f24034eba92deb2446071af4, type: 3}
-  - {fileID: 6011298592938329956, guid: 37561750f4dea48e792b9514605eb9e6, type: 3}
-  numOfFloorsOrange: 11
+  - {fileID: 130224526336244108, guid: 794de5956ff3f42309cf645bc3628b9f, type: 3}
+  numOfFloorsOrange: 10
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}

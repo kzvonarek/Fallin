@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class GooBehavior : MonoBehaviour
 {
-    // swipe interactivity
-    private Vector2 lastTouchPosition;
+    private Vector2 lastInputPosition;
     private int directionChanges;
     private bool isDragging;
     private float swipeStartTime;
     private float swipeDuration = 1f;
 
-    // player interactivity
     private GameObject player;
     private bool thisGooFloor = false;
 
@@ -25,7 +23,8 @@ public class GooBehavior : MonoBehaviour
         {
             player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.75f);
 
-            if (Input.GetMouseButton(0) || Input.touchCount > 0) // check for mouse or touch input
+            // check for both touch and mouse input
+            if (Input.GetMouseButton(0) || Input.touchCount > 0)
             {
                 Vector2 currentInputPosition;
 
@@ -34,18 +33,18 @@ public class GooBehavior : MonoBehaviour
                     Touch touch = Input.GetTouch(0);
                     currentInputPosition = touch.position;
 
-                    if (touch.phase == TouchPhase.Began && !isDragging)
+                    if (!isDragging || touch.phase == TouchPhase.Began)
                     {
-                        // initialize dragging for touch
-                        StartSwipe(currentInputPosition);
+                        startSwipe(currentInputPosition);
                     }
-                    else if (touch.phase == TouchPhase.Moved && isDragging)
+                    else if (isDragging && (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary))
                     {
-                        ProcessSwipe(currentInputPosition);
+                        processSwipe(currentInputPosition);
                     }
-                    else if (touch.phase == TouchPhase.Ended)
+
+                    if (touch.phase == TouchPhase.Ended)
                     {
-                        ResetSwipe();
+                        resetSwipe();
                     }
                 }
                 else // use mouse input
@@ -54,56 +53,56 @@ public class GooBehavior : MonoBehaviour
 
                     if (!isDragging)
                     {
-                        StartSwipe(currentInputPosition);
+                        startSwipe(currentInputPosition);
                     }
                     else
                     {
-                        ProcessSwipe(currentInputPosition);
+                        processSwipe(currentInputPosition);
                     }
 
                     if (Input.GetMouseButtonUp(0))
                     {
-                        ResetSwipe();
+                        resetSwipe();
                     }
                 }
             }
         }
     }
 
-    private void StartSwipe(Vector2 startPosition)
+    private void startSwipe(Vector2 startPosition)
     {
         isDragging = true;
-        lastTouchPosition = startPosition;
+        lastInputPosition = startPosition;
         swipeStartTime = Time.time;
         directionChanges = 0;
     }
 
-    private void ProcessSwipe(Vector2 currentPosition)
+    private void processSwipe(Vector2 currentPosition)
     {
-        Vector2 delta = currentPosition - lastTouchPosition;
+        Vector2 delta = currentPosition - lastInputPosition;
 
         // check for direction change
-        if (delta.x * (lastTouchPosition.x - currentPosition.x) < 0)
+        if (delta.x * (lastInputPosition.x - currentPosition.x) < 0)
         {
             directionChanges++;
-            lastTouchPosition = currentPosition;
+            lastInputPosition = currentPosition;
         }
 
-        // check if swipe duration elapsed
+        // check if swipe duration has elapsed
         if (Time.time - swipeStartTime >= swipeDuration)
         {
-            if (directionChanges >= 4) // swipe back and forth 2 times
+            if (directionChanges >= 4) // back and forth 2 times
             {
                 player.GetComponent<PlayerMovement>().playerStuck = false;
                 thisGooFloor = false;
             }
 
             // reset tracking
-            ResetSwipe();
+            resetSwipe();
         }
     }
 
-    private void ResetSwipe()
+    private void resetSwipe()
     {
         isDragging = false;
         directionChanges = 0;
