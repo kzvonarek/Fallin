@@ -8,11 +8,12 @@ public class GooBehavior : MonoBehaviour
     private float startTime;
     private int directionChanges;
     private bool isDragging;
-    private float checkDuration = 1f;
+    [SerializeField] float checkDuration;
 
     // player behavior
     public bool playerStuck = false;
     private GameObject player;
+    [SerializeField] float gooPosDeduct;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class GooBehavior : MonoBehaviour
     {
         if (playerStuck)
         {
-            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 2);
+            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - gooPosDeduct);
 
             // check for mouse clicked down
             if (Input.GetMouseButtonDown(0))

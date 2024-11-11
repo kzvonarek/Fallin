@@ -77,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
             horizVelocity *= drag;
         }
 
+        //-----=-----
+
         //PLAYER FLOATING UP
         //apply upward movement if player is below original Y position
         if (rb.position.y < playerOrigYPos)
@@ -102,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
             // stop movement when player reaches original Y position
             rb.linearVelocity = Vector2.zero;
         }
+
+        //-----=-----
 
         // check if player exceeds top of screen, if true -> reset game
         if (transform.position.y >= 14f)

@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a079b5328240142a6bf34f9be5df4197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkDuration: 1
   playerStuck: 0
+  gooPosDeduct: 0.75
 --- !u!1 &131197015
 GameObject:
   m_ObjectHideFlags: 0
