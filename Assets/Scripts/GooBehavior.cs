@@ -8,7 +8,7 @@ public class GooBehavior : MonoBehaviour
     private float startTime;
     private int directionChanges;
     private bool isDragging;
-    [SerializeField] float checkDuration;
+    private float checkDuration = 1f;
 
     // player behavior
     public bool playerStuck = false;
@@ -22,28 +22,27 @@ public class GooBehavior : MonoBehaviour
 
     void Update()
     {
+        // checking if player swiped back and forth to escape Goo floor
         if (playerStuck)
         {
             player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - gooPosDeduct);
 
             // check for mouse clicked down
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
-                isDragging = true;
-                lastMousePosition = Input.mousePosition;
-                startTime = Time.time;
-                directionChanges = 0;
-            }
+                if (!isDragging)
+                {
+                    isDragging = true;
+                    lastMousePosition = Input.mousePosition;
+                    startTime = Time.time;
+                    directionChanges = 0;
+                }
 
-            // check if mouse is held down
-            if (Input.GetMouseButton(0) && isDragging)
-            {
                 Vector2 currentMousePosition = Input.mousePosition;
                 Vector2 delta = currentMousePosition - lastMousePosition;
 
                 // detect direction change
-                if ((delta.x > 0 && lastMousePosition.x > currentMousePosition.x) ||
-                (delta.x < 0 && lastMousePosition.x < currentMousePosition.x))
+                if (Mathf.Sign(delta.x) != Mathf.Sign(lastMousePosition.x - currentMousePosition.x))
                 {
                     directionChanges++;
                 }
@@ -56,11 +55,11 @@ public class GooBehavior : MonoBehaviour
                     if (directionChanges >= 4)
                     {
                         playerStuck = false;
-                        isDragging = false;
                     }
 
                     // reset tracking
                     isDragging = false;
+                    directionChanges = 0;
                 }
             }
 

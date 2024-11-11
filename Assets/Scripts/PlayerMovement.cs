@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     // functionality with GooBehavior.cs for player being stuck
     [SerializeField] GameObject gooFloor;
+    [SerializeField] float gooSpeedMultiplier;
     // private GameManager gMscript;
 
 
@@ -66,6 +67,14 @@ public class PlayerMovement : MonoBehaviour
                 // calculate velocity to follow the mouse/finger position
                 float targetVelocity = (targetPosition.x - transform.position.x) * speed;
 
+                // check if player is currently in goo, and needs to be slowed down
+                // Check if player is stuck in goo
+                if (gooFloor.GetComponent<GooBehavior>().playerStuck)
+                {
+                    // Apply slower movement when in goo
+                    targetVelocity *= gooSpeedMultiplier;
+                }
+
                 // apply velocity to the player
                 horizVelocity = Mathf.Clamp(targetVelocity, -maxSpeed, maxSpeed);
             }
@@ -81,28 +90,25 @@ public class PlayerMovement : MonoBehaviour
 
         //PLAYER FLOATING UP
         //apply upward movement if player is below original Y position
-        if (rb.position.y < playerOrigYPos)
+        if (rb.position.y < playerOrigYPos - 0.1)
         {
             // set a velocity to float the player upwards gradually
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeed);
         }
-        else
-        {
-            // stop movement when player reaches original Y position
-            rb.linearVelocity = Vector2.zero;
-        }
-
         // PLAYER FLOATING DOWN
         // apply downward movement if player is above original Y position
-        if (rb.position.y > playerOrigYPos && !gooFloor.GetComponent<GooBehavior>().playerStuck)
+        else if (rb.position.y > playerOrigYPos + 0.1)
         {
-            // set a velocity to float the player upwards gradually
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
+            if (!gooFloor.GetComponent<GooBehavior>().playerStuck)
+            {
+                // set a velocity to float the player upwards gradually
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
+            }
         }
         else
         {
             // stop movement when player reaches original Y position
-            rb.linearVelocity = Vector2.zero;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         }
 
         //-----=-----
