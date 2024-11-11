@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     // functionality with GooBehavior.cs for player being stuck
     [SerializeField] GameObject gooFloor;
     [SerializeField] float gooSpeedMultiplier;
-    // private GameManager gMscript;
 
 
     void Start()
@@ -28,10 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
         // for floating behavior
         playerOrigYPos = rb.position.y;
-
-        // for playerStuck behavior [GooBehavior.cs]
-        // gameManagerObj = GameObject.FindWithTag("Game Manager");
-        // gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
