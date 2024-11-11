@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f1cc1f39fed42a4a5fdfd0c019d71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertObjSpeed: 6
+  vertObjSpeed: 7
   objSpeedInc: 0.05
   maxObjSpeed: 20
   inGameScoreText: {fileID: 1697440747}
