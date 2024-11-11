@@ -11,9 +11,8 @@ public class GooBehavior : MonoBehaviour
     private float checkDuration = 1f;
 
     // player behavior
-    public bool playerStuck = false;
     private GameObject player;
-    [SerializeField] float gooPosDeduct;
+    private bool thisGooFloor = false;
 
     void Start()
     {
@@ -23,10 +22,9 @@ public class GooBehavior : MonoBehaviour
     void Update()
     {
         // checking if player swiped back and forth to escape Goo floor
-        if (playerStuck)
+        if (player.GetComponent<PlayerMovement>().playerStuck && thisGooFloor)
         {
-            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - gooPosDeduct);
-
+            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.75f);
             // check for mouse clicked down
             if (Input.GetMouseButton(0))
             {
@@ -54,7 +52,8 @@ public class GooBehavior : MonoBehaviour
                 {
                     if (directionChanges >= 4)
                     {
-                        playerStuck = false;
+                        player.GetComponent<PlayerMovement>().playerStuck = false;
+                        thisGooFloor = false;
                     }
 
                     // reset tracking
@@ -75,7 +74,7 @@ public class GooBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerStuck = true;
+            thisGooFloor = true;
         }
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Locked Floor
   - Sky BG
   - Cave BG
+  - Goo
   layers:
   - Default
   - TransparentFX

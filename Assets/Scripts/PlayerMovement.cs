@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerFloatSpeed;
 
     // functionality with GooBehavior.cs for player being stuck
-    [SerializeField] GameObject gooFloor;
-    [SerializeField] float gooSpeedMultiplier;
+    public bool playerStuck;
+    private float gooSpeedMultiplier = 0.099f;
 
 
     void Start()
@@ -63,10 +63,10 @@ public class PlayerMovement : MonoBehaviour
                 float targetVelocity = (targetPosition.x - transform.position.x) * speed;
 
                 // check if player is currently in goo, and needs to be slowed down
-                // Check if player is stuck in goo
-                if (gooFloor.GetComponent<GooBehavior>().playerStuck)
+                // check if player is stuck in goo
+                if (playerStuck)
                 {
-                    // Apply slower movement when in goo
+                    // apply slower movement when in goo
                     targetVelocity *= gooSpeedMultiplier;
                 }
 
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         // apply downward movement if player is above original Y position
         else if (rb.position.y > playerOrigYPos + 0.1)
         {
-            if (!gooFloor.GetComponent<GooBehavior>().playerStuck)
+            if (!playerStuck)
             {
                 // set a velocity to float the player upwards gradually
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
@@ -122,5 +122,13 @@ public class PlayerMovement : MonoBehaviour
     {
         // move player
         transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Goo"))
+        {
+            playerStuck = true;
+        }
     }
 }
