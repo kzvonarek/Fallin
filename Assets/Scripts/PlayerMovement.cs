@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     // functionality with GooBehavior.cs for player being stuck
     public bool playerStuck;
-    private float gooSpeedMultiplier = 0.099f;
+    private float gooSpeedMultiplier = 0.005f;
 
 
     void Start()
