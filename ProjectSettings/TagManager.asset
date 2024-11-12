@@ -12,6 +12,10 @@ TagManager:
   - Sky BG
   - Cave BG
   - Goo
+  - Color Left Floor
+  - Color Middle Floor
+  - Color Right Floor
+  - Color Sign
   layers:
   - Default
   - TransparentFX
