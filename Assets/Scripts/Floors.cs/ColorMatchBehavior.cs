@@ -11,7 +11,6 @@ public class ColorMatchBehavior : MonoBehaviour
     private bool isLeftFloor = false;
     private bool isMiddleFloor = false;
     private bool isRightFloor = false;
-    private bool isSign = false;
 
     // access to ParentColorMatchBehavior.cs
     private ParentColorMatchBehavior pCmBscript;
@@ -49,7 +48,6 @@ public class ColorMatchBehavior : MonoBehaviour
         }
         else if (gameObject.CompareTag("Color Sign"))
         {
-            isSign = true;
             // if signColor = 0 [match with left], = 1 [match with middle], = 2 [match with right]
             if (pCmBscript.signColor == 0)
             {

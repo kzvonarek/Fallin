@@ -5,19 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    void Start()
-    {
-        Time.timeScale = 1;
-    }
     // main menus
     public void playGame()
     {
-        SceneManager.LoadScene("Game");
-    }
-
-    public void controlsButton()
-    {
-        SceneManager.LoadScene("Controls");
+        SceneManager.LoadScene("Main Scene");
     }
 
     /* for possible PC version

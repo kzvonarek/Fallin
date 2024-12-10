@@ -8,11 +8,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] float objSpeedInc;
     [SerializeField] float maxObjSpeed;
 
-    // score functionality
-    [SerializeField] TextMeshProUGUI inGameScoreText;
-    [SerializeField] TextMeshProUGUI outlineScoreText;
-    private int score;
-    private float scoreIncTimer = 0f;
+    // current time functionality
+    [SerializeField] TextMeshProUGUI currentTimeText;
+    [SerializeField] TextMeshProUGUI outlineCurrentTimeText;
+    private int currentTime;
+    private float timeIncTimer;
+
+    // best time functionality
+    [SerializeField] TextMeshProUGUI finalTimeText;
+    [SerializeField] TextMeshProUGUI bestTimeText;
 
     // pause functionality
     [SerializeField] GameObject pauseButton;
@@ -24,20 +28,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        score = 0;
+        timeIncTimer = 0f;
+        currentTime = 0;
     }
 
     void Update()
     {
-        // score increases by 1 every second alive
-        scoreIncTimer += Time.deltaTime;
-        if (scoreIncTimer >= 1f) // inc each second
-        {
-            score += 1;
-            inGameScoreText.text = score.ToString(); // update UI text
-            outlineScoreText.text = score.ToString(); // update UI text
-            scoreIncTimer = 0f; // reset timer
-        }
+        incTime();
 
         // floor speed increasing until it is greater than max floor speed [FloorMovement.cs]
         if (vertObjSpeed < maxObjSpeed)
@@ -67,7 +64,44 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0; // freeze game
 
+        bestTimeUpdate(); // update final and best time
+
         deathMenu.SetActive(true); // enable pause menu
         pauseButton.SetActive(false); // disable pause button
+    }
+
+    private void incTime()
+    {
+        // time increases by 1 every second alive
+        timeIncTimer += Time.deltaTime;
+        if (timeIncTimer >= 1f) // inc each second
+        {
+            currentTime += 1;
+            currentTimeText.text = currentTime.ToString(); // update UI text
+            outlineCurrentTimeText.text = currentTime.ToString(); // update UI text outline
+            timeIncTimer = 0f; // reset timer
+        }
+    }
+
+    private void bestTimeUpdate()
+    {
+        // check if best time exists
+        if (PlayerPrefs.HasKey("Saved Best Time"))
+        {
+            // check if new time is higher than best time
+            if (currentTime > PlayerPrefs.GetInt("Saved Best Time"))
+            {
+                PlayerPrefs.SetInt("Saved Best Time", currentTime);
+            }
+        }
+        else
+        {
+            // if there is no best time
+            PlayerPrefs.SetInt("Saved Best Time", currentTime);
+        }
+
+        // update associated texts
+        finalTimeText.text = "Time: " + currentTime.ToString();
+        bestTimeText.text = "Best Time: " + PlayerPrefs.GetInt("Saved Best Time").ToString();
     }
 }
