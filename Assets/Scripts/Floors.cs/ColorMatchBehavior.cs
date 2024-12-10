@@ -15,6 +15,10 @@ public class ColorMatchBehavior : MonoBehaviour
     // access to ParentColorMatchBehavior.cs
     private ParentColorMatchBehavior pCmBscript;
 
+    // access to GameManager.cs
+    private GameObject gameManagerObj;
+    private GameManager gMscript;
+
     void Start()
     {
         // allow for access to floor color integeres
@@ -25,6 +29,10 @@ public class ColorMatchBehavior : MonoBehaviour
 
         // set colors in colorList
         colorList = new Color[] { Color.red, Color.green, Color.blue, Color.yellow, Color.magenta, Color.cyan };
+
+        // allow for access to death() function
+        gameManagerObj = GameObject.FindWithTag("Game Manager");
+        gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
@@ -73,16 +81,15 @@ public class ColorMatchBehavior : MonoBehaviour
         {
             if (isLeftFloor && pCmBscript.leftFloorColor != pCmBscript.signColor)
             {
-                // reset scene (temporary [look at notes])
-                SceneManager.LoadScene("Main Scene");
+                gMscript.death();
             }
             else if (isMiddleFloor && pCmBscript.middleFloorColor != pCmBscript.signColor)
             {
-                SceneManager.LoadScene("Main Scene");
+                gMscript.death();
             }
             else if (isRightFloor && pCmBscript.rightFloorColor != pCmBscript.signColor)
             {
-                SceneManager.LoadScene("Main Scene");
+                gMscript.death();
             }
         }
 

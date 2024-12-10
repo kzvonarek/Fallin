@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
@@ -20,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool playerStuck;
     private float gooSpeedMultiplier = 0.005f;
 
+    // funtionality with GameManager.cs for dead() function
+    private GameObject gameManagerObj;
+    private GameManager gMscript;
+
 
     void Start()
     {
@@ -27,6 +32,10 @@ public class PlayerMovement : MonoBehaviour
 
         // for floating behavior
         playerOrigYPos = rb.position.y;
+
+        // allow for access to death() function
+        gameManagerObj = GameObject.FindWithTag("Game Manager");
+        gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
@@ -108,13 +117,10 @@ public class PlayerMovement : MonoBehaviour
 
         //-----=-----
 
-        // check if player exceeds top of screen, if true -> reset game
+        // check if player exceeds top of screen, if true -> end game
         if (transform.position.y >= 14f)
         {
-            // reset scene (temporary [look at notes])
-            SceneManager.LoadScene("Main Scene");
-            // for testing (remove later)
-            Debug.Log("Game Over");
+            gMscript.death();
         }
     }
 

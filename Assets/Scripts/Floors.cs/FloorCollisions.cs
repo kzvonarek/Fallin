@@ -8,7 +8,7 @@ public class FloorCollisions : MonoBehaviour
 
     void Start()
     {
-        // allow for access to dead() function
+        // allow for access to death() function
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
     }
