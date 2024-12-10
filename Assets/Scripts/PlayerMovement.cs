@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerFloatSpeed;
 
     // functionality with GooBehavior.cs for player being stuck
-    public bool playerStuck;
+    [HideInInspector] public bool playerStuck;
     private float gooSpeedMultiplier = 0.005f;
 
 

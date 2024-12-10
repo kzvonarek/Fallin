@@ -16,6 +16,7 @@ TagManager:
   - Color Middle Floor
   - Color Right Floor
   - Color Sign
+  - Color Match Parent
   layers:
   - Default
   - TransparentFX
