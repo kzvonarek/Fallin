@@ -17,6 +17,7 @@ TagManager:
   - Color Right Floor
   - Color Sign
   - Color Match Parent
+  - Menu Manager
   layers:
   - Default
   - TransparentFX

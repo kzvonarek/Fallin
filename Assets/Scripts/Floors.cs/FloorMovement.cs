@@ -8,7 +8,7 @@ public class FloorMovement : MonoBehaviour
 
     void Start()
     {
-        // allow for access to vertObjSpeed
+        // allow for access to vertObjSpeed variable
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
     }
