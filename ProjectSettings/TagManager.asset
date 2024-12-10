@@ -18,6 +18,7 @@ TagManager:
   - Color Sign
   - Color Match Parent
   - Menu Manager
+  - Sound Manager
   layers:
   - Default
   - TransparentFX
