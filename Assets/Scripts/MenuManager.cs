@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // main menus
+    // Main Menu Scene Buttons ---=---
     public void playGame()
     {
-        SceneManager.LoadScene("Main Scene");
+        SceneManager.LoadScene("Game Play");
+    }
+
+    // Game Play Scene Buttons ---=---
+    public void menuButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    public void playAgain()
+    {
+        SceneManager.LoadScene("Game Play");
     }
 
     /* for possible PC version
@@ -17,10 +27,4 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
     */
-
-    // during gameplay
-    public void menuButton()
-    {
-        SceneManager.LoadScene("Main Menu");
-    }
 }

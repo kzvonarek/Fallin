@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -28,18 +29,23 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+
         timeIncTimer = 0f;
         currentTime = 0;
+        bestTimeUpdate();
     }
 
     void Update()
     {
-        incTime();
-
-        // floor speed increasing until it is greater than max floor speed [FloorMovement.cs]
-        if (vertObjSpeed < maxObjSpeed)
+        if (SceneManager.GetActiveScene().name == "Game Play")
         {
-            vertObjSpeed += objSpeedInc * Time.deltaTime;
+            incTime();
+
+            // floor speed increasing until it is greater than max floor speed [FloorMovement.cs]
+            if (vertObjSpeed < maxObjSpeed)
+            {
+                vertObjSpeed += objSpeedInc * Time.deltaTime;
+            }
         }
     }
 
@@ -101,7 +107,10 @@ public class GameManager : MonoBehaviour
         }
 
         // update associated texts
-        finalTimeText.text = "Time: " + currentTime.ToString();
+        if (SceneManager.GetActiveScene().name == "Game Play")
+        {
+            finalTimeText.text = "Time: " + currentTime.ToString();
+        }
         bestTimeText.text = "Best Time: " + PlayerPrefs.GetInt("Saved Best Time").ToString();
     }
 }
