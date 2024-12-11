@@ -20,7 +20,7 @@ public class GooBehavior : MonoBehaviour
     {
         if (player.GetComponent<PlayerMovement>().playerStuck && thisGooFloor)
         {
-            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.75f);
+            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
 
             // check for both touch and mouse input
             if (Input.GetMouseButton(0) || Input.touchCount > 0)
