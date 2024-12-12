@@ -14,37 +14,17 @@ public class BubbleBehavior : MonoBehaviour
         bubbleLauncher = GameObject.FindGameObjectWithTag("Bubble Launcher");
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        // bubble movement (horizontal, vertical w/ launcher)
-        // player not stuck w/ bubble, so it continues to move horizontal
-        if (player.GetComponent<PlayerMovement>().stuckInBubble == false)
-        {
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x + 0.1f, bubbleLauncher.transform.position.y);
-        }
-        // player stuck w/ bubble, so it only moves vertically w/ launcher
-        else
-        {
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x, bubbleLauncher.transform.position.y);
-        }
-
-        // move player with bubble if stuck
-        if (player.GetComponent<PlayerMovement>().stuckInBubble && thisBubble)
-        {
-            player.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f);
-        }
-
-        // ----====----
-
         // automatically pop bubble if it goes off screen
-        if (gameObject.transform.position.x > 7 || gameObject.transform.position.x < -7 ||
-        gameObject.transform.position.y >= 17)
+        if (gameObject.transform.position.y >= 17)
         {
             Destroy(gameObject);
         }
 
         // ----====----
-        // allows player to manually pop bubble (Mobile controls)
+
+        // allows player to manually pop bubble (Mobile)
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -71,15 +51,35 @@ public class BubbleBehavior : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        // bubble movement (horizontal, vertical w/ launcher)
+        gameObject.transform.position = new Vector2(gameObject.transform.position.x + bubbleHorizVelocity, bubbleLauncher.transform.position.y);
+
+        // ----====----
+
+        // move player with bubble if stuck
+        if (player.GetComponent<PlayerMovement>().stuckInBubble && thisBubble)
+        {
+            player.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.60f);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             thisBubble = true;
         }
+
+        // automatically pop bubble if it hits left/right-most Pop Zone
+        if (other.gameObject.CompareTag("Pop Zone"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    // allows player to manually pop bubble (PC controls)
+    // allows player to manually pop bubble (PC)
     void OnMouseDown()
     {
         Destroy(gameObject); // 'pop' bubble

@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 399006801846326572}
   - component: {fileID: 3062318046124220902}
   m_Layer: 0
-  m_Name: Goo Floor
+  m_Name: 'Goo Floor [Orange]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

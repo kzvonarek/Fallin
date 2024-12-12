@@ -9,7 +9,6 @@ public class BubbleLauncherBehavior : MonoBehaviour
     void Start()
     {
         bubbleTimer = 0f;
-        // bubbleTimerReset = 2f;
     }
 
     void Update()
@@ -17,7 +16,7 @@ public class BubbleLauncherBehavior : MonoBehaviour
         bubbleTimer += Time.deltaTime;
         if (bubbleTimer >= bubbleTimerReset)
         {
-            Instantiate(bubblePreset, transform.position, Quaternion.identity);
+            Instantiate(bubblePreset, new Vector2(transform.position.x + 1f, transform.position.y), Quaternion.identity);
             bubbleTimer = 0f;
         }
     }

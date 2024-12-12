@@ -21,6 +21,8 @@ TagManager:
   - Sound Manager
   - Bubble Launcher
   - Bubble
+  - Wall
+  - Pop Zone
   layers:
   - Default
   - TransparentFX
