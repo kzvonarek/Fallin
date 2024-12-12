@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FloorMovement : MonoBehaviour
@@ -5,6 +6,8 @@ public class FloorMovement : MonoBehaviour
     // access to GameManager.cs
     private GameObject gameManagerObj;
     private GameManager gMscript;
+    [SerializeField] bool isMovingFloor;
+    [SerializeField] float moveMultiplier;
 
     void Start()
     {
@@ -16,6 +19,14 @@ public class FloorMovement : MonoBehaviour
     void FixedUpdate()
     {
         // floor moves up at a set speed (speed increases over time)
-        transform.position = new Vector2(transform.position.x, transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
+        if (!isMovingFloor)
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
+        }
+        else if (isMovingFloor)
+        {
+            // move back and forth if is a moving floor
+            transform.position = new Vector2(Mathf.Sin(Time.time * moveMultiplier), transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
+        }
     }
 }
