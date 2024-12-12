@@ -19,6 +19,8 @@ TagManager:
   - Color Match Parent
   - Menu Manager
   - Sound Manager
+  - Bubble Launcher
+  - Bubble
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,7 @@ public class GooBehavior : MonoBehaviour
 
     void Update()
     {
-        if (player.GetComponent<PlayerMovement>().playerStuck && thisGooFloor)
+        if (player.GetComponent<PlayerMovement>().stuckInGoo && thisGooFloor)
         {
             player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
 
@@ -92,7 +92,7 @@ public class GooBehavior : MonoBehaviour
         {
             if (directionChanges >= 4) // back and forth 2 times
             {
-                player.GetComponent<PlayerMovement>().playerStuck = false;
+                player.GetComponent<PlayerMovement>().stuckInGoo = false;
                 thisGooFloor = false;
             }
 
