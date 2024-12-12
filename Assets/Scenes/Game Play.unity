@@ -1610,7 +1610,8 @@ MonoBehaviour:
   - {fileID: 2542498072092098366, guid: d2222a7a6f9164e4fa2ea49e4c327d5c, type: 3}
   - {fileID: 2781828346929786928, guid: 378e0c8e7019f4d99a31eec12405f5b0, type: 3}
   - {fileID: 8878206163555087052, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-  numOfFloorsOrange: 15
+  - {fileID: 6973676783747789244, guid: 7b9a80bba38554e03bc2a0ea664c51f2, type: 3}
+  numOfFloorsOrange: 16
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
@@ -3663,7 +3664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.8431043}
   m_AnchorMax: {x: 0.5, y: 0.8431043}
-  m_AnchoredPosition: {x: -8.5345, y: 2.5806274}
+  m_AnchoredPosition: {x: -8.5345, y: 2.5805664}
   m_SizeDelta: {x: 998.9113, y: 166.7555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697440747
@@ -4554,67 +4555,6 @@ PolygonCollider2D:
       - {x: 0.1616881, y: 0.28646928}
       - {x: 0.15836337, y: 0.38337624}
   m_UseDelaunayMesh: 0
---- !u!1001 &4849993463634912357
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 444325313223876639, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: bubbleTimerReset
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251481886107523209, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 8878206163555087052, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
-      propertyPath: m_Name
-      value: Bubble Launcher
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e7778252193614546a30ddb4746c8c0a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4644,4 +4584,3 @@ SceneRoots:
   - {fileID: 2072528957}
   - {fileID: 1288541078}
   - {fileID: 772289700}
-  - {fileID: 4849993463634912357}

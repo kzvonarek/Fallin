@@ -11,7 +11,7 @@ public class BubbleBehavior : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        bubbleLauncher = GameObject.FindGameObjectWithTag("Bubble Launcher");
+        bubbleLauncher = transform.parent.gameObject;
     }
 
     void Update()
@@ -54,7 +54,16 @@ public class BubbleBehavior : MonoBehaviour
     void FixedUpdate()
     {
         // bubble movement (horizontal, vertical w/ launcher)
-        gameObject.transform.position = new Vector2(gameObject.transform.position.x + bubbleHorizVelocity, bubbleLauncher.transform.position.y);
+        // move rightwards if spawned from a launcher on left side of screen
+        if (bubbleLauncher.GetComponent<BubbleLauncherBehavior>().isLeftLauncher == true)
+        {
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x + bubbleHorizVelocity, bubbleLauncher.transform.position.y);
+        }
+        // move leftwards if spawned from a launcher on right side of screen
+        else
+        {
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x - bubbleHorizVelocity, bubbleLauncher.transform.position.y);
+        }
 
         // ----====----
 
