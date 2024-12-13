@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1232364109053496428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.729935, y: -2.5125859, z: -0.1025684}
+  m_LocalPosition: {x: 0.01, y: 0, z: 0.1025684}
   m_LocalScale: {x: 0.745239, y: 0.5955, z: 0.745239}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 1
-  moveMultiplier: 1.5
+  frequency: 1.5
+  amplitude: 3
 --- !u!1 &2527179801769288940
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,8 +76,8 @@ Transform:
   m_GameObject: {fileID: 2527179801769288940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 0, z: 0.1025684}
-  m_LocalScale: {x: 5.4073915, y: 0.5955, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5.3313293, y: 0.5955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7166823161136781588}

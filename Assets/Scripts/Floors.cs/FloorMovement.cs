@@ -6,8 +6,11 @@ public class FloorMovement : MonoBehaviour
     // access to GameManager.cs
     private GameObject gameManagerObj;
     private GameManager gMscript;
+
+    // moving floor attirbutes
     [SerializeField] bool isMovingFloor;
-    [SerializeField] float moveMultiplier;
+    [SerializeField] float frequency; // speed back and forth
+    [SerializeField] float amplitude; // distance back and forth
 
     void Start()
     {
@@ -26,7 +29,7 @@ public class FloorMovement : MonoBehaviour
         else if (isMovingFloor)
         {
             // move back and forth if is a moving floor
-            transform.position = new Vector2(Mathf.Sin(Time.time * moveMultiplier), transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
+            transform.position = new Vector2(amplitude * Mathf.Sin(Time.time * frequency), transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
         }
     }
 }
