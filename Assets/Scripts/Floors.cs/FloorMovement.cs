@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class FloorMovement : MonoBehaviour
@@ -11,12 +10,17 @@ public class FloorMovement : MonoBehaviour
     [SerializeField] bool isMovingFloor;
     [SerializeField] float frequency; // speed back and forth
     [SerializeField] float amplitude; // distance back and forth
+    [SerializeField] int variance; // add randomness to movement
 
     void Start()
     {
         // allow for access to vertObjSpeed variable
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
+
+        // random values for variance
+        int[] randomValue = new int[] { 1, -1 };
+        variance = randomValue[Random.Range(0, 2)];
     }
 
     void FixedUpdate()
@@ -29,7 +33,7 @@ public class FloorMovement : MonoBehaviour
         else if (isMovingFloor)
         {
             // move back and forth if is a moving floor
-            transform.position = new Vector2(amplitude * Mathf.Sin(Time.time * frequency), transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
+            transform.position = new Vector2(variance * (amplitude * Mathf.Sin(Time.time * frequency)), transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
         }
     }
 }
