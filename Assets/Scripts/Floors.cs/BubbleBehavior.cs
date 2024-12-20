@@ -8,6 +8,10 @@ public class BubbleBehavior : MonoBehaviour
     private bool thisBubble = false;
     [SerializeField] float bubbleHorizVelocity;
 
+    // bubble popping
+    private Ray touchRaycast;
+    private RaycastHit hitBubble;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -24,26 +28,30 @@ public class BubbleBehavior : MonoBehaviour
 
         // ----====----
 
-        // allows player to manually pop bubble (Mobile)
+        // allow player to manually pop bubble (Mobile)
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            Touch touch;
+            // check each touch
+            for (int i = 0; i < Input.touchCount; i++)
             {
-                // check if the touch is on a bubble
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
+                touch = Input.GetTouch(i);
 
-                if (Physics.Raycast(ray, out hit))
+                if (touch.phase == TouchPhase.Began)
                 {
-                    if (hit.transform == transform) // check if the object hit is a bubble
-                    {
-                        Destroy(gameObject); // 'pop' bubble
+                    // check if the touch is on a bubble
+                    touchRaycast = Camera.main.ScreenPointToRay(touch.position);
 
-                        if (player.GetComponent<PlayerMovement>().stuckInBubble == true)
+                    if (Physics.Raycast(touchRaycast, out hitBubble))
+                    {
+                        if (hitBubble.transform == transform) // check if the object hit is a bubble
                         {
-                            player.GetComponent<PlayerMovement>().stuckInBubble = false;
+                            Destroy(gameObject); // 'pop' bubble
+
+                            if (player.GetComponent<PlayerMovement>().stuckInBubble == true)
+                            {
+                                player.GetComponent<PlayerMovement>().stuckInBubble = false;
+                            }
                         }
                     }
                 }
