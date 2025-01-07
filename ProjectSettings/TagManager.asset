@@ -24,6 +24,7 @@ TagManager:
   - Wall
   - Pop Zone
   - Leaf
+  - Player Arrow
   layers:
   - Default
   - TransparentFX

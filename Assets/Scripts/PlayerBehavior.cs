@@ -22,7 +22,7 @@ public class PlayerBehavior : MonoBehaviour
     // functionality with BubbleBehavior.cs for player being stuck in bubble
     [HideInInspector] public bool stuckInBubble;
 
-    // functionality with BubbleBehavior.cs for player being stuck in bubble
+    // functionality with Leaf Floor for player having leaf effect
     [HideInInspector] public bool playerLeafed;
     [SerializeField] float leafMovementMultiplier;
     [SerializeField] GameObject leafEffect;
@@ -30,6 +30,9 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] int neededLeafTaps;
     private float timer = 0.0f;
     private int tapCount = 0;
+
+    // Player Arrow behavior
+    private GameObject playerArrow;
 
     // funtionality with GameManager.cs for dead() function
     private GameObject gameManagerObj;
@@ -46,6 +49,9 @@ public class PlayerBehavior : MonoBehaviour
         // allow for access to death() function
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
+
+        // allow access to playerArrow
+        playerArrow = GameObject.FindGameObjectWithTag("Player Arrow");
     }
 
     void Update()
@@ -132,9 +138,19 @@ public class PlayerBehavior : MonoBehaviour
         //-----=-----
 
         // check if player exceeds top of screen, if true -> end game
-        if (transform.position.y >= 14f)
+        if (transform.position.y >= 16f)
         {
             gMscript.death();
+        }
+
+        // check if player is out of screen vision, if true -> show player arrow
+        if (transform.position.y >= 10f)
+        {
+            playerArrow.SetActive(true);
+        }
+        else // if false -> don't show player arrow
+        {
+            playerArrow.SetActive(false);
         }
 
         //-----=-----

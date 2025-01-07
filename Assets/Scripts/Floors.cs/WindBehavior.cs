@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class WindBehavior : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private Rigidbody2D playerRb;
+    [SerializeField] float windForce;
+    [SerializeField] bool isLeftWind;
+    private Vector2 pushDirection;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // push player in direction (L/R)
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerRb = other.gameObject.GetComponent<Rigidbody2D>();
+            if (isLeftWind)
+            {
+                pushDirection = Vector2.left * windForce;
+            }
+            else
+            {
+                pushDirection = Vector2.right * windForce;
+            }
+            playerRb.AddForce(pushDirection, ForceMode2D.Impulse);
+        }
     }
 }
