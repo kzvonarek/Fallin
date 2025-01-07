@@ -76,7 +76,7 @@ public class FloorSpawning : MonoBehaviour
             floorTimer = 0f;
         }
 
-        if (windTimer >= 10f)
+        if (windTimer >= 8.45f)
         {
             SpawnWind();
             windTimer = 0f;
