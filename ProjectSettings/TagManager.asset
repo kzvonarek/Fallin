@@ -23,6 +23,7 @@ TagManager:
   - Bubble
   - Wall
   - Pop Zone
+  - Leaf
   layers:
   - Default
   - TransparentFX

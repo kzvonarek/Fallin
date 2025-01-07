@@ -19,7 +19,7 @@ public class GooBehavior : MonoBehaviour
     void Update()
     {
         // behavior if player is stuck in goo
-        if (player.GetComponent<PlayerMovement>().stuckInGoo && thisGooFloor)
+        if (player.GetComponent<PlayerBehavior>().stuckInGoo && thisGooFloor)
         {
             player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
 
@@ -43,7 +43,7 @@ public class GooBehavior : MonoBehaviour
                 // remove player from goo if three taps/clicks within time frame
                 if (tapCount == neededTaps)
                 {
-                    player.GetComponent<PlayerMovement>().stuckInGoo = false;
+                    player.GetComponent<PlayerBehavior>().stuckInGoo = false;
                     thisGooFloor = false;
                 }
 

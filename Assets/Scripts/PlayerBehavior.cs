@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PlayerMovement : MonoBehaviour
+public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
     [SerializeField] float speed; // speed to follow mouse/finger
@@ -21,6 +21,15 @@ public class PlayerMovement : MonoBehaviour
 
     // functionality with BubbleBehavior.cs for player being stuck in bubble
     [HideInInspector] public bool stuckInBubble;
+
+    // functionality with BubbleBehavior.cs for player being stuck in bubble
+    [HideInInspector] public bool playerLeafed;
+    [SerializeField] float leafMovementMultiplier;
+    [SerializeField] GameObject leafEffect;
+    [SerializeField] float leafTimeFrame;
+    [SerializeField] int neededLeafTaps;
+    private float timer = 0.0f;
+    private int tapCount = 0;
 
     // funtionality with GameManager.cs for dead() function
     private GameObject gameManagerObj;
@@ -79,6 +88,10 @@ public class PlayerMovement : MonoBehaviour
                     // apply slower movement when in goo
                     targetVelocity = 0;
                 }
+                if (playerLeafed)
+                {
+                    targetVelocity *= leafMovementMultiplier;
+                }
 
                 // apply velocity to the player
                 horizVelocity = Mathf.Clamp(targetVelocity, -maxSpeed, maxSpeed);
@@ -123,6 +136,50 @@ public class PlayerMovement : MonoBehaviour
         {
             gMscript.death();
         }
+
+        //-----=-----
+        // LEAF FLOOR BEHAVIOR
+
+        // behavior if player has 'leaves' stuck on them
+        if (playerLeafed)
+        {
+            // check for mouse click or screen tap
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+            {
+                tapCount++;
+
+                // reset timer when first tap is detected
+                if (tapCount == 1)
+                {
+                    timer = leafTimeFrame;
+                }
+            }
+
+            // if timer is running, decrease it
+            if (tapCount > 0)
+            {
+                timer -= Time.deltaTime;
+
+                // remove 'leaves' from player if three taps/clicks within time frame
+                if (tapCount == neededLeafTaps)
+                {
+                    playerLeafed = false;
+                }
+
+                // if timer expires before three taps/clicks
+                if (timer <= 0)
+                {
+                    tapCount = 0;
+                    timer = 0.0f;
+                }
+            }
+        }
+
+        // check if player is not leafed anymore, disabling leaf effect
+        if (playerLeafed == false)
+        {
+            leafEffect.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -140,6 +197,11 @@ public class PlayerMovement : MonoBehaviour
         else if (other.gameObject.CompareTag("Bubble"))
         {
             stuckInBubble = true;
+        }
+        else if (other.gameObject.CompareTag("Leaf"))
+        {
+            playerLeafed = true;
+            leafEffect.SetActive(true);
         }
     }
 }

@@ -48,9 +48,9 @@ public class BubbleBehavior : MonoBehaviour
                         {
                             Destroy(gameObject); // 'pop' bubble
 
-                            if (player.GetComponent<PlayerMovement>().stuckInBubble == true)
+                            if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
                             {
-                                player.GetComponent<PlayerMovement>().stuckInBubble = false;
+                                player.GetComponent<PlayerBehavior>().stuckInBubble = false;
                             }
                         }
                     }
@@ -76,7 +76,7 @@ public class BubbleBehavior : MonoBehaviour
         // ----====----
 
         // move player with bubble if stuck
-        if (player.GetComponent<PlayerMovement>().stuckInBubble && thisBubble)
+        if (player.GetComponent<PlayerBehavior>().stuckInBubble && thisBubble)
         {
             player.transform.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.60f);
         }
@@ -101,9 +101,9 @@ public class BubbleBehavior : MonoBehaviour
     {
         Destroy(gameObject); // 'pop' bubble
 
-        if (player.GetComponent<PlayerMovement>().stuckInBubble == true)
+        if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
         {
-            player.GetComponent<PlayerMovement>().stuckInBubble = false;
+            player.GetComponent<PlayerBehavior>().stuckInBubble = false;
         }
     }
 }
