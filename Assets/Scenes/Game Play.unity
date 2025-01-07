@@ -1616,7 +1616,9 @@ MonoBehaviour:
   - {fileID: 4979580154695769196, guid: 30ed9241cea3d42f7b72c28787e6c4fb, type: 3}
   - {fileID: 4202427098950731830, guid: 1aceae58cdcd34a0d9c9f97ceeab12c4, type: 3}
   - {fileID: 8145305929538757473, guid: 5538adf08f0a44f1f9d73bac813ffa7c, type: 3}
-  numOfFloorsOrange: 18
+  - {fileID: 1469022633655907363, guid: 8bd033ec5639c433cb75f6a551341721, type: 3}
+  - {fileID: 6865724166338447831, guid: 912c24f22a5b14601a89254cb42ce422, type: 3}
+  numOfFloorsOrange: 23
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
@@ -1627,6 +1629,9 @@ MonoBehaviour:
   numOfFloorsRed: 6
   floorTimerReset: 1.3
   numOfFloorSets: 2
+  windPrefabSet:
+  - {fileID: 1171717932766091783, guid: 49e5bed1d0134492a87124ab67e7ceb6, type: 3}
+  - {fileID: 2581489207810674181, guid: e4086712805e24ce9a989f8c58be7515, type: 3}
 --- !u!1 &918370075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,7 +4510,6 @@ MonoBehaviour:
   playerFloatSpeed: 2
   stuckInGoo: 0
   stuckInBubble: 0
-  playerLeafed: 0
   leafMovementMultiplier: 0.5
   leafEffect: {fileID: 1098337534}
   leafTimeFrame: 1

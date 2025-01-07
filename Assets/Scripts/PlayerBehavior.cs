@@ -23,13 +23,13 @@ public class PlayerBehavior : MonoBehaviour
     [HideInInspector] public bool stuckInBubble;
 
     // functionality with Leaf Floor for player having leaf effect
-    [HideInInspector] public bool playerLeafed;
+    private bool playerLeafed;
     [SerializeField] float leafMovementMultiplier;
     [SerializeField] GameObject leafEffect;
     [SerializeField] float leafTimeFrame;
     [SerializeField] int neededLeafTaps;
-    private float timer = 0.0f;
-    private int tapCount = 0;
+    private float leafTimer = 0.0f;
+    private int leafTapCount = 0;
 
     // Player Arrow behavior
     private GameObject playerArrow;
@@ -159,34 +159,35 @@ public class PlayerBehavior : MonoBehaviour
         // behavior if player has 'leaves' stuck on them
         if (playerLeafed)
         {
+            leafEffect.SetActive(true);
             // check for mouse click or screen tap
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
-                tapCount++;
+                leafTapCount++;
 
                 // reset timer when first tap is detected
-                if (tapCount == 1)
+                if (leafTapCount == 1)
                 {
-                    timer = leafTimeFrame;
+                    leafTimer = leafTimeFrame;
                 }
             }
 
             // if timer is running, decrease it
-            if (tapCount > 0)
+            if (leafTapCount > 0)
             {
-                timer -= Time.deltaTime;
+                leafTimer -= Time.deltaTime;
 
                 // remove 'leaves' from player if three taps/clicks within time frame
-                if (tapCount == neededLeafTaps)
+                if (leafTapCount == neededLeafTaps)
                 {
                     playerLeafed = false;
                 }
 
                 // if timer expires before three taps/clicks
-                if (timer <= 0)
+                if (leafTimer <= 0)
                 {
-                    tapCount = 0;
-                    timer = 0.0f;
+                    leafTapCount = 0;
+                    leafTimer = 0.0f;
                 }
             }
         }
@@ -194,6 +195,8 @@ public class PlayerBehavior : MonoBehaviour
         // check if player is not leafed anymore, disabling leaf effect
         if (playerLeafed == false)
         {
+            leafTapCount = 0;
+            leafTimer = 0.0f;
             leafEffect.SetActive(false);
         }
     }
@@ -217,7 +220,6 @@ public class PlayerBehavior : MonoBehaviour
         else if (other.gameObject.CompareTag("Leaf"))
         {
             playerLeafed = true;
-            leafEffect.SetActive(true);
         }
     }
 }

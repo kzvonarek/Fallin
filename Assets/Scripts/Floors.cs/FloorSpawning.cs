@@ -16,6 +16,9 @@ public class FloorSpawning : MonoBehaviour
     private float setTimer = 0f;
     private int previousSet; // prevent same set from being used twice in a row
     // ----=----
+    [SerializeField] GameObject[] windPrefabSet;
+    private float windTimer = 0f;
+    // ----=----
     private GameObject[] backgrounds; // list of backgrounds
     private int numOfBG; // number of backgrounds in list
     private GameObject skyBG; // to turn on and off depending on theme
@@ -44,6 +47,7 @@ public class FloorSpawning : MonoBehaviour
     {
         setTimer += Time.deltaTime;
         floorTimer += Time.deltaTime;
+        windTimer += Time.deltaTime;
 
         if (setTimer >= 30f)
         {
@@ -71,11 +75,23 @@ public class FloorSpawning : MonoBehaviour
             }
             floorTimer = 0f;
         }
+
+        if (windTimer >= 10f)
+        {
+            SpawnWind();
+            windTimer = 0f;
+        }
     }
 
     void SpawnFloor(int prefabRandSet, int numOfFloors)
     {
         int prefabRandFloor = Random.Range(0, numOfFloors);
         Instantiate(floorPrefabSet[prefabRandSet][prefabRandFloor], transform.position, Quaternion.identity);
+    }
+
+    void SpawnWind()
+    {
+        int prefabRandWind = Random.Range(0, 2);
+        Instantiate(windPrefabSet[prefabRandWind], transform.position, Quaternion.identity);
     }
 }
