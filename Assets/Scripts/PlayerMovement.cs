@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     // functionality with GooBehavior.cs for player being stuck in goo
     [HideInInspector] public bool stuckInGoo;
-    private float gooSpeedMultiplier = 0.005f;
 
     // functionality with BubbleBehavior.cs for player being stuck in bubble
     [HideInInspector] public bool stuckInBubble;
@@ -78,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
                 if (stuckInGoo)
                 {
                     // apply slower movement when in goo
-                    targetVelocity *= gooSpeedMultiplier;
+                    targetVelocity = 0;
                 }
 
                 // apply velocity to the player

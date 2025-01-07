@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class GooBehavior : MonoBehaviour
 {
-    private Vector2 lastInputPosition;
-    private int directionChanges;
-    private bool isDragging;
-    private float swipeStartTime;
-    private float swipeDuration = 1f;
-
     private GameObject player;
     private bool thisGooFloor = false;
+
+    // player taps/clicks vars
+    [SerializeField] float timeFrame;
+    [SerializeField] int neededTaps;
+    private float timer = 0.0f;
+    private int tapCount = 0;
 
     void Start()
     {
@@ -18,94 +18,43 @@ public class GooBehavior : MonoBehaviour
 
     void Update()
     {
+        // behavior if player is stuck in goo
         if (player.GetComponent<PlayerMovement>().stuckInGoo && thisGooFloor)
         {
             player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
 
-            // check for both touch and mouse input
-            if (Input.GetMouseButton(0) || Input.touchCount > 0)
+            // check for mouse click or screen tap
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
-                Vector2 currentInputPosition;
+                tapCount++;
 
-                if (Input.touchCount > 0) // use touch input
+                // reset timer when first tap is detected
+                if (tapCount == 1)
                 {
-                    Touch touch = Input.GetTouch(0);
-                    currentInputPosition = touch.position;
-
-                    if (!isDragging || touch.phase == TouchPhase.Began)
-                    {
-                        startSwipe(currentInputPosition);
-                    }
-                    else if (isDragging && (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary))
-                    {
-                        processSwipe(currentInputPosition);
-                    }
-
-                    if (touch.phase == TouchPhase.Ended)
-                    {
-                        resetSwipe();
-                    }
+                    timer = timeFrame;
                 }
-                else // use mouse input
+            }
+
+            // if timer is running, decrease it
+            if (tapCount > 0)
+            {
+                timer -= Time.deltaTime;
+
+                // remove player from goo if three taps/clicks within time frame
+                if (tapCount == neededTaps)
                 {
-                    currentInputPosition = Input.mousePosition;
+                    player.GetComponent<PlayerMovement>().stuckInGoo = false;
+                    thisGooFloor = false;
+                }
 
-                    if (!isDragging)
-                    {
-                        startSwipe(currentInputPosition);
-                    }
-                    else
-                    {
-                        processSwipe(currentInputPosition);
-                    }
-
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        resetSwipe();
-                    }
+                // if timer expires before three taps/clicks
+                if (timer <= 0)
+                {
+                    tapCount = 0;
+                    timer = 0.0f;
                 }
             }
         }
-    }
-
-    private void startSwipe(Vector2 startPosition)
-    {
-        isDragging = true;
-        lastInputPosition = startPosition;
-        swipeStartTime = Time.time;
-        directionChanges = 0;
-    }
-
-    private void processSwipe(Vector2 currentPosition)
-    {
-        Vector2 delta = currentPosition - lastInputPosition;
-
-        // check for direction change
-        if (delta.x * (lastInputPosition.x - currentPosition.x) < 0)
-        {
-            directionChanges++;
-            lastInputPosition = currentPosition;
-        }
-
-        // check if swipe duration has elapsed
-        if (Time.time - swipeStartTime >= swipeDuration)
-        {
-            if (directionChanges >= 4) // back and forth 2 times
-            {
-                player.GetComponent<PlayerMovement>().stuckInGoo = false;
-                thisGooFloor = false;
-            }
-
-            // reset tracking
-            resetSwipe();
-        }
-    }
-
-    private void resetSwipe()
-    {
-        isDragging = false;
-        directionChanges = 0;
-        swipeStartTime = 0;
     }
 
     void OnTriggerEnter2D(Collider2D other)
