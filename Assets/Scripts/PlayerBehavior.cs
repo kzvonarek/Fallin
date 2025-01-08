@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
@@ -87,13 +86,6 @@ public class PlayerBehavior : MonoBehaviour
                 // calculate velocity to follow the mouse/finger position
                 float targetVelocity = (targetPosition.x - transform.position.x) * speed;
 
-                // check if player is currently in goo, and needs to be slowed down
-                // check if player is stuck in goo
-                if (stuckInGoo)
-                {
-                    // apply slower movement when in goo
-                    targetVelocity = 0;
-                }
                 if (playerLeafed)
                 {
                     targetVelocity *= leafMovementMultiplier;
@@ -203,8 +195,17 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        // move player
-        transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
+        // check if player is currently in goo, and needs to be slowed down
+        if (stuckInGoo)
+        {
+            // apply slower movement when in goo
+            transform.position = new Vector2(transform.position.x, transform.position.y);
+        }
+        else
+        {
+            // move player
+            transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
