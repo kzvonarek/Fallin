@@ -222,5 +222,9 @@ public class PlayerBehavior : MonoBehaviour
         {
             playerLeafed = true;
         }
+        else if (other.gameObject.CompareTag("Wind"))
+        {
+            playerLeafed = false;
+        }
     }
 }

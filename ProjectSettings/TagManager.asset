@@ -25,6 +25,7 @@ TagManager:
   - Pop Zone
   - Leaf
   - Player Arrow
+  - Wind
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class FloorSpawning : MonoBehaviour
     [SerializeField] GameObject[] floorPrefabRed;
     [SerializeField] int numOfFloorsRed;
     private float floorTimer = 0f;
-    [SerializeField] float floorTimerReset = 0f;
+    [SerializeField] float floorTimerReset;
     // ----=----
     private GameObject[][] floorPrefabSet;
     [SerializeField] int numOfFloorSets; // num of different sets of floor prefabs
@@ -18,6 +18,7 @@ public class FloorSpawning : MonoBehaviour
     // ----=----
     [SerializeField] GameObject[] windPrefabSet;
     private float windTimer = 0f;
+    [SerializeField] float windTimerReset;
     // ----=----
     private GameObject[] backgrounds; // list of backgrounds
     private int numOfBG; // number of backgrounds in list
@@ -76,11 +77,11 @@ public class FloorSpawning : MonoBehaviour
             floorTimer = 0f;
         }
 
-        if (windTimer >= 8.45f)
-        {
-            SpawnWind();
-            windTimer = 0f;
-        }
+        // if (windTimer >= windTimerReset)
+        // {
+        //     SpawnWind();
+        //     windTimer = 0f;
+        // }
     }
 
     void SpawnFloor(int prefabRandSet, int numOfFloors)
