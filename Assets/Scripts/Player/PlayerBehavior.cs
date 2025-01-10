@@ -27,8 +27,10 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] GameObject leafEffect;
     [SerializeField] float leafTimeFrame;
     [SerializeField] int neededLeafTaps;
-    private float leafTimer = 0.0f;
+    private float leafTimer;
     private int leafTapCount = 0;
+    private float leafDecayTimer;
+    [SerializeField] float leafDecayTimeFrame;
 
     // Player Arrow behavior
     private GameObject playerArrow;
@@ -50,6 +52,8 @@ public class PlayerBehavior : MonoBehaviour
 
         // allow access to playerArrow
         playerArrow = GameObject.FindGameObjectWithTag("Player Arrow");
+
+        leafDecayTimer = 0f;
     }
 
     void Update()
@@ -150,6 +154,7 @@ public class PlayerBehavior : MonoBehaviour
         if (playerLeafed)
         {
             leafEffect.SetActive(true);
+            leafDecayTimer += Time.deltaTime;
             // check for mouse click or screen tap
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
@@ -180,6 +185,12 @@ public class PlayerBehavior : MonoBehaviour
                     leafTimer = 0.0f;
                 }
             }
+
+            // destroy leaf effect/slow down after time frame
+            if (leafDecayTimer >= leafDecayTimeFrame)
+            {
+                playerLeafed = false;
+            }
         }
 
         // check if player is not leafed anymore, disabling leaf effect
@@ -187,6 +198,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             leafTapCount = 0;
             leafTimer = 0.0f;
+            leafDecayTimer = 0f;
             leafEffect.SetActive(false);
         }
     }

@@ -4641,6 +4641,7 @@ MonoBehaviour:
   leafEffect: {fileID: 1098337534}
   leafTimeFrame: 1
   neededLeafTaps: 3
+  leafDecayTimeFrame: 10
 --- !u!50 &2103723667
 Rigidbody2D:
   serializedVersion: 5
