@@ -18,10 +18,6 @@ public class GooBehavior : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
-        // allow for access to currMini variable
-        miniPowerup = GameObject.FindWithTag("Mini Powerup");
-        pMscript = miniPowerup.GetComponent<PowerupManager>();
     }
 
     void Update()
@@ -29,11 +25,22 @@ public class GooBehavior : MonoBehaviour
         // behavior if player is stuck in goo
         if (player.GetComponent<PlayerBehavior>().stuckInGoo && thisGooFloor)
         {
-            if (pMscript.currMini)
+            // allow for access to currMini variable
+            miniPowerup = GameObject.FindWithTag("Mini Powerup");
+            if (miniPowerup == null)
+            {
+                // do nothing
+            }
+            else
+            {
+                pMscript = miniPowerup.GetComponent<PowerupManager>();
+            }
+
+            if (pMscript != null && pMscript.currMini)
             {
                 player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.3f);
             }
-            else
+            else if (pMscript == null || !pMscript.currMini)
             {
                 player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
             }

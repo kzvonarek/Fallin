@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
     // death functionality
     [SerializeField] GameObject deathMenu;
 
+    // currency (coins/gems) functionality
+    [HideInInspector] public int collectedCoins;
+    [HideInInspector] public int totalCoins;
+    [SerializeField] TextMeshProUGUI collectedCoinsText;
+    [SerializeField] TextMeshProUGUI totalCoinsText;
+
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -35,6 +41,17 @@ public class GameManager : MonoBehaviour
         timeIncTimer = 0f;
         currentTime = 0;
         bestTimeUpdate();
+
+        collectedCoins = 0;
+        // load total coins from PlayerPrefs
+        if (PlayerPrefs.HasKey("Total Coins"))
+        {
+            totalCoins = PlayerPrefs.GetInt("Total Coins");
+        }
+        else
+        {
+            totalCoins = 0; // default value
+        }
     }
 
     void Update()
@@ -49,6 +66,8 @@ public class GameManager : MonoBehaviour
                 vertObjSpeed += objSpeedInc * Time.deltaTime;
             }
         }
+
+        totalCoinsUpdate();
     }
 
     public void pauseGame()
@@ -100,12 +119,14 @@ public class GameManager : MonoBehaviour
             if (currentTime > PlayerPrefs.GetInt("Saved Best Time"))
             {
                 PlayerPrefs.SetInt("Saved Best Time", currentTime);
+                PlayerPrefs.Save();
             }
         }
         else
         {
             // if there is no best time
             PlayerPrefs.SetInt("Saved Best Time", currentTime);
+            PlayerPrefs.Save();
         }
 
         // update associated texts
@@ -114,5 +135,18 @@ public class GameManager : MonoBehaviour
             finalTimeText.text = "Time: " + currentTime.ToString();
         }
         bestTimeText.text = "Best Time: " + PlayerPrefs.GetInt("Saved Best Time").ToString();
+    }
+
+    private void totalCoinsUpdate()
+    {
+        // update associated texts
+        if (SceneManager.GetActiveScene().name == "Game Play")
+        {
+            collectedCoinsText.text = "x" + collectedCoins.ToString();
+        }
+        if (SceneManager.GetActiveScene().name == "Main Menu")
+        {
+            totalCoinsText.text = "Total Coins: " + PlayerPrefs.GetInt("Total Coins").ToString();
+        }
     }
 }

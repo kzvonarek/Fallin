@@ -25,6 +25,11 @@ public class FloorSpawning : MonoBehaviour
     private float powerupTimer = 0f;
     [SerializeField] float powerupTimerReset;
     // ----=----
+    [SerializeField] GameObject currencyObj;
+    private float currencyTimer = 0f;
+    [SerializeField] float currencyTimerReset;
+    // ----=----
+
     private GameObject[] backgrounds; // list of backgrounds
     private int numOfBG; // number of backgrounds in list
     private GameObject skyBG; // to turn on and off depending on theme
@@ -63,6 +68,7 @@ public class FloorSpawning : MonoBehaviour
         floorTimer += Time.deltaTime;
         windTimer += Time.deltaTime;
         powerupTimer += Time.deltaTime;
+        currencyTimer += Time.deltaTime;
 
         if (setTimer >= 30f)
         {
@@ -97,6 +103,12 @@ public class FloorSpawning : MonoBehaviour
             powerupTimer = 0f;
         }
 
+        if (currencyTimer >= currencyTimerReset)
+        {
+            SpawnCurrency();
+            currencyTimer = 0f;
+        }
+
         // if (windTimer >= windTimerReset)
         // {
         //     SpawnWind();
@@ -121,5 +133,11 @@ public class FloorSpawning : MonoBehaviour
         int prefabRandPowerup = Random.Range(0, numOfPowerups);
         float horizSpawnVariance = Random.Range(-3.79f, 3.79f);
         Instantiate(powerupsPrefabSet[prefabRandPowerup], new Vector2(transform.position.x + horizSpawnVariance, transform.position.y), Quaternion.identity);
+    }
+
+    void SpawnCurrency()
+    {
+        float horizSpawnVariance = Random.Range(-3.79f, 3.79f);
+        Instantiate(currencyObj, new Vector2(transform.position.x + horizSpawnVariance, transform.position.y), Quaternion.identity);
     }
 }

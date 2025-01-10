@@ -72,7 +72,7 @@ TagManager:
   - name: Background
     uniqueID: 2400397171
     locked: 0
-  - name: Powerups
+  - name: Collectibles
     uniqueID: 2189425359
     locked: 0
   - name: Player
