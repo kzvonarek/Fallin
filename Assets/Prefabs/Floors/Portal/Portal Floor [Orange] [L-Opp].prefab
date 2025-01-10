@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520490763510464638}
-  - component: {fileID: 4822081724447221129}
+  - component: {fileID: 581050126072540208}
   m_Layer: 0
   m_Name: 'Portal Floor [Orange] [L-Opp]'
   m_TagString: Portal
@@ -182,7 +182,7 @@ Transform:
   - {fileID: 7981743434833513120}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4822081724447221129
+--- !u!114 &581050126072540208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,9 +191,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3968169666541414045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bb8ac223666f4e6fa4a4126d0a733ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f54db4a0724043d2a1f973da554f9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMovingFloor: 0
+  frequency: 0
+  amplitude: 0
+  variance: 0
 --- !u!1 &7236700579355770179
 GameObject:
   m_ObjectHideFlags: 0
