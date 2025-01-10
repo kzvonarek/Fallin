@@ -28,6 +28,7 @@ TagManager:
   - Wind
   - Mini Powerup
   - Bomb Powerup
+  - Floor
   layers:
   - Default
   - TransparentFX
