@@ -4850,9 +4850,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
   speed: 7
-  maxSpeed: 19
+  maxSpeed: 20
   drag: 0.97
-  holdThreshold: 0.25
+  holdThreshold: 0.2
   playerFloatSpeed: 2
   stuckInGoo: 0
   stuckInBubble: 0

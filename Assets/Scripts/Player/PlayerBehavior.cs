@@ -25,7 +25,7 @@ public class PlayerBehavior : MonoBehaviour
     private bool playerLeafed;
     [SerializeField] float leafMovementMultiplier;
     [SerializeField] GameObject leafEffect;
-    [SerializeField] float leafTimeFrame;
+    private float leafTimeFrame = 1f;
     [SerializeField] int neededLeafTaps;
     private float leafTimer;
     private int leafTapCount = 0;
