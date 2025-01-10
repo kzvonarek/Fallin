@@ -30,6 +30,7 @@ TagManager:
   - Bomb Powerup
   - Floor
   - Shield Powerup
+  - Jump Powerup
   layers:
   - Default
   - TransparentFX

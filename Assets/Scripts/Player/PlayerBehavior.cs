@@ -13,7 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     // functionality with PortalBehavior.cs for floating upwards
     private Rigidbody2D rb;
     private float playerOrigYPos;
-    [SerializeField] float playerFloatSpeed;
+    [SerializeField] float playerFloatSpeed; // also used for goo to float downwards
 
     // functionality with GooBehavior.cs for player being stuck in goo
     [HideInInspector] public bool stuckInGoo;
@@ -36,7 +36,6 @@ public class PlayerBehavior : MonoBehaviour
     // funtionality with GameManager.cs for dead() function
     private GameObject gameManagerObj;
     private GameManager gMscript;
-
 
     void Start()
     {
@@ -103,7 +102,6 @@ public class PlayerBehavior : MonoBehaviour
         }
 
         //-----=-----
-
         //PLAYER FLOATING UP
         //apply upward movement if player is below original Y position
         if (rb.position.y < playerOrigYPos - 0.1)

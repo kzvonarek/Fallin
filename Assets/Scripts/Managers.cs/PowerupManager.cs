@@ -14,8 +14,8 @@ public class PowerupManager : MonoBehaviour
     private bool currShielded;
     [SerializeField] float shieldTimer;
 
-    // bomb powerup
-    private bool destroyFloors;
+    // jump powerup
+    [SerializeField] float jumpForce;
 
     void Start()
     {
@@ -27,14 +27,6 @@ public class PowerupManager : MonoBehaviour
 
         // shield powerup
         currShielded = false;
-
-        // bomb powerup
-        destroyFloors = false;
-    }
-
-    void Update()
-    {
-
     }
 
     private IEnumerator WaitAndRevert(float waitTime)
@@ -65,7 +57,7 @@ public class PowerupManager : MonoBehaviour
         {
             uncollected = false;
 
-            // mini powerup
+            // mini powerup (make player small)
             if (this.gameObject.CompareTag("Mini Powerup"))
             {
                 other.gameObject.transform.localScale = new Vector3(1.671797f, 1.671797f, 1.671797f); // player
@@ -75,7 +67,7 @@ public class PowerupManager : MonoBehaviour
                 StartCoroutine(WaitAndRevert(miniTimer));
             }
 
-            // shield powerup
+            // shield powerup (allow temporary immunity to all objects)
             if (this.gameObject.CompareTag("Shield Powerup"))
             {
                 other.transform.Find("Shield Effect").gameObject.SetActive(true); // player
@@ -86,12 +78,9 @@ public class PowerupManager : MonoBehaviour
                 StartCoroutine(WaitAndRevert(shieldTimer));
             }
 
-            // bomb powerup
+            // bomb powerup (destroy all floors)
             if (this.gameObject.CompareTag("Bomb Powerup"))
             {
-                Destroy(gameObject);
-                destroyFloors = true;
-
                 GameObject[] floors = GameObject.FindGameObjectsWithTag("Floor");
                 foreach (GameObject floor in floors)
                 {
@@ -101,7 +90,17 @@ public class PowerupManager : MonoBehaviour
                     }
                     Destroy(floor);
                 }
-                destroyFloors = false;
+
+                Destroy(gameObject);
+            }
+
+            // jump powerup (push player upwards)
+            if (this.gameObject.CompareTag("Jump Powerup"))
+            {
+                other.transform.position = new Vector2(other.transform.position.x,
+                other.transform.position.y + jumpForce); // player
+
+                Destroy(gameObject);
             }
         }
 
