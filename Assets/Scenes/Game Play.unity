@@ -1720,6 +1720,14 @@ MonoBehaviour:
   - {fileID: 1171717932766091783, guid: 49e5bed1d0134492a87124ab67e7ceb6, type: 3}
   - {fileID: 2581489207810674181, guid: e4086712805e24ce9a989f8c58be7515, type: 3}
   windTimerReset: 8.45
+  powerupsPrefabSet:
+  - {fileID: 7436416889876410596, guid: 0d76140bb3ee0427e86d987faded3e08, type: 3}
+  - {fileID: 1645556238673059676, guid: 65ee08a34ee144201bc738bb9298a5b1, type: 3}
+  - {fileID: 7616512633508796299, guid: e4373a120c20b4c40a15c79c29936aeb, type: 3}
+  - {fileID: 5675348076927913807, guid: 9a4b5fbbe061a48429369d45d63592a2, type: 3}
+  - {fileID: 3089503080316064179, guid: 22a78e161cadf469384fd7a2a09765f9, type: 3}
+  numOfPowerups: 5
+  powerupTimerReset: 20
 --- !u!1 &918370075
 GameObject:
   m_ObjectHideFlags: 0
