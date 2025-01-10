@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class FloorMovement : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class FloorMovement : MonoBehaviour
 
     void Start()
     {
-        // allow for access to vertObjSpeed variable
+        // allow for access to vertObjSpeed and currSlowedTime variable
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
 
@@ -30,9 +31,8 @@ public class FloorMovement : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
         }
-        else if (isMovingFloor)
+        else if (isMovingFloor) // move back and forth if is a moving floor
         {
-            // move back and forth if is a moving floor
             transform.position = new Vector2(variance * (amplitude * Mathf.Sin(Time.time * frequency)), transform.position.y + gMscript.vertObjSpeed * Time.deltaTime);
         }
     }

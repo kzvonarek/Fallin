@@ -140,7 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniTimer: 0
   shieldTimer: 0
-  jumpForce: 20
+  jumpForce: 2.5
+  slowdownTimer: 0
 --- !u!114 &6211734573622208775
 MonoBehaviour:
   m_ObjectHideFlags: 0

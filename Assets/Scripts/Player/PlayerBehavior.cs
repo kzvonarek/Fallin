@@ -33,7 +33,7 @@ public class PlayerBehavior : MonoBehaviour
     // Player Arrow behavior
     private GameObject playerArrow;
 
-    // funtionality with GameManager.cs for dead() function
+    // funtionality with GameManager.cs for dead() function and currSlowedTime variable
     private GameObject gameManagerObj;
     private GameManager gMscript;
 
@@ -193,15 +193,15 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        // check if player is currently in goo, and needs to be slowed down
+        // check if player is currently in goo, and needs to be slowed down completely
         if (stuckInGoo)
         {
-            // apply slower movement when in goo
+            // apply no movement when in goo
             transform.position = new Vector2(transform.position.x, transform.position.y);
         }
         else
         {
-            // move player
+            // move player L/R
             transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
         }
     }

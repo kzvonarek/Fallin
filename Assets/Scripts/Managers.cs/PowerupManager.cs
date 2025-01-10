@@ -17,6 +17,10 @@ public class PowerupManager : MonoBehaviour
     // jump powerup
     [SerializeField] float jumpForce;
 
+    // slowdown powerup
+    [SerializeField] float slowdownTimer;
+    private bool slowTime;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -27,6 +31,9 @@ public class PowerupManager : MonoBehaviour
 
         // shield powerup
         currShielded = false;
+
+        // slowdown powerup
+        slowTime = false;
     }
 
     private IEnumerator WaitAndRevert(float waitTime)
@@ -47,6 +54,14 @@ public class PowerupManager : MonoBehaviour
             player.transform.Find("Shield Effect").gameObject.SetActive(false);
             player.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
             currShielded = false;
+            Destroy(gameObject);
+        }
+
+        // slowdown powerup
+        if (slowTime)
+        {
+            Time.timeScale = 1f;
+            slowTime = false;
             Destroy(gameObject);
         }
     }
@@ -76,6 +91,16 @@ public class PowerupManager : MonoBehaviour
                 Destroy(transform.Find("Shield Powerup Sprite").gameObject);
 
                 StartCoroutine(WaitAndRevert(shieldTimer));
+            }
+
+            // slowdown powerup (temporary slowing of player/floor movement)
+            if (this.gameObject.CompareTag("Slowdown Powerup"))
+            {
+                slowTime = true;
+                Time.timeScale = 0.5f;
+                Destroy(transform.Find("Slowdown Powerup Sprite").gameObject);
+
+                StartCoroutine(WaitAndRevert(slowdownTimer));
             }
 
             // bomb powerup (destroy all floors)

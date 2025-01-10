@@ -24,6 +24,10 @@ public class FloorSpawning : MonoBehaviour
     private int numOfBG; // number of backgrounds in list
     private GameObject skyBG; // to turn on and off depending on theme
     private GameObject caveBG;
+    // ----=----
+    // access to GameManager.cs for currSlowedTime variable
+    private GameObject gameManagerObj;
+    private GameManager gMscript;
 
     void Start()
     {
@@ -42,6 +46,10 @@ public class FloorSpawning : MonoBehaviour
         {
             backgrounds[i].SetActive(false);
         }
+
+        // allow for access to vertObjSpeed and currSlowedTime variable
+        gameManagerObj = GameObject.FindWithTag("Game Manager");
+        gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
