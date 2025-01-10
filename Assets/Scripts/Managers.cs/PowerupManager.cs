@@ -8,6 +8,11 @@ public class PowerupManager : MonoBehaviour
 
     // mini powerup
     private bool currMini;
+    [SerializeField] float miniTimer;
+
+    // shield powerup
+    private bool currShielded;
+    [SerializeField] float shieldTimer;
 
     // bomb powerup
     private bool destroyFloors;
@@ -20,18 +25,16 @@ public class PowerupManager : MonoBehaviour
         // mini powerup
         currMini = false;
 
+        // shield powerup
+        currShielded = false;
+
         // bomb powerup
         destroyFloors = false;
-
     }
 
     void Update()
     {
-        // bomb powerup
-        if (destroyFloors)
-        {
 
-        }
     }
 
     private IEnumerator WaitAndRevert(float waitTime)
@@ -42,6 +45,16 @@ public class PowerupManager : MonoBehaviour
         if (currMini)
         {
             player.gameObject.transform.localScale = new Vector3(3.343594f, 3.343594f, 3.343594f);
+            currMini = false;
+            Destroy(gameObject);
+        }
+
+        // shield powerup
+        if (currShielded)
+        {
+            player.transform.Find("Shield Effect").gameObject.SetActive(false);
+            player.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+            currShielded = false;
             Destroy(gameObject);
         }
     }
@@ -55,11 +68,22 @@ public class PowerupManager : MonoBehaviour
             // mini powerup
             if (this.gameObject.CompareTag("Mini Powerup"))
             {
-                other.gameObject.transform.localScale = new Vector3(1.671797f, 1.671797f, 1.671797f);
+                other.gameObject.transform.localScale = new Vector3(1.671797f, 1.671797f, 1.671797f); // player
                 currMini = true;
                 Destroy(transform.Find("Mini Powerup Sprite").gameObject);
 
-                StartCoroutine(WaitAndRevert(6.0f));
+                StartCoroutine(WaitAndRevert(miniTimer));
+            }
+
+            // shield powerup
+            if (this.gameObject.CompareTag("Shield Powerup"))
+            {
+                other.transform.Find("Shield Effect").gameObject.SetActive(true); // player
+                other.gameObject.GetComponent<PolygonCollider2D>().enabled = false; // player
+                currShielded = true;
+                Destroy(transform.Find("Shield Powerup Sprite").gameObject);
+
+                StartCoroutine(WaitAndRevert(shieldTimer));
             }
 
             // bomb powerup

@@ -29,6 +29,7 @@ TagManager:
   - Mini Powerup
   - Bomb Powerup
   - Floor
+  - Shield Powerup
   layers:
   - Default
   - TransparentFX
