@@ -26,6 +26,8 @@ TagManager:
   - Leaf
   - Player Arrow
   - Wind
+  - Mini Powerup
+  - Bomb Powerup
   layers:
   - Default
   - TransparentFX
@@ -65,6 +67,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2400397171
+    locked: 0
+  - name: Powerups
+    uniqueID: 2189425359
     locked: 0
   - name: Player
     uniqueID: 318868707
