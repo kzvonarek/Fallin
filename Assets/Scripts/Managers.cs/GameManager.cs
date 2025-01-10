@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         Time.timeScale = 1;
+        Time.fixedDeltaTime = 0.02f;
 
         timeIncTimer = 0f;
         currentTime = 0;

@@ -7,7 +7,7 @@ public class PowerupManager : MonoBehaviour
     private bool uncollected;
 
     // mini powerup
-    private bool currMini;
+    [HideInInspector] public bool currMini;
     [SerializeField] float miniTimer;
 
     // shield powerup
@@ -61,6 +61,7 @@ public class PowerupManager : MonoBehaviour
         if (slowTime)
         {
             Time.timeScale = 1f;
+            Time.fixedDeltaTime = 0.02f;
             slowTime = false;
             Destroy(gameObject);
         }
@@ -77,7 +78,15 @@ public class PowerupManager : MonoBehaviour
             {
                 other.gameObject.transform.localScale = new Vector3(1.671797f, 1.671797f, 1.671797f); // player
                 currMini = true;
-                Destroy(transform.Find("Mini Powerup Sprite").gameObject);
+
+                if (transform.Find("Mini Powerup Sprite") != null)
+                {
+                    Transform miniSpriteTransform = transform.Find("Mini Powerup Sprite");
+                    if (miniSpriteTransform != null)
+                    {
+                        Destroy(miniSpriteTransform.gameObject);
+                    }
+                }
 
                 StartCoroutine(WaitAndRevert(miniTimer));
             }
@@ -88,7 +97,15 @@ public class PowerupManager : MonoBehaviour
                 other.transform.Find("Shield Effect").gameObject.SetActive(true); // player
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false; // player
                 currShielded = true;
-                Destroy(transform.Find("Shield Powerup Sprite").gameObject);
+
+                if (transform.Find("Shield Powerup Sprite") != null)
+                {
+                    Transform shieldSpriteTransform = transform.Find("Shield Powerup Sprite");
+                    if (shieldSpriteTransform != null)
+                    {
+                        Destroy(shieldSpriteTransform.gameObject);
+                    }
+                }
 
                 StartCoroutine(WaitAndRevert(shieldTimer));
             }
@@ -98,7 +115,16 @@ public class PowerupManager : MonoBehaviour
             {
                 slowTime = true;
                 Time.timeScale = 0.5f;
-                Destroy(transform.Find("Slowdown Powerup Sprite").gameObject);
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+                if (transform.Find("Slowdown Powerup Sprite") != null)
+                {
+                    Transform slowdownSpriteTransform = transform.Find("Slowdown Powerup Sprite");
+                    if (slowdownSpriteTransform != null)
+                    {
+                        Destroy(slowdownSpriteTransform.gameObject);
+                    }
+                }
 
                 StartCoroutine(WaitAndRevert(slowdownTimer));
             }

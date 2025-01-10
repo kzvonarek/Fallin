@@ -11,9 +11,17 @@ public class GooBehavior : MonoBehaviour
     private float timer = 0.0f;
     private int tapCount = 0;
 
+    // access to currMini variable
+    private GameObject miniPowerup;
+    private PowerupManager pMscript;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        // allow for access to currMini variable
+        miniPowerup = GameObject.FindWithTag("Mini Powerup");
+        pMscript = miniPowerup.GetComponent<PowerupManager>();
     }
 
     void Update()
@@ -21,7 +29,14 @@ public class GooBehavior : MonoBehaviour
         // behavior if player is stuck in goo
         if (player.GetComponent<PlayerBehavior>().stuckInGoo && thisGooFloor)
         {
-            player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
+            if (pMscript.currMini)
+            {
+                player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.3f);
+            }
+            else
+            {
+                player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
+            }
 
             // check for mouse click or screen tap
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
