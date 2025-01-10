@@ -4,31 +4,47 @@ public class PortalBehavior : MonoBehaviour
 {
     // portal exit and entrance
     [SerializeField] bool isEntrance;
-    private GameObject portalExit;
+    private GameObject player;
+    private Transform portalExit;
 
     void Start()
     {
-        // find correct portal exit within parent object
+        player = GameObject.FindGameObjectWithTag("Player");
         if (isEntrance)
         {
-            // assume exit is other child under parent w/ correct tag
-            Transform parentTransform = transform.parent;
-            foreach (Transform child in parentTransform)
-            {
-                if (child != transform && child.CompareTag("Portal Exit"))
-                {
-                    portalExit = child.gameObject;
-                    break;
-                }
-            }
+            portalExit = transform.parent.Find("Portal Exit");
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isEntrance && other.gameObject.CompareTag("Player")) // portal Entrance
+        if (isEntrance && other.gameObject.CompareTag("Player")) // find portal exit's corresponding exit
         {
-            other.transform.position = new Vector2(portalExit.transform.position.x, portalExit.transform.position.y);
+            string targetExitName = "";
+            switch (this.name)
+            {
+                case "Portal Entrance L":
+                    targetExitName = "Portal Exit R";
+                    break;
+                case "Portal Entrance B":
+                    targetExitName = "Portal Exit B";
+                    break;
+                case "Portal Entrance T":
+                    targetExitName = "Portal Exit B";
+                    break;
+                case "Portal Entrance R":
+                    targetExitName = "Portal Exit L";
+                    break;
+                default:
+                    Debug.LogError("Invalid");
+                    return;
+            }
+
+            Transform targetExit = portalExit.transform.Find(targetExitName);
+            other.transform.position = targetExit.position;
+            // player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+            // player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            // player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         // destroy both portal parts on collision with 'Destroy Zone'
