@@ -42,6 +42,7 @@ public class PowerupManager : MonoBehaviour
         if (currMini)
         {
             player.gameObject.transform.localScale = new Vector3(3.343594f, 3.343594f, 3.343594f);
+            Destroy(gameObject);
         }
     }
 
@@ -56,7 +57,7 @@ public class PowerupManager : MonoBehaviour
             {
                 other.gameObject.transform.localScale = new Vector3(1.671797f, 1.671797f, 1.671797f);
                 currMini = true;
-                Destroy(gameObject);
+                Destroy(transform.Find("Mini Powerup Sprite").gameObject);
 
                 StartCoroutine(WaitAndRevert(6.0f));
             }
