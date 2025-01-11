@@ -1706,7 +1706,13 @@ MonoBehaviour:
   - {fileID: 1469022633655907363, guid: 8bd033ec5639c433cb75f6a551341721, type: 3}
   - {fileID: 6865724166338447831, guid: 912c24f22a5b14601a89254cb42ce422, type: 3}
   - {fileID: 5452521628292158541, guid: ff588b94cf7f344219d48ad62572967f, type: 3}
-  numOfFloorsOrange: 24
+  - {fileID: 7809016369680203316, guid: 006eafc29c39e4879b5e9d4ef177dfe2, type: 3}
+  - {fileID: 2072911762119220529, guid: a8ef3176a943f4ca0ac99715ad82dc01, type: 3}
+  - {fileID: 3789773802830347461, guid: 782856f7148a74fba8dd98e97830a5b9, type: 3}
+  - {fileID: 6548167404383805130, guid: 75604e9ee085c4ea6b16db3089d22313, type: 3}
+  - {fileID: 7331033183506998228, guid: 9eb5af4052a9e4f03a8debf26349e15d, type: 3}
+  - {fileID: 7211400437111996846, guid: 912e209c51d094b2399f7820c88d24cf, type: 3}
+  numOfFloorsOrange: 30
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
@@ -4859,7 +4865,7 @@ MonoBehaviour:
   stuckInBubble: 0
   leafMovementMultiplier: 0.25
   leafEffect: {fileID: 1098337534}
-  neededLeafTaps: 3
+  neededLeafTaps: 2
   leafDecayTimeFrame: 10
 --- !u!50 &2103723667
 Rigidbody2D:
