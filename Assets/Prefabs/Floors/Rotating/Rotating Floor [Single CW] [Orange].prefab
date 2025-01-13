@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 9045323342236318344}
   - component: {fileID: 4732713297859509781}
   m_Layer: 0
-  m_Name: 'Rotating Floor [Single R] [Orange]'
+  m_Name: 'Rotating Floor [Single CW] [Orange]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

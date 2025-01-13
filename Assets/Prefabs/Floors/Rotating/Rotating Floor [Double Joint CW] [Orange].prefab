@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4317033722471935363}
   - component: {fileID: 5482948016705694712}
   m_Layer: 0
-  m_Name: 'Rotating Floor [Double Joint R] [Orange]'
+  m_Name: 'Rotating Floor [Double Joint CW] [Orange]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
