@@ -1718,8 +1718,8 @@ MonoBehaviour:
   - {fileID: 7431077092045063809, guid: 194f2ce53978d4177bded343c962255c, type: 3}
   - {fileID: 2985820066826225170, guid: 5beb361350db348d4b1ebe8d9f30f9a6, type: 3}
   - {fileID: 537805964227583635, guid: 2440b1266b8454e43ac20103b61f1129, type: 3}
-  - {fileID: 136904750501516764, guid: 388e70f68d9d04c56a11f36c84087689, type: 3}
-  - {fileID: 6860908159408504369, guid: 0f9d1e27d13eb41b3879cd45a977576d, type: 3}
+  - {fileID: 2856518085313715532, guid: 069131ba83d3d4df6bc45183e002d39b, type: 3}
+  - {fileID: 4716111312074782965, guid: 80e7faa1e7b384e39b2a64a1bc2e637c, type: 3}
   numOfFloorsOrange: 38
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
@@ -4868,7 +4868,7 @@ MonoBehaviour:
   maxSpeed: 20
   drag: 0.97
   holdThreshold: 0.2
-  playerFloatSpeed: 2
+  playerFloatSpeed: 3.5
   stuckInGoo: 0
   stuckInBubble: 0
   leafMovementMultiplier: 0.25
