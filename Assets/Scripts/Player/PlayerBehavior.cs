@@ -2,6 +2,8 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
+
+    // player movement
     [SerializeField] float speed; // speed to follow mouse/finger
     [SerializeField] float maxSpeed; // max speed to follow mouse/finger
     [SerializeField] float drag; // friction on mouse/finger release
@@ -58,7 +60,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void Update()
     {
-        // PLAYER DRAGGING (back and forth)
+        // PLAYER DRAGGING (back and forth movement condition)
         isDragging = false;
         Vector2 inputPosition = Vector2.zero;
 
@@ -72,8 +74,14 @@ public class PlayerBehavior : MonoBehaviour
         // check if there is at least one finger holding screen
         else if (Input.touchCount > 0)
         {
-            isDragging = true;
-            inputPosition = Input.GetTouch(0).position;
+            Touch touch = Input.GetTouch(0);
+
+            // ensure touch is valid
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            {
+                isDragging = true;
+                inputPosition = touch.position;
+            }
         }
 
         if (isDragging)
@@ -106,6 +114,7 @@ public class PlayerBehavior : MonoBehaviour
         }
 
         //-----=-----
+
         //PLAYER FLOATING UP
         //apply upward movement if player is below original Y position
         if (rb.position.y < playerOrigYPos - 0.1)
@@ -131,13 +140,15 @@ public class PlayerBehavior : MonoBehaviour
 
         //-----=-----
 
+        // PLAYER SCREEN POSITION CHECKS
+
         // check if player exceeds top of screen, if true -> end game
         if (transform.position.y >= 16f)
         {
             gMscript.death();
         }
 
-        // check if player is out of screen vision, if true -> show player arrow
+        // check if player is out of screen view, if true -> show player arrow
         if (transform.position.y >= 10f)
         {
             playerArrow.SetActive(true);
@@ -148,6 +159,7 @@ public class PlayerBehavior : MonoBehaviour
         }
 
         //-----=-----
+
         // LEAF FLOOR BEHAVIOR
 
         // behavior if player has 'leaves' stuck on them
@@ -155,15 +167,30 @@ public class PlayerBehavior : MonoBehaviour
         {
             leafEffect.SetActive(true);
             leafDecayTimer += Time.deltaTime;
-            // check for mouse click or screen tap
-            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+
+            // check for mouse click
+            if (Input.GetMouseButtonDown(0))
             {
                 leafTapCount++;
-
-                // reset timer when first tap is detected
+                // reset timer when the first tap is detected
                 if (leafTapCount == 1)
                 {
                     leafTimer = leafTimeFrame;
+                }
+            }
+
+            // check for screen tap
+            if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+            {
+                Touch touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Began)
+                {
+                    leafTapCount++;
+                    // reset timer when the first tap is detected
+                    if (leafTapCount == 1)
+                    {
+                        leafTimer = leafTimeFrame;
+                    }
                 }
             }
 
@@ -186,7 +213,7 @@ public class PlayerBehavior : MonoBehaviour
                 }
             }
 
-            // destroy leaf effect/slow down after time frame
+            // destroy leaf effect/slow down after decay time frame
             if (leafDecayTimer >= leafDecayTimeFrame)
             {
                 playerLeafed = false;
