@@ -4868,7 +4868,7 @@ MonoBehaviour:
   maxSpeed: 20
   drag: 0.97
   holdThreshold: 0.2
-  playerFloatSpeed: 3.5
+  playerFloatSpeed: 3
   stuckInGoo: 0
   stuckInBubble: 0
   leafMovementMultiplier: 0.25
