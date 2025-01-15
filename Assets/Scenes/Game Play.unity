@@ -1720,7 +1720,9 @@ MonoBehaviour:
   - {fileID: 537805964227583635, guid: 2440b1266b8454e43ac20103b61f1129, type: 3}
   - {fileID: 2856518085313715532, guid: 069131ba83d3d4df6bc45183e002d39b, type: 3}
   - {fileID: 4716111312074782965, guid: 80e7faa1e7b384e39b2a64a1bc2e637c, type: 3}
-  numOfFloorsOrange: 38
+  - {fileID: 7842624046449517458, guid: 52ab9bd22e6b5490ca7594b77084ce97, type: 3}
+  - {fileID: 8416322860394269057, guid: f57d88b821ee3452fbe31f9d3c7da6ce, type: 3}
+  numOfFloorsOrange: 40
   floorPrefabRed:
   - {fileID: 3456991837018437808, guid: 64dbbcb9f404a4b32bb55b4c0499fff5, type: 3}
   - {fileID: 8346689242697058537, guid: 73de8f126dc3942ba8550500ffabb0c7, type: 3}
