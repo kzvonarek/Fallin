@@ -20,14 +20,6 @@ public class BubbleBehavior : MonoBehaviour
 
     void Update()
     {
-        // automatically pop bubble if it goes off screen
-        if (gameObject.transform.position.y >= 17)
-        {
-            Destroy(gameObject);
-        }
-
-        // ----====----
-
         // allow player to manually pop bubble (Mobile)
         if (Input.touchCount > 0)
         {

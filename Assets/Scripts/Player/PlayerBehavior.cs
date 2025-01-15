@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 public class PlayerBehavior : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
@@ -34,12 +35,17 @@ public class PlayerBehavior : MonoBehaviour
     private float leafDecayTimer;
     [SerializeField] float leafDecayTimeFrame;
 
-    // Player Arrow behavior
+    // player Arrow behavior
     private GameObject playerArrow;
 
     // funtionality with GameManager.cs for dead() function and currSlowedTime variable
     private GameObject gameManagerObj;
     private GameManager gMscript;
+
+    // Cloud floor behavior
+    [SerializeField] float cloudJumpForce;
+    private bool playerClouded;
+
 
     void Start()
     {
@@ -115,27 +121,30 @@ public class PlayerBehavior : MonoBehaviour
 
         //-----=-----
 
-        //PLAYER FLOATING UP
-        //apply upward movement if player is below original Y position
-        if (rb.position.y < playerOrigYPos - 0.1)
+        if (!playerClouded)
         {
-            // set a velocity to float the player upwards gradually
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeed);
-        }
-        // PLAYER FLOATING DOWN
-        // apply downward movement if player is above original Y position
-        else if (rb.position.y > playerOrigYPos + 0.1)
-        {
-            if (!stuckInGoo || !stuckInBubble)
+            //PLAYER FLOATING UP
+            //apply upward movement if player is below original Y position
+            if (rb.position.y < playerOrigYPos - 0.1)
             {
                 // set a velocity to float the player upwards gradually
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeed);
             }
-        }
-        else
-        {
-            // stop movement when player reaches original Y position
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+            // PLAYER FLOATING DOWN
+            // apply downward movement if player is above original Y position
+            else if (rb.position.y > playerOrigYPos + 0.1)
+            {
+                if (!stuckInGoo || !stuckInBubble)
+                {
+                    // set a velocity to float the player upwards gradually
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
+                }
+            }
+            else
+            {
+                // stop movement when player reaches original Y position
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+            }
         }
 
         //-----=-----
@@ -243,6 +252,12 @@ public class PlayerBehavior : MonoBehaviour
             // move player L/R
             transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
         }
+
+        if (playerClouded)
+        {
+            rb.AddForce(Vector2.up * cloudJumpForce, ForceMode2D.Impulse);
+            StartCoroutine(ResetPlayerClouded());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -263,5 +278,15 @@ public class PlayerBehavior : MonoBehaviour
         {
             playerLeafed = false;
         }
+        else if (other.gameObject.CompareTag("Cloud")) // Cloud Floor Behavior
+        {
+            playerClouded = true;
+        }
+    }
+
+    private IEnumerator ResetPlayerClouded()
+    {
+        yield return new WaitForSeconds(0.2f); // wait for cloudJumpForce to apply
+        playerClouded = false;
     }
 }

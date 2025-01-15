@@ -32,6 +32,7 @@ TagManager:
   - Shield Powerup
   - Jump Powerup
   - Slowdown Powerup
+  - Cloud
   layers:
   - Default
   - TransparentFX

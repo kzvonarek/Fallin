@@ -14,7 +14,7 @@ public class PowerupManager : MonoBehaviour
     private bool currShielded;
     [SerializeField] float shieldTimer;
 
-    // jump powerup
+    // jump powerup (replaced by Cloud)
     [SerializeField] float jumpForce;
 
     // slowdown powerup
@@ -146,6 +146,7 @@ public class PowerupManager : MonoBehaviour
             }
 
             // jump powerup (push player upwards)
+            // replaced by Cloud (still here temporarily)
             if (this.gameObject.CompareTag("Jump Powerup"))
             {
                 other.transform.position = new Vector2(other.transform.position.x,
