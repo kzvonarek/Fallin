@@ -176,6 +176,9 @@ public class PowerupManager : MonoBehaviour
             // bomb powerup (destroy all floors)
             if (this.gameObject.CompareTag("Bomb Powerup"))
             {
+                powerupActive = false;
+                powerupTimerObj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().enabled = false;
+
                 GameObject[] floors = GameObject.FindGameObjectsWithTag("Floor");
                 foreach (GameObject floor in floors)
                 {
@@ -193,6 +196,9 @@ public class PowerupManager : MonoBehaviour
             // replaced by Cloud (still here temporarily)
             if (this.gameObject.CompareTag("Jump Powerup"))
             {
+                powerupActive = false;
+                powerupTimerObj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().enabled = false;
+
                 other.transform.position = new Vector2(other.transform.position.x,
                 other.transform.position.y + jumpForce); // player
 
