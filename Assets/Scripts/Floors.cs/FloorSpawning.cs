@@ -16,9 +16,9 @@ public class FloorSpawning : MonoBehaviour
     private float setTimer = 0f;
     private int previousSet; // prevent same set from being used twice in a row
     // ----=----
-    [SerializeField] GameObject[] windPrefabSet;
-    private float windTimer = 0f;
-    [SerializeField] float windTimerReset;
+    // [SerializeField] GameObject[] windPrefabSet;
+    // private float windTimer = 0f;
+    // [SerializeField] float windTimerReset;
     // ----=----
     [SerializeField] GameObject[] powerupsPrefabSet;
     [SerializeField] int numOfPowerups;
@@ -66,9 +66,9 @@ public class FloorSpawning : MonoBehaviour
     {
         setTimer += Time.deltaTime;
         floorTimer += Time.deltaTime;
-        windTimer += Time.deltaTime;
         powerupTimer += Time.deltaTime;
         currencyTimer += Time.deltaTime;
+        // windTimer += Time.deltaTime;
 
         // if (setTimer >= 30f)
         // {
@@ -122,11 +122,11 @@ public class FloorSpawning : MonoBehaviour
         Instantiate(floorPrefabSet[prefabRandSet][prefabRandFloor], transform.position, Quaternion.identity);
     }
 
-    void SpawnWind()
-    {
-        int prefabRandWind = Random.Range(0, 2);
-        Instantiate(windPrefabSet[prefabRandWind], transform.position, Quaternion.identity);
-    }
+    // void SpawnWind()
+    // {
+    //     int prefabRandWind = Random.Range(0, 2);
+    //     Instantiate(windPrefabSet[prefabRandWind], transform.position, Quaternion.identity);
+    // }
 
     void SpawnPowerup()
     {

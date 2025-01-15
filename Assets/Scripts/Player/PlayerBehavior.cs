@@ -244,7 +244,7 @@ public class PlayerBehavior : MonoBehaviour
         // check if player is currently in goo, and needs to be slowed down completely
         if (stuckInGoo)
         {
-            // apply no movement when in goo
+            // apply no player movement when in goo
             transform.position = new Vector2(transform.position.x, transform.position.y);
         }
         else
