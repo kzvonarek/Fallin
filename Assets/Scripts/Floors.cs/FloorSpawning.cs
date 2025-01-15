@@ -70,19 +70,19 @@ public class FloorSpawning : MonoBehaviour
         powerupTimer += Time.deltaTime;
         currencyTimer += Time.deltaTime;
 
-        if (setTimer >= 30f)
-        {
-            while (prefabRandSet == previousSet)
-            {
-                prefabRandSet = Random.Range(0, numOfFloorSets);
-            }
+        // if (setTimer >= 30f)
+        // {
+        //     while (prefabRandSet == previousSet)
+        //     {
+        //         prefabRandSet = Random.Range(0, numOfFloorSets);
+        //     }
 
-            backgrounds[previousSet].SetActive(false); // deactivate prev. bg
-            backgrounds[prefabRandSet].SetActive(true); // activate curr. bg
+        //     backgrounds[previousSet].SetActive(false); // deactivate prev. bg
+        //     backgrounds[prefabRandSet].SetActive(true); // activate curr. bg
 
-            previousSet = prefabRandSet;
-            setTimer = 0;
-        }
+        //     previousSet = prefabRandSet;
+        //     setTimer = 0;
+        // }
 
         if (floorTimer >= floorTimerReset)
         {
