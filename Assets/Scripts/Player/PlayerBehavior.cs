@@ -35,17 +35,16 @@ public class PlayerBehavior : MonoBehaviour
     private float leafDecayTimer;
     [SerializeField] float leafDecayTimeFrame;
 
-    // player Arrow behavior
+    // player arrow behavior
     private GameObject playerArrow;
 
     // funtionality with GameManager.cs for dead() function and currSlowedTime variable
     private GameObject gameManagerObj;
     private GameManager gMscript;
 
-    // Cloud floor behavior
+    // cloud floor behavior
     [SerializeField] float cloudJumpForce;
     private bool playerClouded;
-
 
     void Start()
     {

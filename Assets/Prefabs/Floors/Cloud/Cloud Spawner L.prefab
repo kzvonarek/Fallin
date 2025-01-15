@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3021850838454029324}
   - component: {fileID: 2298630801426341866}
   m_Layer: 0
-  m_Name: Cloud Launcher L
+  m_Name: Cloud Spawner L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,6 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5398b52cdfdd4affaae9ed6ea32c40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudTimerReset: 5
+  cloudTimerReset: 4
   cloudPreset: {fileID: 613517513545368744, guid: 8b717db224c954fd2b1863f9a0155190, type: 3}
   isLeftSpawner: 1

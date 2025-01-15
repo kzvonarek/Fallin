@@ -33,6 +33,10 @@ TagManager:
   - Jump Powerup
   - Slowdown Powerup
   - Cloud
+  - Mini Me UI Icon
+  - Shield UI Icon
+  - Slowdown UI Icon
+  - Powerup UI Timer
   layers:
   - Default
   - TransparentFX
