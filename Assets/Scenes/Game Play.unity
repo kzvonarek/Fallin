@@ -1831,7 +1831,7 @@ MonoBehaviour:
   - {fileID: 5675348076927913807, guid: 9a4b5fbbe061a48429369d45d63592a2, type: 3}
   - {fileID: 3089503080316064179, guid: 22a78e161cadf469384fd7a2a09765f9, type: 3}
   numOfPowerups: 4
-  powerupTimerReset: 20.5
+  powerupTimerReset: 10
   currencyObj: {fileID: 7458296914374505938, guid: 8eb83e586e45a49de99321a4ad6fe59d, type: 3}
   currencyTimerReset: 3
 --- !u!1 &918370075
