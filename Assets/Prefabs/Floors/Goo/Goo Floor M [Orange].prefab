@@ -443,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeFrame: 1
   neededTaps: 4
+  holdThreshold: 0.2
 --- !u!1 &8206853456477676443
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
