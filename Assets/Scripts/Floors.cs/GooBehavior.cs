@@ -5,11 +5,10 @@ public class GooBehavior : MonoBehaviour
     private GameObject player;
     private bool thisGooFloor = false;
 
-    // player taps/clicks vars
-    [SerializeField] float timeFrame;
-    [SerializeField] int neededTaps;
-    private float timer = 0.0f;
-    private int tapCount = 0;
+    // player drag/swipe vars
+    [SerializeField] float dragDistance = 50f; // minimum distance for a swipe/drag to be registered
+    private Vector2 startTouchPosition;
+    private Vector2 endTouchPosition;
 
     // access to currMini variable
     private GameObject miniPowerup;
@@ -45,35 +44,38 @@ public class GooBehavior : MonoBehaviour
                 player.transform.position = new Vector2(player.transform.position.x, this.transform.position.y - 0.5f);
             }
 
-            // check for mouse click or screen tap
-            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+            // check for mouse drag
+            if (Input.GetMouseButtonDown(0))
             {
-                tapCount++;
-
-                // reset timer when first tap is detected
-                if (tapCount == 1)
-                {
-                    timer = timeFrame;
-                }
+                startTouchPosition = Input.mousePosition;
             }
-
-            // if timer is running, decrease it
-            if (tapCount > 0)
+            else if (Input.GetMouseButtonUp(0))
             {
-                timer -= Time.deltaTime;
-
-                // remove player from goo if three taps/clicks within time frame
-                if (tapCount == neededTaps)
+                endTouchPosition = Input.mousePosition;
+                // make sure that start pos is > than end pos, and that the distance 'traveled' is > dragDistance
+                if (startTouchPosition.y > endTouchPosition.y && Mathf.Abs(startTouchPosition.y - endTouchPosition.y) > dragDistance)
                 {
                     player.GetComponent<PlayerBehavior>().stuckInGoo = false;
                     thisGooFloor = false;
                 }
+            }
 
-                // if timer expires before three taps/clicks
-                if (timer <= 0)
+            // check for screen swipe
+            else if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Began)
                 {
-                    tapCount = 0;
-                    timer = 0.0f;
+                    startTouchPosition = touch.position;
+                }
+                else if (touch.phase == TouchPhase.Ended)
+                {
+                    endTouchPosition = touch.position;
+                    if (startTouchPosition.y > endTouchPosition.y && Mathf.Abs(startTouchPosition.y - endTouchPosition.y) > dragDistance)
+                    {
+                        player.GetComponent<PlayerBehavior>().stuckInGoo = false;
+                        thisGooFloor = false;
+                    }
                 }
             }
         }
