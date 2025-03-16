@@ -1823,7 +1823,6 @@ MonoBehaviour:
   - {fileID: 2677272497978014045, guid: 68a8aa1ee8ef347c0ad846863bc02c26, type: 3}
   - {fileID: 4081658223311842414, guid: c4bfce95a550444e5a8e7a8c5191fdb7, type: 3}
   numOfFloorsRed: 6
-  floorTimerReset: 1.3
   numOfFloorSets: 2
   powerupsPrefabSet:
   - {fileID: 7436416889876410596, guid: 0d76140bb3ee0427e86d987faded3e08, type: 3}
@@ -5156,7 +5155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertObjSpeed: 7
   objSpeedInc: 0.05
-  maxObjSpeed: 20
+  maxObjSpeed: 15
   currentTimeText: {fileID: 1697440747}
   outlineCurrentTimeText: {fileID: 925942607}
   finalTimeText: {fileID: 1365536824}

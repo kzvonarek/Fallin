@@ -8,7 +8,7 @@ public class FloorSpawning : MonoBehaviour
     [SerializeField] GameObject[] floorPrefabRed;
     [SerializeField] int numOfFloorsRed;
     private float floorTimer = 0f;
-    [SerializeField] float floorTimerReset;
+    private float floorTimerReset;
     // ----=----
     private GameObject[][] floorPrefabSet;
     [SerializeField] int numOfFloorSets; // num of different sets of floor prefabs
@@ -65,24 +65,28 @@ public class FloorSpawning : MonoBehaviour
     void Update()
     {
         setTimer += Time.deltaTime;
-        floorTimer += Time.deltaTime;
+        floorTimer += Time.deltaTime; // increase by milliseconds
         powerupTimer += Time.deltaTime;
         currencyTimer += Time.deltaTime;
         // windTimer += Time.deltaTime;
 
-        // if (setTimer >= 30f)
-        // {
-        //     while (prefabRandSet == previousSet)
-        //     {
-        //         prefabRandSet = Random.Range(0, numOfFloorSets);
-        //     }
-
-        //     backgrounds[previousSet].SetActive(false); // deactivate prev. bg
-        //     backgrounds[prefabRandSet].SetActive(true); // activate curr. bg
-
-        //     previousSet = prefabRandSet;
-        //     setTimer = 0;
-        // }
+        // adjust floorTimerReset based on vertObjSpeed milestones
+        if (gMscript.vertObjSpeed < 10f)
+        {
+            floorTimerReset = 1.5f;
+        }
+        else if (gMscript.vertObjSpeed >= 10f && gMscript.vertObjSpeed < 12.5f)
+        {
+            floorTimerReset = 1.3f;
+        }
+        else if (gMscript.vertObjSpeed >= 12.5f && gMscript.vertObjSpeed < 15f)
+        {
+            floorTimerReset = 1.1f;
+        }
+        else if (gMscript.vertObjSpeed >= 15f)
+        {
+            floorTimerReset = 0.9f;
+        }
 
         if (floorTimer >= floorTimerReset)
         {

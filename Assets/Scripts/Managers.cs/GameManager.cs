@@ -5,7 +5,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     // floor speed for FloorMovement.cs
-    [HideInInspector] public float vertObjSpeed;
+    public float vertObjSpeed;
     [SerializeField] float objSpeedInc;
     [SerializeField] float maxObjSpeed;
 
