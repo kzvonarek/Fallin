@@ -282,6 +282,11 @@ public class PlayerBehavior : MonoBehaviour
             rb.AddForce(Vector2.up * (cloudJumpForce / 4), ForceMode2D.Impulse); // reduced force when slowed
             StartCoroutine(ResetPlayerClouded());
         }
+        else if (playerClouded)
+        {
+            rb.AddForce(Vector2.up * cloudJumpForce, ForceMode2D.Impulse);
+            StartCoroutine(ResetPlayerClouded());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
