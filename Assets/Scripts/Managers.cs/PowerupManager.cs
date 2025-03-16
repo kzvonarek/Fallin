@@ -26,6 +26,7 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] float jumpForce;
 
     // slowdown powerup
+    [HideInInspector] public bool currSlow;
     [SerializeField] float slowdownTimer;
     private bool slowTime;
     private GameObject slowdownIconUI;

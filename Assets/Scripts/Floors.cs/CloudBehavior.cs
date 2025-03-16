@@ -4,7 +4,6 @@ public class CloudBehavior : MonoBehaviour
 {
     // cloud spawning
     private GameObject cloudSpawner;
-    private bool isLeftCloud;
 
     // cloud movement
     [SerializeField] float cloudHorizVelocity;
@@ -75,14 +74,12 @@ public class CloudBehavior : MonoBehaviour
         // move rightwards if spawned from a spawner on left side of screen
         if (cloudSpawner.GetComponent<CloudSpawnerBehavior>().isLeftSpawner == true)
         {
-            transform.position = new Vector2(transform.position.x + cloudHorizVelocity, transform.position.y + (gMscript.vertObjSpeed / 2) * Time.deltaTime);
-            isLeftCloud = true;
+            transform.position = new Vector2(transform.position.x + cloudHorizVelocity, transform.position.y + gMscript.vertObjSpeed / 2 * Time.deltaTime);
         }
         // move leftwards if spawned from a spawner on right side of screen
         else
         {
-            transform.position = new Vector2(transform.position.x - cloudHorizVelocity, transform.position.y + (gMscript.vertObjSpeed / 2) * Time.deltaTime);
-            isLeftCloud = false;
+            transform.position = new Vector2(transform.position.x - cloudHorizVelocity, transform.position.y + gMscript.vertObjSpeed / 2 * Time.deltaTime);
         }
     }
 

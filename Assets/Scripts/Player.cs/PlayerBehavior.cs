@@ -49,6 +49,10 @@ public class PlayerBehavior : MonoBehaviour
     // wind area behavior
     private bool inWindArea;
 
+    // access to currMini variable
+    private GameObject slowPowerupObj;
+    private PowerupManager pMscript;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -193,7 +197,7 @@ public class PlayerBehavior : MonoBehaviour
             }
 
             // check for screen tap
-            if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Touch touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Began)
@@ -257,9 +261,25 @@ public class PlayerBehavior : MonoBehaviour
             transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
         }
 
-        if (playerClouded)
+        // allow for access to currMini variable
+        slowPowerupObj = GameObject.FindWithTag("Mini Powerup");
+        if (slowPowerupObj == null)
+        {
+            // do nothing
+        }
+        else
+        {
+            pMscript = slowPowerupObj.GetComponent<PowerupManager>();
+        }
+
+        if (playerClouded && (pMscript == null || !pMscript.currMini))
         {
             rb.AddForce(Vector2.up * cloudJumpForce, ForceMode2D.Impulse);
+            StartCoroutine(ResetPlayerClouded());
+        }
+        else if (playerClouded && pMscript != null && pMscript.currSlow)
+        {
+            rb.AddForce(Vector2.up * (cloudJumpForce / 4), ForceMode2D.Impulse); // reduced force when slowed
             StartCoroutine(ResetPlayerClouded());
         }
     }
