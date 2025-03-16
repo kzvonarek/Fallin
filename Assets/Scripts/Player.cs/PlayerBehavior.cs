@@ -46,6 +46,9 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] float cloudJumpForce;
     private bool playerClouded;
 
+    // wind area behavior
+    private bool inWindArea;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,6 +64,8 @@ public class PlayerBehavior : MonoBehaviour
         playerArrow = GameObject.FindGameObjectWithTag("Player Arrow");
 
         leafDecayTimer = 0f;
+
+        inWindArea = false;
     }
 
     void Update()
@@ -246,7 +251,7 @@ public class PlayerBehavior : MonoBehaviour
             // apply no player movement when in goo
             transform.position = new Vector2(transform.position.x, transform.position.y);
         }
-        else
+        else if (!inWindArea)
         {
             // move player L/R
             transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
@@ -276,10 +281,20 @@ public class PlayerBehavior : MonoBehaviour
         else if (other.gameObject.CompareTag("Wind"))
         {
             playerLeafed = false;
+            inWindArea = true;
         }
         else if (other.gameObject.CompareTag("Cloud")) // Cloud Floor Behavior
         {
             playerClouded = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Wind"))
+        {
+            inWindArea = false;
+            horizVelocity = 0f; // reset horizontal velocity when exiting wind area
         }
     }
 
