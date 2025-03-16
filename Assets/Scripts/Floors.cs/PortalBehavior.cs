@@ -4,12 +4,10 @@ public class PortalBehavior : MonoBehaviour
 {
     // portal exit and entrance
     [SerializeField] bool isEntrance;
-    private GameObject player;
     private Transform portalExit;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         if (isEntrance)
         {
             portalExit = transform.parent.Find("Portal Exit");
@@ -42,9 +40,6 @@ public class PortalBehavior : MonoBehaviour
 
             Transform targetExit = portalExit.transform.Find(targetExitName);
             other.transform.position = targetExit.position;
-            // player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-            // player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            // player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         // destroy both portal parts on collision with 'Destroy Zone'

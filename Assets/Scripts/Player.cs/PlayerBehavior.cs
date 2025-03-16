@@ -50,7 +50,7 @@ public class PlayerBehavior : MonoBehaviour
     // wind area behavior
     private bool inWindArea;
 
-    // access to currMini variable
+    // access to currSlow variable
     private GameObject slowPowerupObj;
     private PowerupManager pMscript;
 
@@ -262,7 +262,7 @@ public class PlayerBehavior : MonoBehaviour
             transform.position = new Vector2(transform.position.x + horizVelocity * Time.deltaTime, transform.position.y);
         }
 
-        // allow for access to currMini variable
+        // allow for access to currSlow variable
         slowPowerupObj = GameObject.FindWithTag("Mini Powerup");
         if (slowPowerupObj == null)
         {
