@@ -16,7 +16,8 @@ public class PlayerBehavior : MonoBehaviour
     // functionality with PortalBehavior.cs for floating upwards
     private Rigidbody2D rb;
     private float playerOrigYPos;
-    [SerializeField] float playerFloatSpeed; // also used for goo to float downwards
+    [SerializeField] float playerFloatSpeedUp;
+    [SerializeField] float playerFloatSpeedDown; // used for goo/cloud/bubble to float downwards
 
     // functionality with GooBehavior.cs for player being stuck in goo
     [HideInInspector] public bool stuckInGoo;
@@ -136,7 +137,7 @@ public class PlayerBehavior : MonoBehaviour
             if (rb.position.y < playerOrigYPos - 0.1)
             {
                 // set a velocity to float the player upwards gradually
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeed);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, playerFloatSpeedUp);
             }
             // PLAYER FLOATING DOWN
             // apply downward movement if player is above original Y position
@@ -145,7 +146,7 @@ public class PlayerBehavior : MonoBehaviour
                 if (!stuckInGoo || !stuckInBubble)
                 {
                     // set a velocity to float the player upwards gradually
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeed);
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, -playerFloatSpeedDown);
                 }
             }
             else
