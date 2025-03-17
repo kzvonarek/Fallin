@@ -24,7 +24,7 @@ public class LeverBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (this.isLever && other.CompareTag("Player"))
+        if (this.isLever && (other.CompareTag("Player") || other.CompareTag("Shield Effect")))
         {
             Destroy(lockedFloor);
         }
