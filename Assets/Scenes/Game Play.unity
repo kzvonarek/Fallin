@@ -5163,6 +5163,7 @@ MonoBehaviour:
   pauseButton: {fileID: 927495213}
   pauseMenu: {fileID: 886245507}
   deathMenu: {fileID: 396875303}
+  isDead: 0
   collectedCoins: 0
   totalCoins: 0
   collectedCoinsText: {fileID: 1914589932}

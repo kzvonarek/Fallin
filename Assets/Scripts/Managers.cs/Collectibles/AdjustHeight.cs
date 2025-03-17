@@ -23,7 +23,7 @@ public class AdjustHeight : MonoBehaviour
             {
                 this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 3f);
                 teleported = true;
-                Debug.Log("adjusted height of collectible");
+                // Debug.Log("adjusted height of collectible");
             }
         }
     }
