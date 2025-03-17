@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Android;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     // pause functionality
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenu;
+    private bool paused;
 
     // death functionality
     [SerializeField] GameObject deathMenu;
@@ -67,6 +69,16 @@ public class GameManager : MonoBehaviour
             {
                 vertObjSpeed += objSpeedInc * Time.deltaTime;
             }
+
+            // pause game when player presses escape or presses pause button
+            if (Input.GetKeyDown(KeyCode.Escape) && paused == false && isDead == false)
+            {
+                pauseGame();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && paused == true && isDead == false) // unpause game
+            {
+                unpauseGame();
+            }
         }
 
         totalCoinsUpdate();
@@ -74,6 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void pauseGame()
     {
+        paused = true;
         pauseMenu.SetActive(true); // make pause menu visible
         pauseButton.SetActive(false); // make pause button invisible
         Time.timeScale = 0; // freeze game
@@ -82,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void unpauseGame()
     {
+        paused = false;
         pauseMenu.SetActive(false); // make pause menu invisible
         pauseButton.SetActive(true); // make pause button visible
         Time.timeScale = 1; // unfreeze game

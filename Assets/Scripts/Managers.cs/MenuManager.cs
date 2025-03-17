@@ -10,6 +10,26 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game Play");
     }
+    public void closeGame()
+    {
+        Application.Quit();
+    }
+    public void encyclopediaButton()
+    {
+        Debug.Log("Encyclopedia button clicked");
+    }
+    public void shopButton()
+    {
+        Debug.Log("Shop button clicked");
+    }
+    public void infoButton()
+    {
+        Debug.Log("Info button clicked");
+    }
+    public void settingsButton()
+    {
+        Debug.Log("Settings button clicked");
+    }
 
     // Game Play Scene Buttons ---=---
     public void menuButton()
@@ -19,11 +39,5 @@ public class MenuManager : MonoBehaviour
     public void playAgain()
     {
         SceneManager.LoadScene("Game Play");
-    }
-
-    // for possible PC version
-    public void closeGame()
-    {
-        Application.Quit();
     }
 }
