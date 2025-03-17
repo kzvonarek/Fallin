@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5307955552670892404}
   - component: {fileID: 4570281964047652948}
   - component: {fileID: 6551027543777349535}
-  m_Layer: 0
+  - component: {fileID: 1618262314469440674}
+  - component: {fileID: 9040529154448795601}
+  m_Layer: 6
   m_Name: Currency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,6 +163,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
+--- !u!114 &1618262314469440674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458296914374505938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9804e25283d177f44947b006616cfb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &9040529154448795601
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458296914374505938}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5

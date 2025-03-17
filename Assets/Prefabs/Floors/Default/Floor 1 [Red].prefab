@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9178095918441632695}
   - component: {fileID: 2563751953469126186}
   - component: {fileID: 8667194682702629809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4987099941189331513}
   - component: {fileID: 2842869667039537024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Floor 1 [Red]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0

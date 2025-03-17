@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3773834874602501525}
   - component: {fileID: 5080260277367377177}
   - component: {fileID: 127727936473718609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5094454134160782358}
   - component: {fileID: 2180733968068333022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Moving [Orange] [Double - Large]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 1
+  isMovingChild: 0
   frequency: 1.5
   amplitude: 1.5
   variance: 0
@@ -209,7 +210,7 @@ GameObject:
   - component: {fileID: 3661988777593642398}
   - component: {fileID: 3754405220967596604}
   - component: {fileID: 2284085680939130582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6145038844158524227}
   - component: {fileID: 3322272269157269182}
   - component: {fileID: 4292943115414862998}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 4655576914501951566}
   - component: {fileID: 7157567616755861148}
   - component: {fileID: 3162311032227965827}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4839449944820385848}
   - component: {fileID: 775257781078636402}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Cracked Floor [Red] [M]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
@@ -357,7 +358,7 @@ GameObject:
   - component: {fileID: 2128335100965445723}
   - component: {fileID: 6755608384829572577}
   - component: {fileID: 6115626981716174894}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Cracked
   m_TagString: Floor
   m_Icon: {fileID: 0}

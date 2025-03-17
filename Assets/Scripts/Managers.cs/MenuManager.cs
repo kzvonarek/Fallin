@@ -21,10 +21,9 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Game Play");
     }
 
-    /* for possible PC version
+    // for possible PC version
     public void closeGame()
     {
         Application.Quit();
     }
-    */
 }

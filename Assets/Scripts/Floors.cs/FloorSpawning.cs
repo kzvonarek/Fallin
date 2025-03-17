@@ -14,7 +14,7 @@ public class FloorSpawning : MonoBehaviour
     [SerializeField] int numOfFloorSets; // num of different sets of floor prefabs
     private int prefabRandSet; // used for randomizing floor prefab set chosen
     private float setTimer = 0f;
-    private int previousSet; // prevent same set from being used twice in a row
+    // private int previousSet; // prevent same set from being used twice in a row
     // ----=----
     // [SerializeField] GameObject[] windPrefabSet;
     // private float windTimer = 0f;
@@ -44,7 +44,7 @@ public class FloorSpawning : MonoBehaviour
         floorPrefabSet = new GameObject[][] { floorPrefabOrange, floorPrefabRed };
 
         prefabRandSet = 0; // always start with orange set
-        previousSet = 0;
+        // previousSet = 0;
 
         skyBG = GameObject.FindGameObjectWithTag("Sky BG");
         caveBG = GameObject.FindGameObjectWithTag("Cave BG");
@@ -65,7 +65,7 @@ public class FloorSpawning : MonoBehaviour
     void Update()
     {
         setTimer += Time.deltaTime;
-        floorTimer += Time.deltaTime; // increase by milliseconds
+        floorTimer += Time.deltaTime;
         powerupTimer += Time.deltaTime;
         currencyTimer += Time.deltaTime;
         // windTimer += Time.deltaTime;
@@ -136,12 +136,12 @@ public class FloorSpawning : MonoBehaviour
     {
         int prefabRandPowerup = Random.Range(0, numOfPowerups);
         float horizSpawnVariance = Random.Range(-3.79f, 3.79f);
-        Instantiate(powerupsPrefabSet[prefabRandPowerup], new Vector2(transform.position.x + horizSpawnVariance, transform.position.y), Quaternion.identity);
+        Instantiate(powerupsPrefabSet[prefabRandPowerup], new Vector2(transform.position.x + horizSpawnVariance, transform.position.y + 3), Quaternion.identity);
     }
 
     void SpawnCurrency()
     {
         float horizSpawnVariance = Random.Range(-3.79f, 3.79f);
-        Instantiate(currencyObj, new Vector2(transform.position.x + horizSpawnVariance, transform.position.y), Quaternion.identity);
+        Instantiate(currencyObj, new Vector2(transform.position.x + horizSpawnVariance, transform.position.y + 3), Quaternion.identity);
     }
 }

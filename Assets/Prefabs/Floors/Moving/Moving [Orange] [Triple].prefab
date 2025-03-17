@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2636047783200714109}
   - component: {fileID: 4000943085300101863}
   - component: {fileID: 5313310560743783938}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 8098212728453199751}
   - component: {fileID: 4637034320614978222}
   - component: {fileID: 7352053259591826932}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 8132467723111917720}
   - component: {fileID: 3296385156929349952}
   - component: {fileID: 4884339746085680983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece M
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5548216250450049751}
   - component: {fileID: 3137250069660013664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Moving [Orange] [Triple]'
   m_TagString: Floor
   m_Icon: {fileID: 0}

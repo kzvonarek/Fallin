@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2712937044837808763}
   - component: {fileID: 5035592277723486725}
   - component: {fileID: 2636801571205969412}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7108302568437419038}
   - component: {fileID: 7764941824139397221}
   - component: {fileID: 1554402937552298732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Goo
   m_TagString: Goo
   m_Icon: {fileID: 0}
@@ -294,8 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a079b5328240142a6bf34f9be5df4197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeFrame: 1
-  neededTaps: 4
+  dragDistance: 50
 --- !u!1 &4979580154695769196
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4994328817322794862}
   - component: {fileID: 3867900005795953386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Goo Floor L [Orange]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -344,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4632744101885490646}
   - component: {fileID: 1847152598058390738}
   - component: {fileID: 4893298619816408453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}

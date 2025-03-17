@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5082836812178748984}
   - component: {fileID: 5344409115812597184}
   - component: {fileID: 7653318087670511496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leaf Piece
   m_TagString: Leaf
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7087592873553403379}
   - component: {fileID: 4066933282608758212}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Leaf Floor L [Orange]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 8327496322074837878}
   - component: {fileID: 3491212853578141603}
   - component: {fileID: 3353175694491403795}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -357,7 +358,7 @@ GameObject:
   - component: {fileID: 919159085999322775}
   - component: {fileID: 2652628613807274681}
   - component: {fileID: 564976363645097505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}

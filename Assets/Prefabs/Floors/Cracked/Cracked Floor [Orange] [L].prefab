@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9174884253140803382}
   - component: {fileID: 9097768489382233860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Cracked Floor [Orange] [L]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
@@ -63,7 +64,7 @@ GameObject:
   - component: {fileID: 3749025965544601171}
   - component: {fileID: 5047665504857413737}
   - component: {fileID: 9202081501156937493}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 600338682412109349}
   - component: {fileID: 3826926813454259849}
   - component: {fileID: 2235824354354389764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -357,7 +358,7 @@ GameObject:
   - component: {fileID: 8647696427641644749}
   - component: {fileID: 8824546722917713419}
   - component: {fileID: 2118160874236951992}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Cracked
   m_TagString: Floor
   m_Icon: {fileID: 0}

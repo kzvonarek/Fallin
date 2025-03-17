@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6013185660427422187}
   - component: {fileID: 9101355177889391005}
   - component: {fileID: 8861060012840853767}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Color L
   m_TagString: Color Left Floor
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 1349059621520102710}
   - component: {fileID: 4656697724064632329}
   - component: {fileID: 3550626820708864435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R/M
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3496378672048860883}
   - component: {fileID: 4134710516045080177}
   - component: {fileID: 6370154269412718503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 1398637484438006118}
   - component: {fileID: 5036143085950639730}
   - component: {fileID: 7545683774876516611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L/M
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 7434271983302991928}
   - component: {fileID: 6435763328411201934}
   - component: {fileID: 1246070476796965966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Color R
   m_TagString: Color Right Floor
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 7070454707037724545}
   - component: {fileID: 9005586617035229400}
   - component: {fileID: 2200679676355359238}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Color M
   m_TagString: Color Middle Floor
   m_Icon: {fileID: 0}
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 328074940142025269}
   - component: {fileID: 5548257285430416938}
   - component: {fileID: 332038245939707762}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Color Sign
   m_TagString: Color Sign
   m_Icon: {fileID: 0}
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 9166740048200799535}
   - component: {fileID: 3452116873191127459}
   - component: {fileID: 4946068746220892295}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Color Match Floor [Orange]'
   m_TagString: Color Match Parent
   m_Icon: {fileID: 0}
@@ -1036,6 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
@@ -1067,7 +1068,7 @@ GameObject:
   - component: {fileID: 5229282269738651748}
   - component: {fileID: 8576730543350128630}
   - component: {fileID: 238468825456431199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}

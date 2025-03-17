@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5453845495124680146}
   - component: {fileID: 7793048116447073229}
   - component: {fileID: 5646850140700957596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece M
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7564544921891420855}
   - component: {fileID: 1565321667099345311}
   - component: {fileID: 8910070993618793629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8020089534321062868}
   - component: {fileID: 2904358216585264896}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Floor 5 [Orange]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 9118706659100310879}
   - component: {fileID: 1755917132022525518}
   - component: {fileID: 1301856446558047186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3720660733815841051}
   - component: {fileID: 5723128333853915241}
   - component: {fileID: 1143491009561958746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1909357323541034683}
   - component: {fileID: 2399020385915283783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Moving [Orange] [Single R - Large]'
   m_TagString: Floor
   m_Icon: {fileID: 0}

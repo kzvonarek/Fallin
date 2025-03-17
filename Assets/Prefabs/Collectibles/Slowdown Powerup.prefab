@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2359896537704656775}
   - component: {fileID: 7280151849764230369}
   - component: {fileID: 3761134773174439536}
-  m_Layer: 0
+  - component: {fileID: 2863331522771862805}
+  - component: {fileID: -6238472446953586933}
+  m_Layer: 6
   m_Name: Slowdown Powerup
   m_TagString: Slowdown Powerup
   m_Icon: {fileID: 0}
@@ -83,9 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b79d4bbfd6f44589d7c862d1c3c402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currMini: 0
   miniTimer: 0
   shieldTimer: 0
   jumpForce: 0
+  currSlow: 0
   slowdownTimer: 3
 --- !u!114 &3761134773174439536
 MonoBehaviour:
@@ -100,9 +104,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
+--- !u!114 &2863331522771862805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089503080316064179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9804e25283d177f44947b006616cfb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-6238472446953586933
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089503080316064179}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &4367887557388398457
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4687469634813634451}
   - component: {fileID: 8963299783173185915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slowdown Powerup Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

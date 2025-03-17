@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021158612164520967}
   - component: {fileID: 4605525611822781969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Lever Floor [Orange]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 7537331286371781453}
   - component: {fileID: 7553445906133833314}
   - component: {fileID: 456015377407561397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece Locked
   m_TagString: Locked Floor
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 6920805545501665316}
   - component: {fileID: 3876604056196799494}
   - component: {fileID: 2691939378150163229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece R
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 8312849848796880320}
   - component: {fileID: 7014170544495483323}
   - component: {fileID: 615160293007666506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece L
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 5431296086713595153}
   - component: {fileID: 6854766527250224094}
   - component: {fileID: 1060956908482336999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2508000729047869557}
   - component: {fileID: 2550781725106581772}
   - component: {fileID: 3728836765636065610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Exit
   m_TagString: Portal Exit
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 7652968220382828934}
   - component: {fileID: 8354854343630015408}
   - component: {fileID: 4231888125129037996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Entrance B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 1936538117659908571}
   - component: {fileID: 6764747049749168485}
   - component: {fileID: 6496450226799664144}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Entrance L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 3612489727956525212}
   - component: {fileID: 1739518289340616806}
   - component: {fileID: 6328202512344456334}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Piece
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5401263491549686202}
   - component: {fileID: 7186959930953338902}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Exit L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6166205824181274882}
   - component: {fileID: 2313244887910564348}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Exit B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 447922980671004223}
   - component: {fileID: 4629316390902314921}
   - component: {fileID: 4906510033365942970}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393558240129131474}
   - component: {fileID: 2344137418645675206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Portal Floor [Orange] [L-Opp]'
   m_TagString: Portal
   m_Icon: {fileID: 0}
@@ -806,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingFloor: 0
+  isMovingChild: 0
   frequency: 0
   amplitude: 0
   variance: 0
@@ -820,7 +821,7 @@ GameObject:
   - component: {fileID: 6921559119997891085}
   - component: {fileID: 7309829159791651598}
   - component: {fileID: 6069293201426231314}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Entrance T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -911,7 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4992372642743986947}
   - component: {fileID: 7883762750673542605}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Exit R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +991,7 @@ GameObject:
   - component: {fileID: 6243845204851234375}
   - component: {fileID: 5696562078162906856}
   - component: {fileID: 2835457841141626464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Portal Entrance R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

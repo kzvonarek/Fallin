@@ -139,4 +139,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudHorizVelocity: 0.05
-  cloudVertVelocity: 1
