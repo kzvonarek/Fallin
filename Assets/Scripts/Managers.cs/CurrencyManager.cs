@@ -14,7 +14,7 @@ public class CurrencyManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Shield Effect"))
         {
             gMscript.totalCoins += 1;
             PlayerPrefs.SetInt("Total Coins", gMscript.totalCoins);

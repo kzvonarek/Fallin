@@ -79,7 +79,7 @@ public class PowerupManager : MonoBehaviour
         // shield powerup
         if (currShielded)
         {
-            player.transform.Find("Shield Effect").gameObject.SetActive(false);
+            player.GetComponent<PlayerBehavior>().shieldEffect.gameObject.SetActive(false);
             player.gameObject.GetComponent<PolygonCollider2D>().enabled = true;
             currShielded = false;
             shieldIconUI.GetComponent<Image>().enabled = false;
@@ -129,7 +129,7 @@ public class PowerupManager : MonoBehaviour
             // shield powerup (allow temporary immunity to all objects)
             if (this.gameObject.CompareTag("Shield Powerup"))
             {
-                other.transform.Find("Shield Effect").gameObject.SetActive(true); // player
+                player.GetComponent<PlayerBehavior>().shieldEffect.gameObject.SetActive(true);
                 other.gameObject.GetComponent<PolygonCollider2D>().enabled = false; // player
                 currShielded = true;
 

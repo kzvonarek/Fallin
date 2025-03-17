@@ -37,6 +37,7 @@ TagManager:
   - Shield UI Icon
   - Slowdown UI Icon
   - Powerup UI Timer
+  - Shield Effect
   layers:
   - Default
   - TransparentFX

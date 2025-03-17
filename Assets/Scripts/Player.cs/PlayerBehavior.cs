@@ -54,8 +54,12 @@ public class PlayerBehavior : MonoBehaviour
     private GameObject slowPowerupObj;
     private PowerupManager pMscript;
 
+    // shield effect
+    public GameObject shieldEffect;
+
     void Start()
     {
+        shieldEffect.gameObject.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
 
         // for floating behavior

@@ -21,7 +21,7 @@ public class BubbleBehavior : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         bubbleLauncher = transform.parent.gameObject;
 
-        // allow for access to isDead boolean
+        // allow for access to isDead variable
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
     }
