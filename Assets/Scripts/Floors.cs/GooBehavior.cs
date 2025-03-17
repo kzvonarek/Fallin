@@ -14,15 +14,23 @@ public class GooBehavior : MonoBehaviour
     private GameObject miniPowerup;
     private PowerupManager pMscript;
 
+    // access to GameManager.cs
+    private GameObject gameManagerObj;
+    private GameManager gMscript;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        // allow for access to isDead variable
+        gameManagerObj = GameObject.FindWithTag("Game Manager");
+        gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
     {
         // behavior if player is stuck in goo
-        if (player.GetComponent<PlayerBehavior>().stuckInGoo && thisGooFloor)
+        if (player.GetComponent<PlayerBehavior>().stuckInGoo && thisGooFloor && gMscript.isDead == false)
         {
             // allow for access to currMini variable
             miniPowerup = GameObject.FindWithTag("Mini Powerup");

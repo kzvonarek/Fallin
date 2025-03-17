@@ -181,7 +181,7 @@ public class PlayerBehavior : MonoBehaviour
         // LEAF FLOOR BEHAVIOR
 
         // behavior if player has 'leaves' stuck on them
-        if (playerLeafed)
+        if (playerLeafed && gMscript.isDead == false)
         {
             leafEffect.SetActive(true);
             leafDecayTimer += Time.deltaTime;

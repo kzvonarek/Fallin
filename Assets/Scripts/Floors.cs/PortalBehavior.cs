@@ -18,7 +18,7 @@ public class PortalBehavior : MonoBehaviour
     {
         if (isEntrance && other.gameObject.CompareTag("Player")) // find portal exit's corresponding exit
         {
-            string targetExitName = "";
+            string targetExitName;
             switch (this.name)
             {
                 case "Portal Entrance L":

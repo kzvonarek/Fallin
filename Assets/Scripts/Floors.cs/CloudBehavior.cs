@@ -19,7 +19,7 @@ public class CloudBehavior : MonoBehaviour
 
     void Start()
     {
-        // allow for access to vertObjSpeed variable
+        // allow for access to vertObjSpeed/isDead variable
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
 
@@ -37,29 +37,32 @@ public class CloudBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // allow player to manually 'pop' cloud (Mobile)
-        if (Input.touchCount > 0)
+        if (gMscript.isDead == false)
         {
-            Touch touch;
-            // check each touch
-            for (int i = 0; i < Input.touchCount; i++)
+            // allow player to manually 'pop' cloud (Mobile)
+            if (Input.touchCount > 0)
             {
-                touch = Input.GetTouch(i);
-
-                if (touch.phase == TouchPhase.Began)
+                Touch touch;
+                // check each touch
+                for (int i = 0; i < Input.touchCount; i++)
                 {
-                    // check if the touch is on a cloud
-                    touchRaycast = Camera.main.ScreenPointToRay(touch.position);
+                    touch = Input.GetTouch(i);
 
-                    if (Physics.Raycast(touchRaycast, out hitCloud))
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        if (hitCloud.transform == transform) // check if the object hit is a cloud
-                        {
-                            Destroy(gameObject); // 'pop' cloud
+                        // check if the touch is on a cloud
+                        touchRaycast = Camera.main.ScreenPointToRay(touch.position);
 
-                            if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
+                        if (Physics.Raycast(touchRaycast, out hitCloud))
+                        {
+                            if (hitCloud.transform == transform) // check if the object hit is a cloud
                             {
-                                player.GetComponent<PlayerBehavior>().stuckInBubble = false;
+                                Destroy(gameObject); // 'pop' cloud
+
+                                if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
+                                {
+                                    player.GetComponent<PlayerBehavior>().stuckInBubble = false;
+                                }
                             }
                         }
                     }
@@ -94,6 +97,9 @@ public class CloudBehavior : MonoBehaviour
     // allows player to manually 'pop' cloud (PC)
     void OnMouseDown()
     {
-        Destroy(this.gameObject); // 'pop' cloud
+        if (gMscript.isDead == false)
+        {
+            Destroy(this.gameObject); // 'pop' cloud
+        }
     }
 }

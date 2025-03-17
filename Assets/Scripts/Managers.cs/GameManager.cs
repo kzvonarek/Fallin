@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     // death functionality
     [SerializeField] GameObject deathMenu;
+    [HideInInspector] public bool isDead;
 
     // currency (coins/gems) functionality
     [HideInInspector] public int collectedCoins;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 
         timeIncTimer = 0f;
         currentTime = 0;
+        isDead = false;
         bestTimeUpdate();
 
         collectedCoins = 0;
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
 
         deathMenu.SetActive(true); // enable pause menu
         pauseButton.SetActive(false); // disable pause button
+        isDead = true;
     }
 
     private void incTime()

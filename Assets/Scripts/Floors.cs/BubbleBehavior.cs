@@ -8,6 +8,10 @@ public class BubbleBehavior : MonoBehaviour
     private bool thisBubble = false;
     [SerializeField] float bubbleHorizVelocity;
 
+    // access to GameManager.cs
+    private GameObject gameManagerObj;
+    private GameManager gMscript;
+
     // bubble popping
     private Ray touchRaycast;
     private RaycastHit hitBubble;
@@ -16,33 +20,40 @@ public class BubbleBehavior : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         bubbleLauncher = transform.parent.gameObject;
+
+        // allow for access to isDead boolean
+        gameManagerObj = GameObject.FindWithTag("Game Manager");
+        gMscript = gameManagerObj.GetComponent<GameManager>();
     }
 
     void Update()
     {
         // allow player to manually pop bubble (Mobile)
-        if (Input.touchCount > 0)
+        if (gMscript.isDead == false)
         {
-            Touch touch;
-            // check each touch
-            for (int i = 0; i < Input.touchCount; i++)
+            if (Input.touchCount > 0)
             {
-                touch = Input.GetTouch(i);
-
-                if (touch.phase == TouchPhase.Began)
+                Touch touch;
+                // check each touch
+                for (int i = 0; i < Input.touchCount; i++)
                 {
-                    // check if the touch is on a bubble
-                    touchRaycast = Camera.main.ScreenPointToRay(touch.position);
+                    touch = Input.GetTouch(i);
 
-                    if (Physics.Raycast(touchRaycast, out hitBubble))
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        if (hitBubble.transform == transform) // check if the object hit is a bubble
-                        {
-                            Destroy(gameObject); // 'pop' bubble
+                        // check if the touch is on a bubble
+                        touchRaycast = Camera.main.ScreenPointToRay(touch.position);
 
-                            if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
+                        if (Physics.Raycast(touchRaycast, out hitBubble))
+                        {
+                            if (hitBubble.transform == transform) // check if the object hit is a bubble
                             {
-                                player.GetComponent<PlayerBehavior>().stuckInBubble = false;
+                                Destroy(gameObject); // 'pop' bubble
+
+                                if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
+                                {
+                                    player.GetComponent<PlayerBehavior>().stuckInBubble = false;
+                                }
                             }
                         }
                     }
@@ -91,11 +102,14 @@ public class BubbleBehavior : MonoBehaviour
     // allows player to manually pop bubble (PC)
     void OnMouseDown()
     {
-        Destroy(gameObject); // 'pop' bubble
-
-        if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
+        if (gMscript.isDead == false)
         {
-            player.GetComponent<PlayerBehavior>().stuckInBubble = false;
+            Destroy(gameObject); // 'pop' bubble
+
+            if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
+            {
+                player.GetComponent<PlayerBehavior>().stuckInBubble = false;
+            }
         }
     }
 }
