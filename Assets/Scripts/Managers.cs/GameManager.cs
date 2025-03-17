@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(true); // make pause menu visible
         pauseButton.SetActive(false); // make pause button invisible
         Time.timeScale = 0; // freeze game
+        bestTimeUpdate(); // update final and best time
     }
 
     public void unpauseGame()
