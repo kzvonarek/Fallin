@@ -22,9 +22,6 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] float shieldTimer;
     private GameObject shieldIconUI;
 
-    // jump powerup (replaced by Cloud)
-    [SerializeField] float jumpForce;
-
     // slowdown powerup
     [HideInInspector] public bool currSlow;
     [SerializeField] float slowdownTimer;
@@ -180,6 +177,7 @@ public class PowerupManager : MonoBehaviour
                 powerupActive = false;
                 powerupTimerObj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().enabled = false;
 
+                // destroy floors
                 GameObject[] floors = GameObject.FindGameObjectsWithTag("Floor");
                 foreach (GameObject floor in floors)
                 {
@@ -190,18 +188,19 @@ public class PowerupManager : MonoBehaviour
                     Destroy(floor);
                 }
 
-                Destroy(gameObject);
-            }
+                // destroy clouds
+                GameObject[] clouds = GameObject.FindGameObjectsWithTag("Cloud");
+                foreach (GameObject cloud in clouds)
+                {
+                    Destroy(cloud);
+                }
 
-            // jump powerup (push player upwards)
-            // replaced by Cloud (still here temporarily)
-            if (this.gameObject.CompareTag("Jump Powerup"))
-            {
-                powerupActive = false;
-                powerupTimerObj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().enabled = false;
-
-                other.transform.position = new Vector2(other.transform.position.x,
-                other.transform.position.y + jumpForce); // player
+                // destroy bubbles
+                GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
+                foreach (GameObject bubble in bubbles)
+                {
+                    Destroy(bubble);
+                }
 
                 Destroy(gameObject);
             }
