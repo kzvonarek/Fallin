@@ -4108,7 +4108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgRenderer: {fileID: 1893725375}
-  speed: 0.1
+  speed: 0.02
 --- !u!64 &1893725374
 MeshCollider:
   m_ObjectHideFlags: 0
