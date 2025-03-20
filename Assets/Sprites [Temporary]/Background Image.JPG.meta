@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1b66774b6ea9e4094b53d3243b8d925d
+guid: d27a1ad5a0d3a364dbc8c2bc3420b13d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6803291720364931461
-    second: "Screenshot 2024-11-04 at 3.56.49\u202FPM_0"
+      213: -8483731395159641348
+    second: bg2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Screenshot 2024-11-04 at 3.56.49\u202FPM_0"
+      name: bg2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 290
-        height: 586
+        width: 1721
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b76ca48c93ad591a0800000000000000
-      internalID: -6803291720364931461
+      spriteID: cf23eadae3bb34a80800000000000000
+      internalID: -8483731395159641348
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Screenshot 2024-11-04 at 3.56.49\u202FPM_0": -6803291720364931461
+      bg2_0: -8483731395159641348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

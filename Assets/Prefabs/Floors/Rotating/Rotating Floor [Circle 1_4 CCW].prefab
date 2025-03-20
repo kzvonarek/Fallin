@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 3120287454239496054}
   - component: {fileID: 6885437461036972643}
   m_Layer: 0
-  m_Name: 'Rotating Floor [Circle 1_4 CCW] [Orange]'
+  m_Name: 'Rotating Floor [Circle 1_4 CCW]'
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
