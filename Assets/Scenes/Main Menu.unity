@@ -570,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.3677917}
   m_AnchorMax: {x: 0.5, y: 0.3677917}
-  m_AnchoredPosition: {x: -332, y: -20}
+  m_AnchoredPosition: {x: -320, y: -20}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &447552276
@@ -605,8 +605,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1928,8 +1928,8 @@ RectTransform:
   m_Children:
   - {fileID: 1477452556}
   - {fileID: 1221267233}
-  - {fileID: 1160700305}
   - {fileID: 447552275}
+  - {fileID: 1160700305}
   - {fileID: 1018157911}
   - {fileID: 943246769}
   - {fileID: 46898889}
@@ -2591,8 +2591,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4750,6 +4750,7 @@ MonoBehaviour:
   outlineCurrentTimeText: {fileID: 0}
   finalTimeText: {fileID: 0}
   bestTimeText: {fileID: 1160700306}
+  bestTimeTextOutline: {fileID: 447552276}
   pauseButton: {fileID: 0}
   pauseMenu: {fileID: 0}
   deathMenu: {fileID: 0}
