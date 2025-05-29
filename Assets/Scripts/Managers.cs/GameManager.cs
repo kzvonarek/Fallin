@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // best time functionality
     [SerializeField] TextMeshProUGUI finalTimeText;
     [SerializeField] TextMeshProUGUI bestTimeText;
+    [SerializeField] TextMeshProUGUI bestTimeTextOutline;
 
     // pause functionality
     [SerializeField] GameObject pauseButton;
@@ -30,10 +31,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool isDead;
 
     // currency (coins/gems) functionality
-    [HideInInspector] public int collectedCoins;
-    [HideInInspector] public int totalCoins;
-    [SerializeField] TextMeshProUGUI collectedCoinsText;
-    [SerializeField] TextMeshProUGUI totalCoinsText;
+    // [HideInInspector] public int collectedCoins;
+    // [HideInInspector] public int totalCoins;
+    // [SerializeField] TextMeshProUGUI collectedCoinsText;
+    // [SerializeField] TextMeshProUGUI totalCoinsText;
 
     void Start()
     {
@@ -46,16 +47,16 @@ public class GameManager : MonoBehaviour
         isDead = false;
         bestTimeUpdate();
 
-        collectedCoins = 0;
-        // load total coins from PlayerPrefs
-        if (PlayerPrefs.HasKey("Total Coins"))
-        {
-            totalCoins = PlayerPrefs.GetInt("Total Coins");
-        }
-        else
-        {
-            totalCoins = 0; // default value
-        }
+        // collectedCoins = 0;
+        // // load total coins from PlayerPrefs
+        // if (PlayerPrefs.HasKey("Total Coins"))
+        // {
+        //     totalCoins = PlayerPrefs.GetInt("Total Coins");
+        // }
+        // else
+        // {
+        //     totalCoins = 0; // default value
+        // }
     }
 
     void Update()
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        totalCoinsUpdate();
+        // totalCoinsUpdate();
     }
 
     public void pauseGame()
@@ -153,18 +154,19 @@ public class GameManager : MonoBehaviour
             finalTimeText.text = "Time: " + currentTime.ToString();
         }
         bestTimeText.text = "Best Time: " + PlayerPrefs.GetInt("Saved Best Time").ToString();
+        bestTimeTextOutline.text = "Best Time: " + PlayerPrefs.GetInt("Saved Best Time").ToString();
     }
 
-    private void totalCoinsUpdate()
-    {
-        // update associated texts
-        if (SceneManager.GetActiveScene().name == "Game Play")
-        {
-            collectedCoinsText.text = "x" + collectedCoins.ToString();
-        }
-        if (SceneManager.GetActiveScene().name == "Main Menu")
-        {
-            totalCoinsText.text = "Total Coins: " + PlayerPrefs.GetInt("Total Coins").ToString();
-        }
-    }
+    // private void totalCoinsUpdate()
+    // {
+    //     // update associated texts
+    //     if (SceneManager.GetActiveScene().name == "Game Play")
+    //     {
+    //         collectedCoinsText.text = "x" + collectedCoins.ToString();
+    //     }
+    //     if (SceneManager.GetActiveScene().name == "Main Menu")
+    //     {
+    //         totalCoinsText.text = "Total Coins: " + PlayerPrefs.GetInt("Total Coins").ToString();
+    //     }
+    // }
 }

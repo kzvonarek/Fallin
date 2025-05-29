@@ -13,9 +13,9 @@ public class FloorSpawning : MonoBehaviour
     private float powerupTimer = 0f;
     [SerializeField] float powerupTimerReset;
     // ----=----
-    [SerializeField] GameObject currencyObj;
-    private float currencyTimer = 0f;
-    [SerializeField] float currencyTimerReset;
+    // [SerializeField] GameObject currencyObj;
+    // private float currencyTimer = 0f;
+    // [SerializeField] float currencyTimerReset;
     // ----=----
     // access to GameManager.cs for currSlowedTime variable
     private GameObject gameManagerObj;
@@ -32,7 +32,7 @@ public class FloorSpawning : MonoBehaviour
     {
         floorTimer += Time.deltaTime;
         powerupTimer += Time.deltaTime;
-        currencyTimer += Time.deltaTime;
+        // currencyTimer += Time.deltaTime;
 
         // adjust floorTimerReset based on vertObjSpeed milestones
         if (gMscript.vertObjSpeed < 10f)
@@ -67,11 +67,11 @@ public class FloorSpawning : MonoBehaviour
         }
 
         // spawn currency
-        if (currencyTimer >= currencyTimerReset)
-        {
-            SpawnCurrency();
-            currencyTimer = 0f;
-        }
+        // if (currencyTimer >= currencyTimerReset)
+        // {
+        //     SpawnCurrency();
+        //     currencyTimer = 0f;
+        // }
     }
 
     void SpawnFloor(int numOfFloors)
@@ -87,9 +87,9 @@ public class FloorSpawning : MonoBehaviour
         Instantiate(powerupsPrefabSet[prefabRandPowerup], new Vector2(transform.position.x + horizSpawnVariance, transform.position.y + 3), Quaternion.identity);
     }
 
-    void SpawnCurrency()
-    {
-        float horizSpawnVariance = Random.Range(-3.79f, 3.79f);
-        Instantiate(currencyObj, new Vector2(transform.position.x + horizSpawnVariance, transform.position.y + 3), Quaternion.identity);
-    }
+    // void SpawnCurrency()
+    // {
+    //     float horizSpawnVariance = Random.Range(-3.79f, 3.79f);
+    //     Instantiate(currencyObj, new Vector2(transform.position.x + horizSpawnVariance, transform.position.y + 3), Quaternion.identity);
+    // }
 }
