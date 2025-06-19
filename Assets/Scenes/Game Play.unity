@@ -1877,8 +1877,6 @@ MonoBehaviour:
   - {fileID: 3089503080316064179, guid: 22a78e161cadf469384fd7a2a09765f9, type: 3}
   numOfPowerups: 4
   powerupTimerReset: 10
-  currencyObj: {fileID: 7458296914374505938, guid: 8eb83e586e45a49de99321a4ad6fe59d, type: 3}
-  currencyTimerReset: 3
 --- !u!1 &918370075
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,14 +5121,11 @@ MonoBehaviour:
   outlineCurrentTimeText: {fileID: 925942607}
   finalTimeText: {fileID: 1365536824}
   bestTimeText: {fileID: 1469148664}
+  bestTimeTextOutline: {fileID: 0}
   pauseButton: {fileID: 927495213}
   pauseMenu: {fileID: 886245507}
   deathMenu: {fileID: 396875303}
   isDead: 0
-  collectedCoins: 0
-  totalCoins: 0
-  collectedCoinsText: {fileID: 1914589932}
-  totalCoinsText: {fileID: 0}
 --- !u!212 &2015936538
 SpriteRenderer:
   m_ObjectHideFlags: 0
