@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 101a1607b64c6864a8b5ed6239723cb1
+guid: 292d9337ed0990746857e417ed0ce634
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -125,8 +125,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -135,7 +135,7 @@ ScriptedImporter:
       y: 4
       width: 26
       height: 26
-    spriteID: 76f6895b0ebd4d44ba87d82a863d77e1
+    spriteID: 010be94aed3da6c4b981df8db519ef2b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,8 +146,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.14999999}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -156,7 +156,7 @@ ScriptedImporter:
       y: 38
       width: 20
       height: 20
-    spriteID: f0a87fef1be4a564bbdd269fe787a5ee
+    spriteID: fc920d758f0fcff42a8c137f943e13d4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -167,8 +167,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 38}
   - name: Frame_2
     originalName: 
-    pivot: {x: 0.49999997, y: -0.3125}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -177,7 +177,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 3639a070fc85a8542a320d5c642947de
+    spriteID: 36545eebef4ffd64e9446aa87567de56
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -188,8 +188,8 @@ ScriptedImporter:
     uvTransform: {x: 38, y: 4}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.5833334}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -198,7 +198,7 @@ ScriptedImporter:
       y: 28
       width: 12
       height: 12
-    spriteID: 5cd263e460c9bc5478bee4c523489a04
+    spriteID: 20d0dfdbb2fd9d347804b1ca6d8f229a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -209,8 +209,8 @@ ScriptedImporter:
     uvTransform: {x: 38, y: 28}
   - name: Frame_0
     originalName: 
-    pivot: {x: 0.49999997, y: -1.125}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -219,7 +219,7 @@ ScriptedImporter:
       y: 48
       width: 8
       height: 8
-    spriteID: 71aba0ed3f85cb04897eabbd392ee9c1
+    spriteID: b5561fcd8e7cb9a48a1f08a03e4f44c5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -231,8 +231,8 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -486319972
-    name: bubble
+    guid: 1702608295
+    name: bubble 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -245,7 +245,7 @@ ScriptedImporter:
         y: 0
         width: 26
         height: 26
-      spriteId: 76f6895b0ebd4d44ba87d82a863d77e1
+      spriteId: 010be94aed3da6c4b981df8db519ef2b
     - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -254,7 +254,7 @@ ScriptedImporter:
         y: 3
         width: 20
         height: 20
-      spriteId: f0a87fef1be4a564bbdd269fe787a5ee
+      spriteId: fc920d758f0fcff42a8c137f943e13d4
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -263,7 +263,7 @@ ScriptedImporter:
         y: 5
         width: 16
         height: 16
-      spriteId: 3639a070fc85a8542a320d5c642947de
+      spriteId: 36545eebef4ffd64e9446aa87567de56
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -272,7 +272,7 @@ ScriptedImporter:
         y: 7
         width: 12
         height: 12
-      spriteId: 5cd263e460c9bc5478bee4c523489a04
+      spriteId: 20d0dfdbb2fd9d347804b1ca6d8f229a
     - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
@@ -281,7 +281,7 @@ ScriptedImporter:
         y: 9
         width: 8
         height: 8
-      spriteId: 71aba0ed3f85cb04897eabbd392ee9c1
+      spriteId: b5561fcd8e7cb9a48a1f08a03e4f44c5
     linkedCells: []
     parentIndex: -1
   platformSettings:

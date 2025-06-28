@@ -6,6 +6,7 @@ public class BubbleLauncherBehavior : MonoBehaviour
     [SerializeField] float bubbleTimerReset;
     [SerializeField] GameObject bubblePreset;
     public bool isLeftLauncher;
+    [SerializeField] private float bubbleHeightOffsetY;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class BubbleLauncherBehavior : MonoBehaviour
             // rotate launcher correctly
             transform.rotation = Quaternion.Euler(0, 0, 270);
         }
-        // move launcher to right msot of screen
+        // move launcher to right most of screen
         else
         {
             transform.position = new Vector2(4.244f, transform.position.y);
@@ -40,12 +41,12 @@ public class BubbleLauncherBehavior : MonoBehaviour
         {
             if (isLeftLauncher) // spawn on left side of screen
             {
-                GameObject newBubble = Instantiate(bubblePreset, new Vector2(transform.position.x + 1f, transform.position.y), Quaternion.identity);
+                GameObject newBubble = Instantiate(bubblePreset, new Vector2(transform.position.x + 1f, transform.position.y + bubbleHeightOffsetY), Quaternion.identity);
                 newBubble.transform.parent = this.transform;
             }
             else // spawn on right side of screen
             {
-                GameObject newBubble = Instantiate(bubblePreset, new Vector2(transform.position.x - 1f, transform.position.y), Quaternion.identity);
+                GameObject newBubble = Instantiate(bubblePreset, new Vector2(transform.position.x - 1f, transform.position.y + bubbleHeightOffsetY), Quaternion.identity);
                 newBubble.transform.parent = this.transform;
             }
             bubbleTimer = 0f;
