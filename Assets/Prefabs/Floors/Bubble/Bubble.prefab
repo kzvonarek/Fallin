@@ -165,4 +165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c19d679e29fb4f24b66ca7326201a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleHorizVelocity: 0.1
+  bubbleHorizVelocity: 0.075

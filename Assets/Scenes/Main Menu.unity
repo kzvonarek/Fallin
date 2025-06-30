@@ -5305,7 +5305,7 @@ MonoBehaviour:
   stuckInBubble: 0
   leafMovementMultiplier: 0.25
   leafEffect: {fileID: 411225514}
-  neededLeafTaps: 2
+  neededLeafTaps: 4
   leafDecayTimeFrame: 10
   cloudJumpForce: 1.9
   shieldEffect: {fileID: 1218949000}
