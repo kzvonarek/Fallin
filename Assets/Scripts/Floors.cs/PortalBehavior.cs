@@ -5,6 +5,7 @@ public class PortalBehavior : MonoBehaviour
     // portal exit and entrance
     [SerializeField] bool isEntrance;
     private Transform portalExit;
+    private GameObject player;
 
     void Start()
     {
@@ -12,11 +13,13 @@ public class PortalBehavior : MonoBehaviour
         {
             portalExit = transform.parent.Find("Portal Exit");
         }
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isEntrance && other.gameObject.CompareTag("Player")) // find portal exit's corresponding exit
+        if (isEntrance && (other.gameObject.CompareTag("Player") || other.CompareTag("Shield Effect"))) // find portal exit's corresponding exit
         {
             string targetExitName;
             switch (this.name)
@@ -39,7 +42,7 @@ public class PortalBehavior : MonoBehaviour
             }
 
             Transform targetExit = portalExit.transform.Find(targetExitName);
-            other.transform.position = targetExit.position;
+            player.transform.position = targetExit.position;
         }
 
         // destroy both portal parts on collision with 'Destroy Zone'
