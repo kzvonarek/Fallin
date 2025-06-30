@@ -57,6 +57,12 @@ public class PlayerBehavior : MonoBehaviour
     // shield effect
     public GameObject shieldEffect;
 
+    [SerializeField] AudioSource gooSound;
+    [SerializeField] AudioSource bubbleSound;
+    [SerializeField] AudioSource leafSound;
+    [SerializeField] AudioSource windSound;
+    [SerializeField] AudioSource cloudSound;
+
     void Start()
     {
         shieldEffect.gameObject.SetActive(false);
@@ -298,23 +304,28 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Goo"))
         {
+            gooSound.Play();
             stuckInGoo = true;
         }
         else if (other.gameObject.CompareTag("Bubble"))
         {
+            bubbleSound.Play();
             stuckInBubble = true;
         }
         else if (other.gameObject.CompareTag("Leaf"))
         {
+            leafSound.Play();
             playerLeafed = true;
         }
         else if (other.gameObject.CompareTag("Wind"))
         {
+            windSound.Play();
             playerLeafed = false;
             inWindArea = true;
         }
         else if (other.gameObject.CompareTag("Cloud")) // Cloud Floor Behavior
         {
+            cloudSound.Play();
             playerClouded = true;
         }
     }
