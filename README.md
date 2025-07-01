@@ -4,6 +4,6 @@ Solo-project by Kristijan Zvonarek.
 
 Precision Endless Falling Simulator for PC and Mobile devices.
 
-![Logo_v1](https://github.com/user-attachments/assets/217f5e7f-668d-470b-b5c0-d2c4d2011d96)
-
 Play using provided link in 'About'.
+
+![Logo_Final](https://github.com/user-attachments/assets/5c53cd1d-3b4e-4ae0-9362-d6525f5de601)
