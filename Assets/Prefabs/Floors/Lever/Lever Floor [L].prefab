@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLever: 0
+  leverSound: {fileID: 0}
 --- !u!1 &2847440489316674013
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,8 +243,8 @@ Transform:
   m_GameObject: {fileID: 2847440489316674013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
-  m_LocalScale: {x: 5.00422, y: 0.5955, z: 1}
+  m_LocalPosition: {x: 4.3309, y: 0, z: 0}
+  m_LocalScale: {x: 5.6662784, y: 0.5955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2021158612164520967}
@@ -389,8 +390,8 @@ Transform:
   m_GameObject: {fileID: 6936240877622826776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
-  m_LocalScale: {x: 5.00422, y: 0.5955, z: 1}
+  m_LocalPosition: {x: -4.1712, y: 0, z: 0}
+  m_LocalScale: {x: 5.346509, y: 0.5955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2021158612164520967}
@@ -610,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLever: 1
+  leverSound: {fileID: 0}
 --- !u!61 &1060956908482336999
 BoxCollider2D:
   m_ObjectHideFlags: 0

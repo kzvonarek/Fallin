@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbe4f9680e97461388330f00d00639b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crackedSound: {fileID: 0}
 --- !u!1 &5061247345288125662
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,8 +228,8 @@ Transform:
   m_GameObject: {fileID: 5061247345288125662}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3749, y: 0, z: 0}
-  m_LocalScale: {x: 2.2544012, y: 0.5955, z: 1}
+  m_LocalPosition: {x: -5.7829, y: 0, z: 0}
+  m_LocalScale: {x: 3.0704944, y: 0.5955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3392276072347721659}
@@ -374,8 +375,8 @@ Transform:
   m_GameObject: {fileID: 8739492201763448261}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.62, y: 0, z: 0}
-  m_LocalScale: {x: 7.763493, y: 0.5955, z: 1}
+  m_LocalPosition: {x: 3.0066, y: 0, z: 0}
+  m_LocalScale: {x: 8.5367365, y: 0.5955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3392276072347721659}

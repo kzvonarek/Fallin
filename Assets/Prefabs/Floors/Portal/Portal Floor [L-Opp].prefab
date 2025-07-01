@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 0
+  portalSound: {fileID: 0}
 --- !u!70 &3728836765636065610
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 1
+  portalSound: {fileID: 0}
 --- !u!1 &2032423361338994455
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 1
+  portalSound: {fileID: 0}
 --- !u!1 &2402391752145719179
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,8 +357,8 @@ Transform:
   m_GameObject: {fileID: 2402391752145719179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0485, y: 2, z: 0.07653906}
-  m_LocalScale: {x: 11.521273, y: 0.5955, z: 1}
+  m_LocalPosition: {x: 0.0772, y: 2, z: 0.07653906}
+  m_LocalScale: {x: 12.611611, y: 0.5955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1393558240129131474}
@@ -902,6 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 1
+  portalSound: {fileID: 0}
 --- !u!1 &7901769255304012011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,3 +1076,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEntrance: 1
+  portalSound: {fileID: 0}
