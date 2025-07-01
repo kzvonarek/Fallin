@@ -189,6 +189,12 @@ public class PlayerBehavior : MonoBehaviour
             playerArrow.SetActive(false);
         }
 
+        // prevent player from going off screen
+        if (shieldEffect.activeSelf && (transform.position.x >= 5f || transform.position.x <= -5f))
+        {
+            transform.position = new Vector2(0f, transform.position.y);
+        }
+
         //-----=-----
 
         // LEAF FLOOR BEHAVIOR
