@@ -43,6 +43,7 @@ TagManager:
   - Cracked Sound
   - Bubble Launch Sound
   - Bubble Pop Sound
+  - Cloud Destroy Sound
   layers:
   - Default
   - TransparentFX

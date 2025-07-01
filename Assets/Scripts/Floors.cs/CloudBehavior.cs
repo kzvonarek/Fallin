@@ -12,6 +12,7 @@ public class CloudBehavior : MonoBehaviour
     private Ray touchRaycast;
     private RaycastHit hitCloud;
     private GameObject player;
+    [SerializeField] AudioSource cloudDestroySound;
 
     // access to GameManager.cs
     private GameObject gameManagerObj;
@@ -27,6 +28,7 @@ public class CloudBehavior : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 90);
 
         player = GameObject.FindGameObjectWithTag("Player");
+        cloudDestroySound = GameObject.FindWithTag("Cloud Destroy Sound").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -57,6 +59,7 @@ public class CloudBehavior : MonoBehaviour
                         {
                             if (hitCloud.transform == transform) // check if the object hit is a cloud
                             {
+                                cloudDestroySound.Play();
                                 Destroy(gameObject); // 'pop' cloud
 
                                 if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
@@ -99,6 +102,7 @@ public class CloudBehavior : MonoBehaviour
     {
         if (gMscript.isDead == false)
         {
+            cloudDestroySound.Play();
             Destroy(this.gameObject); // 'pop' cloud
         }
     }
