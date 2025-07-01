@@ -15,6 +15,7 @@ public class BubbleBehavior : MonoBehaviour
     // bubble popping
     private Ray touchRaycast;
     private RaycastHit hitBubble;
+    [SerializeField] AudioSource bubblePopSound;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class BubbleBehavior : MonoBehaviour
         // allow for access to isDead variable
         gameManagerObj = GameObject.FindWithTag("Game Manager");
         gMscript = gameManagerObj.GetComponent<GameManager>();
+        bubblePopSound = GameObject.FindWithTag("Bubble Pop Sound").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -49,6 +51,7 @@ public class BubbleBehavior : MonoBehaviour
                             if (hitBubble.transform == transform) // check if the object hit is a bubble
                             {
                                 Destroy(gameObject); // 'pop' bubble
+                                bubblePopSound.Play();
 
                                 if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)
                                 {
@@ -95,6 +98,7 @@ public class BubbleBehavior : MonoBehaviour
         // automatically pop bubble if it hits left/right-most Pop Zone
         if (other.gameObject.CompareTag("Pop Zone"))
         {
+            bubblePopSound.Play();
             Destroy(this.gameObject);
         }
     }
@@ -104,6 +108,7 @@ public class BubbleBehavior : MonoBehaviour
     {
         if (gMscript.isDead == false)
         {
+            bubblePopSound.Play();
             Destroy(gameObject); // 'pop' bubble
 
             if (player.GetComponent<PlayerBehavior>().stuckInBubble == true)

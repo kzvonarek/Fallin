@@ -4,8 +4,10 @@ public class LeverBehavior : MonoBehaviour
 {
     [SerializeField] bool isLever;
     private GameObject lockedFloor;
+    [SerializeField] AudioSource leverSound;
     void Start()
     {
+        leverSound = GameObject.FindWithTag("Lever Sound").GetComponent<AudioSource>();
         // find correct locked floor within parent object
         if (isLever)
         {
@@ -26,6 +28,7 @@ public class LeverBehavior : MonoBehaviour
     {
         if (this.isLever && (other.CompareTag("Player") || other.CompareTag("Shield Effect")))
         {
+            leverSound.Play();
             Destroy(lockedFloor);
         }
     }

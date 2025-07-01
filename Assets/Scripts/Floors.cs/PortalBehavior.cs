@@ -6,6 +6,7 @@ public class PortalBehavior : MonoBehaviour
     [SerializeField] bool isEntrance;
     private Transform portalExit;
     private GameObject player;
+    [SerializeField] AudioSource portalSound;
 
     void Start()
     {
@@ -15,12 +16,14 @@ public class PortalBehavior : MonoBehaviour
         }
 
         player = GameObject.FindGameObjectWithTag("Player");
+        portalSound = GameObject.FindWithTag("Portal Sound").GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isEntrance && (other.gameObject.CompareTag("Player") || other.CompareTag("Shield Effect"))) // find portal exit's corresponding exit
         {
+            portalSound.Play();
             string targetExitName;
             switch (this.name)
             {

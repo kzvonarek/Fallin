@@ -7,6 +7,7 @@ public class BubbleLauncherBehavior : MonoBehaviour
     [SerializeField] GameObject bubblePreset;
     public bool isLeftLauncher;
     [SerializeField] private float bubbleHeightOffsetY;
+    [SerializeField] private AudioSource bubbleLaunchSound;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class BubbleLauncherBehavior : MonoBehaviour
             // rotate launcher correctly
             transform.rotation = Quaternion.Euler(0, 0, 90);
         }
+        bubbleLaunchSound = GameObject.FindWithTag("Bubble Launch Sound").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -39,6 +41,7 @@ public class BubbleLauncherBehavior : MonoBehaviour
         bubbleTimer += Time.deltaTime;
         if (bubbleTimer >= bubbleTimerReset)
         {
+            bubbleLaunchSound.Play();
             if (isLeftLauncher) // spawn on left side of screen
             {
                 GameObject newBubble = Instantiate(bubblePreset, new Vector2(transform.position.x + 1f, transform.position.y + bubbleHeightOffsetY), Quaternion.identity);

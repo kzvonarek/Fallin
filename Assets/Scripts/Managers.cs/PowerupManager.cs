@@ -27,6 +27,7 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] float slowdownTimer;
     private bool slowTime;
     private GameObject slowdownIconUI;
+    [SerializeField] AudioSource bgmSound;
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class PowerupManager : MonoBehaviour
         // slowdown powerup
         slowTime = false;
         slowdownIconUI = GameObject.FindGameObjectWithTag("Slowdown UI Icon");
+        bgmSound = GameObject.FindWithTag("Sound Manager").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -89,6 +91,7 @@ public class PowerupManager : MonoBehaviour
             Time.fixedDeltaTime = 0.02f;
             slowTime = false;
             slowdownIconUI.GetComponent<Image>().enabled = false;
+            bgmSound.pitch = 1f; // reset background music speed
         }
         Destroy(gameObject);
     }
@@ -143,7 +146,6 @@ public class PowerupManager : MonoBehaviour
                         Destroy(shieldSpriteTransform.gameObject);
                     }
                 }
-
                 StartCoroutine(WaitAndRevert(shieldTimer));
             }
 
@@ -167,7 +169,7 @@ public class PowerupManager : MonoBehaviour
                         Destroy(slowdownSpriteTransform.gameObject);
                     }
                 }
-
+                bgmSound.pitch = 0.5f; // slow down background music
                 StartCoroutine(WaitAndRevert(slowdownTimer));
             }
 

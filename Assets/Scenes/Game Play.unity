@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 232188746}
   m_Layer: 0
   m_Name: Portal Sound
-  m_TagString: Untagged
+  m_TagString: Portal Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,8 +504,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 421818a2fc9f74b47889d9300e90520f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 421818a2fc9f74b47889d9300e90520f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 407362961}
   m_Layer: 0
   m_Name: Lever Sound
-  m_TagString: Untagged
+  m_TagString: Lever Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -847,8 +847,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 59fdc258071042947b7e08697a17e4d1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 59fdc258071042947b7e08697a17e4d1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1211,7 +1211,7 @@ GameObject:
   - component: {fileID: 499607315}
   - component: {fileID: 499607316}
   m_Layer: 0
-  m_Name: Bubble Sound
+  m_Name: Bubble Enter Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1242,8 +1242,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fc12488c777ba46498d7f7065e10ae82, type: 3}
+  m_Resource: {fileID: 8300000, guid: fc12488c777ba46498d7f7065e10ae82, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1926,8 +1926,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7d37038bb731e494cab97744d7382861, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7d37038bb731e494cab97744d7382861, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2192,7 +2192,7 @@ GameObject:
   - component: {fileID: 735835354}
   m_Layer: 0
   m_Name: Bubble Launch Sound
-  m_TagString: Untagged
+  m_TagString: Bubble Launch Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,8 +2222,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1b1625e354749314085e8bda451c9b70, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1b1625e354749314085e8bda451c9b70, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2491,7 +2491,7 @@ GameObject:
   - component: {fileID: 792212129}
   m_Layer: 0
   m_Name: Cracked Floor Sound
-  m_TagString: Untagged
+  m_TagString: Cracked Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2521,8 +2521,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2ff1cfcdc0e45b54ba95235be16ecc68, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2ff1cfcdc0e45b54ba95235be16ecc68, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4321,8 +4321,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 08b2f4919b6c7c947ab1c9f11a4d9129, type: 3}
+  m_Resource: {fileID: 8300000, guid: 08b2f4919b6c7c947ab1c9f11a4d9129, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4586,8 +4586,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3b7aed4f39669ed408396cbae5e3bf5e, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3b7aed4f39669ed408396cbae5e3bf5e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4715,8 +4715,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56ef9a5743eed4c4f9b115b9e302ca01, type: 3}
-  m_Resource: {fileID: 8300000, guid: 56ef9a5743eed4c4f9b115b9e302ca01, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a5d08c707fe4e844e94ddf9fb3058e78, type: 3}
+  m_Resource: {fileID: 8300000, guid: a5d08c707fe4e844e94ddf9fb3058e78, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4953,7 +4953,7 @@ GameObject:
   - component: {fileID: 1512016457}
   m_Layer: 0
   m_Name: Bubble Pop Sound
-  m_TagString: Untagged
+  m_TagString: Bubble Pop Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4983,8 +4983,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 12488bf15870ca74296b83f6a7711e97, type: 3}
+  m_Resource: {fileID: 8300000, guid: 12488bf15870ca74296b83f6a7711e97, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5582,8 +5582,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 636d040e27284ad41963469cef5a0d18, type: 3}
+  m_Resource: {fileID: 8300000, guid: 636d040e27284ad41963469cef5a0d18, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6273,8 +6273,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8d12b4f17892eaa48a68db25dfd0b353, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8d12b4f17892eaa48a68db25dfd0b353, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6747,8 +6747,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1ddfbf607cfb72748bf52bc4bebbc78d, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1ddfbf607cfb72748bf52bc4bebbc78d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6983,6 +6983,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 886245507}
   deathMenu: {fileID: 396875303}
   isDead: 0
+  deadSound: {fileID: 1325107132}
 --- !u!212 &2015936538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7128,6 +7129,8 @@ MonoBehaviour:
   leafSound: {fileID: 1972632515}
   windSound: {fileID: 661738315}
   cloudSound: {fileID: 1408765517}
+  bombSound: {fileID: 1662292353}
+  powerupSound: {fileID: 1908416172}
 --- !u!50 &2103723667
 Rigidbody2D:
   serializedVersion: 5
@@ -7498,8 +7501,8 @@ SceneRoots:
   - {fileID: 223780927}
   - {fileID: 2015936539}
   - {fileID: 1117291282}
+  - {fileID: 484353556}
   - {fileID: 131197016}
   - {fileID: 1061569393}
   - {fileID: 1119611027}
   - {fileID: 717023361}
-  - {fileID: 484353556}

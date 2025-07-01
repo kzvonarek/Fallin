@@ -143,9 +143,10 @@ MonoBehaviour:
   currMini: 0
   miniTimer: 0
   shieldTimer: 0
-  jumpForce: 0
   currSlow: 0
   slowdownTimer: 0
+  powerupSound: {fileID: 0}
+  explosionSound: {fileID: 0}
 --- !u!114 &3942834294087421915
 MonoBehaviour:
   m_ObjectHideFlags: 0

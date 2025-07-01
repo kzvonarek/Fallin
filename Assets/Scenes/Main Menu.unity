@@ -3495,8 +3495,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 847423e527499bc4eba1db8cdaf12f07, type: 3}
-  m_Resource: {fileID: 8300000, guid: 847423e527499bc4eba1db8cdaf12f07, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7af290391bfb5d1458982d81031f6398, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7af290391bfb5d1458982d81031f6398, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -5309,6 +5309,14 @@ MonoBehaviour:
   leafDecayTimeFrame: 10
   cloudJumpForce: 1.9
   shieldEffect: {fileID: 1218949000}
+  gooSound: {fileID: 0}
+  bubbleSound: {fileID: 0}
+  leafSound: {fileID: 0}
+  windSound: {fileID: 0}
+  cloudSound: {fileID: 0}
+  bombSound: {fileID: 0}
+  powerupSound: {fileID: 0}
+  bgmSound: {fileID: 0}
 --- !u!50 &2103723667
 Rigidbody2D:
   serializedVersion: 5

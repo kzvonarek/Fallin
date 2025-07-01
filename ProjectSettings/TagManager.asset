@@ -38,6 +38,11 @@ TagManager:
   - Slowdown UI Icon
   - Powerup UI Timer
   - Shield Effect
+  - Lever Sound
+  - Portal Sound
+  - Cracked Sound
+  - Bubble Launch Sound
+  - Bubble Pop Sound
   layers:
   - Default
   - TransparentFX

@@ -57,11 +57,14 @@ public class PlayerBehavior : MonoBehaviour
     // shield effect
     public GameObject shieldEffect;
 
+    // sound effects
     [SerializeField] AudioSource gooSound;
     [SerializeField] AudioSource bubbleSound;
     [SerializeField] AudioSource leafSound;
     [SerializeField] AudioSource windSound;
     [SerializeField] AudioSource cloudSound;
+    [SerializeField] AudioSource bombSound;
+    [SerializeField] AudioSource powerupSound;
 
     void Start()
     {
@@ -327,6 +330,14 @@ public class PlayerBehavior : MonoBehaviour
         {
             cloudSound.Play();
             playerClouded = true;
+        }
+        else if (other.gameObject.CompareTag("Bomb Powerup"))
+        {
+            bombSound.Play();
+        }
+        else if (other.gameObject.CompareTag("Shield Powerup") || other.gameObject.CompareTag("Mini Powerup") || other.gameObject.CompareTag("Slowdown Powerup"))
+        {
+            powerupSound.Play();
         }
     }
 

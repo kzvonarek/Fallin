@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     // death functionality
     [SerializeField] GameObject deathMenu;
     [HideInInspector] public bool isDead;
+    [SerializeField] AudioSource deadSound;
 
     // currency (coins/gems) functionality
     // [HideInInspector] public int collectedCoins;
@@ -114,6 +115,7 @@ public class GameManager : MonoBehaviour
         deathMenu.SetActive(true); // enable pause menu
         pauseButton.SetActive(false); // disable pause button
         isDead = true;
+        deadSound.Play();
     }
 
     private void incTime()
