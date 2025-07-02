@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject deathMenu;
     [HideInInspector] public bool isDead;
     [SerializeField] AudioSource deadSound;
+    private bool hasPlayedDeathSound = false;
 
     // currency (coins/gems) functionality
     // [HideInInspector] public int collectedCoins;
@@ -106,7 +107,11 @@ public class GameManager : MonoBehaviour
     // on death hide all icons/UI, and allow for Main Menu or game Restart
     public void death()
     {
-        // gMaudioSource.PlayOneShot(gameOverSFX, 0.5f); // play death sound
+        if (!hasPlayedDeathSound)
+        {
+            deadSound.PlayOneShot(deadSound.clip, 0.5f); // play death sound
+            hasPlayedDeathSound = true;
+        }
 
         Time.timeScale = 0; // freeze game
 
@@ -115,7 +120,6 @@ public class GameManager : MonoBehaviour
         deathMenu.SetActive(true); // enable pause menu
         pauseButton.SetActive(false); // disable pause button
         isDead = true;
-        deadSound.Play();
     }
 
     private void incTime()

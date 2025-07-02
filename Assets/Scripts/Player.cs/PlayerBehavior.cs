@@ -236,13 +236,13 @@ public class PlayerBehavior : MonoBehaviour
             {
                 leafTimer -= Time.deltaTime;
 
-                // remove 'leaves' from player if three taps/clicks within time frame
+                // remove 'leaves' from player if four taps/clicks within time frame
                 if (leafTapCount == neededLeafTaps)
                 {
                     playerLeafed = false;
                 }
 
-                // if timer expires before three taps/clicks
+                // if timer expires before four taps/clicks
                 if (leafTimer <= 0)
                 {
                     leafTapCount = 0;
