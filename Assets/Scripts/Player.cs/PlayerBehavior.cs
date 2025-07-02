@@ -217,7 +217,7 @@ public class PlayerBehavior : MonoBehaviour
             }
 
             // check for screen tap
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Touch touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Began)

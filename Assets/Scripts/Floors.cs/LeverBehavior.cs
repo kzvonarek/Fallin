@@ -5,6 +5,7 @@ public class LeverBehavior : MonoBehaviour
     [SerializeField] bool isLever;
     private GameObject lockedFloor;
     [SerializeField] AudioSource leverSound;
+    [SerializeField] Sprite leverOnSprite;
     void Start()
     {
         leverSound = GameObject.FindWithTag("Lever Sound").GetComponent<AudioSource>();
@@ -29,6 +30,7 @@ public class LeverBehavior : MonoBehaviour
         if (this.isLever && (other.CompareTag("Player") || other.CompareTag("Shield Effect")))
         {
             leverSound.Play();
+            GetComponent<SpriteRenderer>().sprite = leverOnSprite;
             Destroy(lockedFloor);
         }
     }
